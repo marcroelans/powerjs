@@ -52,7 +52,7 @@ export const isHtml = expectedHtml => expectedHtml instanceof Element;
   * @param {*} expectedFunction
   * @returns {Boolean}
   */
-export const isFunction = expectedFunction => typeof value === 'function';
+export const isFunction = expectedFunction => typeof expectedFunction === 'function';
 
 
 /**

@@ -12,10 +12,18 @@
 
     <script>
 
-      const log = console.log;
-      log(Power.createElement('h1', 'Hello World'))
 
+      class HelloMessage extends Power.Component {
 
+        render() {
+          return(
+            Power.h('h1', 'Hello world')
+          )
+        }
+
+      }
+
+      Power.render(HelloMessage, document.body)
 
 
     </script>
