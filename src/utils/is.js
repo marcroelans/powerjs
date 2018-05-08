@@ -71,4 +71,4 @@ export const isEvent = expectedEvent => (expectedEvent.startsWith('on')
   * @param {HTMLElement} element
   * @param {String} attribute
   */
-export const validateElementAttribute = (element, attribute) => attribute in element;
+export const isElementAttribute = (element, attribute) => attribute in element;

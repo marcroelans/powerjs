@@ -4,7 +4,7 @@ import {
   isString,
   isObject,
   isHtml,
-  validateElementAttribute } from '../utils/validation.js';
+  isElementAttribute } from '../utils/validation.js';
 
 /**
   * append Element string
@@ -58,7 +58,7 @@ const appendElementObject = (element, elementProbs) => {
       appendElementStyles(element, prob);
     } else if(isEvent(prob)) {
       appendElementEvent(element, prob, elementProbs[prob]);
-    } else if(validateElementAttribute(element, prob)) {
+    } else if(isElementAttribute(element, prob)) {
       element.setAttribute(prob, elementProbs[prob]);
     }
   })
