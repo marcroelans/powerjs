@@ -106,7 +106,7 @@ export const createElement = (tag, ...args) => {
       appendElementArray(element, arg);
     } else if (isHtml(arg)) {
       element.appendChild(arg);
-    } else if (isString(args)) {
+    } else if (isString(arg)) {
       appendElementText(element, arg);
     } else if(isObject(arg)) {
       appendElementObject(element, arg);

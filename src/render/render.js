@@ -16,16 +16,7 @@ import { createElement } from '../createElement/createElement.js';
   * @returns
   */
 const validateModel = model => {
-
-  if(isFunction(model)) {
-    const powerClass = new model;
-    return createElement('h1', powerClass.render());
-  }
-
-  if(isObject(model)) {
-    return model;
-  }
-
+  
 }
 
 /**
