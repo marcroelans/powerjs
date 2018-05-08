@@ -4,9 +4,9 @@ module.exports = {
   mode: 'production',
   entry:  './src/index.js',
   output: {
-    library: 'Buildy',
+    library: 'Power',
     libraryTarget: "umd",
-    filename: 'buildy.js',
+    filename: 'power.js',
     path: path.resolve(__dirname, '../dist')
   },
   module: {
