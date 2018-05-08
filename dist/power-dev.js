@@ -93,6 +93,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./src/component/createComponent.js":
+/*!******************************************!*\
+  !*** ./src/component/createComponent.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.createComponent = void 0;\n\nvar createComponent = function createComponent(model) {\n  console.log(model);\n};\n\nexports.createComponent = createComponent;\n\n//# sourceURL=webpack://Power/./src/component/createComponent.js?");
+
+/***/ }),
+
 /***/ "./src/createElement/createElement.js":
 /*!********************************************!*\
   !*** ./src/createElement/createElement.js ***!
@@ -125,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.render = void 0;\n\nvar _is = __webpack_require__(/*! ../utils/is.js */ \"./src/utils/is.js\");\n\nvar _createElement = __webpack_require__(/*! ../createElement/createElement.js */ \"./src/createElement/createElement.js\");\n\n/**\r\n  * validates between class and element\r\n  *\r\n  * @param {Object|Function} model\r\n  * @returns\r\n  */\nvar validateModel = function validateModel(model) {\n  if ((0, _is.isFunction)(model)) {\n    var powerClass = new model();\n    return (0, _createElement.createElement)('h1', powerClass.render());\n  }\n\n  if ((0, _is.isObject)(model)) {\n    return model;\n  }\n};\n/**\r\n  * render  a an element or component\r\n  *\r\n  * @param {Object|Function} model // TODO: Better name?\r\n  * @param {DOM Element} root\r\n  */\n\n\nvar render = function render(model, root) {\n  // Check if model is a class or element\n  var _model = validateModel(model);\n\n  if ((0, _is.isHtml)(root)) {\n    root.appendChild(_model);\n  }\n};\n\nexports.render = render;\n\n//# sourceURL=webpack://Power/./src/render/render.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.render = void 0;\n\nvar _is = __webpack_require__(/*! ../utils/is.js */ \"./src/utils/is.js\");\n\nvar _createComponent = __webpack_require__(/*! ../component/createComponent.js */ \"./src/component/createComponent.js\");\n\nvar _createElement = __webpack_require__(/*! ../createElement/createElement.js */ \"./src/createElement/createElement.js\");\n\n/**\r\n  * validates between class and element\r\n  *\r\n  * @param {Object|Function} model\r\n  * @returns\r\n  */\nvar validateModel = function validateModel(model) {\n  // model needs to be an object\n  if (!(0, _is.isObject)(model)) {\n    return;\n  } // is Class or elements\n\n\n  return (0, _is.isFunction)(model.component) ? (0, _createComponent.createComponent)(model) : model;\n};\n/**\r\n  * render  a an element or component\r\n  *\r\n  * @param {Object|Function} model // TODO: Better name?\r\n  * @param {DOM Element} root\r\n  */\n\n\nvar render = function render(model, root) {\n  // Check if model is a class or element\n  var _model = validateModel(model);\n\n  if ((0, _is.isHtml)(root)) {\n    root.appendChild(_model);\n  }\n};\n\nexports.render = render;\n\n//# sourceURL=webpack://Power/./src/render/render.js?");
 
 /***/ }),
 

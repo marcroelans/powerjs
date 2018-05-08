@@ -7,6 +7,8 @@ import {
   isFunction,
   isElementAttribute } from '../utils/is.js';
 
+import { createComponent } from '../component/createComponent.js'
+
 import { createElement } from '../createElement/createElement.js';
 
 /**
@@ -16,7 +18,18 @@ import { createElement } from '../createElement/createElement.js';
   * @returns
   */
 const validateModel = model => {
-  
+
+  // model needs to be an object
+  if(!isObject(model)) {
+    return;
+  }
+
+  // is Class or elements
+  return (isFunction(model.component)
+    ? createComponent(model)
+    : model
+  )
+
 }
 
 /**
