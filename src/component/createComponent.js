@@ -1,3 +1,5 @@
+import { isArray } from '../utils/is.js';
+
 /**
   * create Component
   *
@@ -6,6 +8,16 @@
   */
 
 export const createComponent = model  => {
-  model.node.appendChild(model.render());
+
+  const template = model.render();
+
+  if( isArray(template)) {
+    template.forEach(item => {
+      model.node.appendChild(item)
+    })
+  } else {
+    model.node.appendChild(model.render());
+  }
+
   return model.node;
 };

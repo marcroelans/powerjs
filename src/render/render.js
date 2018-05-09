@@ -24,9 +24,11 @@ const validateModel = model => {
     return;
   }
 
-  return (model.IS_POWER_COMPONENT
-    ? createComponent(model)
-    : model)
+  return (
+    model.IS_POWER_COMPONENT
+      ? createComponent(model)
+      : model
+  )
 
 }
 

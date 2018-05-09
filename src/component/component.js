@@ -1,4 +1,7 @@
-import {isFunction} from '../utils/is.js';
+import {
+  isFunction,
+  isArray
+} from '../utils/is.js';
 import {removeChilds} from '../utils/dom.js';
 
 /**
@@ -11,6 +14,7 @@ export class Component {
 
   constructor(data) {
 
+    console.log(data)
     this.name = this.constructor.name;
     this.node = document.createElement(this.name);
 
@@ -35,6 +39,8 @@ export class Component {
 
   setState(stateHandler) {
 
+    const template = this.render();
+
     if (isFunction(stateHandler)) {
       stateHandler()
     }
@@ -43,8 +49,14 @@ export class Component {
     removeChilds(this.node);
 
     // rerender
-    this.node.appendChild(this.render())
-    
+    if(isArray(template)) {
+      template.forEach(item => {
+        this.node.appendChild(item)
+      })
+    } else {
+      this.node.appendChild()
+    }
+
   }
 
 };

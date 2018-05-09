@@ -36,11 +36,11 @@ const appendElementStyles = (element, styles) => {
 const appendElementEvent = (element, event, handler) => {
 
   const _event = event.startsWith('on')
-    ? event.substring(0, 2)
+    ? event.substring(2, event.length)
     : event
 
-  element.addEventListener(_event, (element) => {
-    handler
+  element.addEventListener(_event, () => {
+    handler()
   })
 
 };
@@ -51,15 +51,15 @@ const appendElementEvent = (element, event, handler) => {
   * @param {HTMLElement} element
   * @param {Object} elementProbs
   */
-const appendElementObject = (element, elementProbs) => {
+const appendElementObject = (element, elementProps) => {
 
-  Object.keys(elementProbs).forEach(prop => {
+  Object.keys(elementProps).forEach(prop => {
     if(prop === 'style' || prop === 'styles') {
-      appendElementStyles(element, prob);
-    } else if(isEvent(prob)) {
-      appendElementEvent(element, prob, elementProbs[prob]);
-    } else if(isElementAttribute(element, prob)) {
-      element.setAttribute(prob, elementProbs[prob]);
+      appendElementStyles(element, prop);
+    } else if(isEvent(prop)) {
+      appendElementEvent(element, prop, elementProps[prop]);
+    } else if(isElementAttribute(element, prop)) {
+      element.setAttribute(prob, elementProbs[prop]);
     }
   })
 
