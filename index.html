@@ -13,17 +13,28 @@
     <script>
 
 
-      class HelloMessage extends Power.Component {
+      class Timer extends Power.Component {
 
         render() {
           return(
-            Power.h('h1', 'Hello world')
+            Power.h('h1', this.data.seconds.toString())
           )
+        }
+
+        afterComponentMount() {
+          this.interval = setInterval(() => this.tick(), 1000);
+        }
+
+        tick() {
+          this.setState(() => {
+              this.data.seconds += 1;
+          });
+          // console.log(this.data.seconds)
         }
 
       }
 
-      Power.render({component: HelloMessage, name: 'Jan'}, document.body)
+      Power.render(new Timer({seconds: 0}), document.body)
 
 
     </script>

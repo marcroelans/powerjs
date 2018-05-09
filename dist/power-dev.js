@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Component = void 0;\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n/**\r\n  * Power Component\r\n  *\r\n  * @class Component\r\n  */\nvar Component = function Component() {\n  _classCallCheck(this, Component);\n\n  this.render();\n};\n\nexports.Component = Component;\n;\n\n//# sourceURL=webpack://Power/./src/component/component.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Component = void 0;\n\nvar _is = __webpack_require__(/*! ../utils/is.js */ \"./src/utils/is.js\");\n\nvar _dom = __webpack_require__(/*! ../utils/dom.js */ \"./src/utils/dom.js\");\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n/**\r\n  * Power Component\r\n  *\r\n  * @class Component\r\n  */\nvar Component =\n/*#__PURE__*/\nfunction () {\n  function Component(data) {\n    _classCallCheck(this, Component);\n\n    this.name = this.constructor.name;\n    this.node = document.createElement(this.name); // Gettings called before constructor\n\n    if (this.beforeComponentMount) {\n      this.beforeComponentMount();\n    } // is a component\n\n\n    this.IS_POWER_COMPONENT = true;\n\n    if (data) {\n      this.data = data;\n    } // Gettings called after constructed\n\n\n    if (this.afterComponentMount) {\n      this.afterComponentMount();\n    }\n  }\n\n  _createClass(Component, [{\n    key: \"setState\",\n    value: function setState(stateHandler) {\n      if ((0, _is.isFunction)(stateHandler)) {\n        stateHandler();\n      } // clearing the component\n\n\n      (0, _dom.removeChilds)(this.node); // rerender\n\n      this.node.appendChild(this.render());\n    }\n  }]);\n\n  return Component;\n}();\n\nexports.Component = Component;\n;\n\n//# sourceURL=webpack://Power/./src/component/component.js?");
 
 /***/ }),
 
@@ -101,7 +101,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.createComponent = void 0;\n\nvar createComponent = function createComponent(model) {\n  console.log(model);\n};\n\nexports.createComponent = createComponent;\n\n//# sourceURL=webpack://Power/./src/component/createComponent.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.createComponent = void 0;\n\n/**\r\n  * create Component\r\n  *\r\n  * @param {Object} model\r\n  * @returns {Node}\r\n  */\nvar createComponent = function createComponent(model) {\n  model.node.appendChild(model.render());\n  return model.node;\n};\n\nexports.createComponent = createComponent;\n\n//# sourceURL=webpack://Power/./src/component/createComponent.js?");
 
 /***/ }),
 
@@ -137,7 +137,19 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.render = void 0;\n\nvar _is = __webpack_require__(/*! ../utils/is.js */ \"./src/utils/is.js\");\n\nvar _createComponent = __webpack_require__(/*! ../component/createComponent.js */ \"./src/component/createComponent.js\");\n\nvar _createElement = __webpack_require__(/*! ../createElement/createElement.js */ \"./src/createElement/createElement.js\");\n\n/**\r\n  * validates between class and element\r\n  *\r\n  * @param {Object|Function} model\r\n  * @returns\r\n  */\nvar validateModel = function validateModel(model) {\n  // model needs to be an object\n  if (!(0, _is.isObject)(model)) {\n    return;\n  } // is Class or elements\n\n\n  return (0, _is.isFunction)(model.component) ? (0, _createComponent.createComponent)(model) : model;\n};\n/**\r\n  * render  a an element or component\r\n  *\r\n  * @param {Object|Function} model // TODO: Better name?\r\n  * @param {DOM Element} root\r\n  */\n\n\nvar render = function render(model, root) {\n  // Check if model is a class or element\n  var _model = validateModel(model);\n\n  if ((0, _is.isHtml)(root)) {\n    root.appendChild(_model);\n  }\n};\n\nexports.render = render;\n\n//# sourceURL=webpack://Power/./src/render/render.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.render = void 0;\n\nvar _is = __webpack_require__(/*! ../utils/is.js */ \"./src/utils/is.js\");\n\nvar _createComponent = __webpack_require__(/*! ../component/createComponent.js */ \"./src/component/createComponent.js\");\n\nvar _createElement = __webpack_require__(/*! ../createElement/createElement.js */ \"./src/createElement/createElement.js\");\n\n/**\r\n  * validates between class and element\r\n  *\r\n  * @param {Object|Function} model\r\n  * @returns\r\n  */\nvar validateModel = function validateModel(model) {\n  // model needs to be an object\n  if (!(0, _is.isObject)(model)) {\n    return;\n  }\n\n  return model.IS_POWER_COMPONENT ? (0, _createComponent.createComponent)(model) : model;\n};\n/**\r\n  * render  a an element or component\r\n  *\r\n  * @param {Object|Function} model // TODO: Better name?\r\n  * @param {DOM Element} root\r\n  */\n\n\nvar render = function render(model, root) {\n  // Check if model is a class or element\n  var _model = validateModel(model);\n\n  if ((0, _is.isHtml)(root)) {\n    root.appendChild(_model);\n  }\n};\n\nexports.render = render;\n\n//# sourceURL=webpack://Power/./src/render/render.js?");
+
+/***/ }),
+
+/***/ "./src/utils/dom.js":
+/*!**************************!*\
+  !*** ./src/utils/dom.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.removeChilds = void 0;\n\n/**\r\n  * remove all child nodes\r\n  *\r\n  * @param {Node} node\r\n  */\nvar removeChilds = function removeChilds(node) {\n  while (node.firstChild) {\n    node.removeChild(node.firstChild);\n  }\n};\n\nexports.removeChilds = removeChilds;\n\n//# sourceURL=webpack://Power/./src/utils/dom.js?");
 
 /***/ }),
 
