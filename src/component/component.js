@@ -2,6 +2,7 @@ import {
   isFunction,
   isArray
 } from '../utils/is.js';
+
 import {removeChilds} from '../utils/dom.js';
 
 /**
@@ -15,26 +16,46 @@ export class Component {
   constructor(data) {
 
     this.name = this.constructor.name;
-    this.node = document.createElement(this.name);
 
-    // Gettings called before constructor
+
+    // Getting called before constructor
     if(this.beforeComponentMount) {
       this.beforeComponentMount();
     }
 
-    // is a component
-    this.IS_POWER_COMPONENT = true;
-
+    // data
     if(data) {
       this.data = data;
     }
 
+    return this.create();
 
-    // Gettings called after constructed
+    // Getting called after constructed
     if(this.afterComponentMount) {
       this.afterComponentMount();
     }
 
+
+  }
+
+  create() {
+    // creating the component root element
+    this.node = document.createElement(this.name);
+
+    // render
+    const template = this.render();
+
+    if(isArray(template)) {
+
+      template.forEach(item => {
+        this.node.appendChild(item)
+      })
+
+    } else {
+      this.node.appendChild(template)
+    }
+
+    return this.node;
   }
 
   setState(stateHandler) {
@@ -42,9 +63,8 @@ export class Component {
     if (isFunction(stateHandler)) {
       stateHandler()
     }
-    
-    const template = this.render();
 
+    const template = this.render();
 
     // clearing the component
     removeChilds(this.node);
@@ -52,10 +72,10 @@ export class Component {
     // rerender
     if(isArray(template)) {
       template.forEach(item => {
-        this.node.appendChild(item)
+        this.node.appendChild(item);
       })
     } else {
-      this.node.appendChild()
+      this.node.appendChild();
     }
 
   }

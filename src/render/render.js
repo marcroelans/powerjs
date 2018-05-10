@@ -1,36 +1,9 @@
 import {
   isArray,
-  isEvent,
-  isString,
-  isObject,
-  isHtml,
-  isFunction,
-  isElementAttribute } from '../utils/is.js';
-
-import { createComponent } from '../component/createComponent.js'
+  isHtml } from '../utils/is.js';
 
 import { createElement } from '../createElement/createElement.js';
 
-/**
-  * validates between class and element
-  *
-  * @param {Object|Function} model
-  * @returns
-  */
-const validateModel = model => {
-
-  // model needs to be an object
-  if(!isObject(model)) {
-    return;
-  }
-
-  return (
-    model.IS_POWER_COMPONENT
-      ? createComponent(model)
-      : model
-  )
-
-}
 
 /**
   * render  a an element or component
@@ -40,11 +13,19 @@ const validateModel = model => {
   */
 export const render = (model, root) => {
 
-  // Check if model is a class or element
-  const _model = validateModel(model);
+  // root is no element in window
+  if(!isHtml(root)) {
+    return;
+  }
 
-  if(isHtml(root)) {
-    root.appendChild(_model);
+  if(isArray(model)) {
+
+    model.forEach(item => {
+      root.appendChild(item);
+    })
+
+  } else {
+    root.appendChild(model);
   }
 
 };

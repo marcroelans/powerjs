@@ -19,7 +19,7 @@
           return(
             [
               Power.h('h1', this.data.counter.toString()),
-              Power.h('button', '+', {onclick: () => { this.up() } }),
+              Power.h('button', '+', {onclick: () => { this.up()  }}),
               Power.h('button', '-', {onclick: () => { this.down() }} )
             ]
           )
@@ -39,7 +39,9 @@
 
       }
 
-      Power.render(new Counter({counter: 0}), document.body)
+
+
+      Power.render(Power.h('h1', 'Was geht.', new Counter({counter: 0}), new Counter({counter: 0}) ), document.body)
 
 
     </script>
