@@ -14,7 +14,6 @@ export class Component {
 
   constructor(data) {
 
-    console.log(data)
     this.name = this.constructor.name;
     this.node = document.createElement(this.name);
 
@@ -30,6 +29,7 @@ export class Component {
       this.data = data;
     }
 
+
     // Gettings called after constructed
     if(this.afterComponentMount) {
       this.afterComponentMount();
@@ -39,11 +39,12 @@ export class Component {
 
   setState(stateHandler) {
 
-    const template = this.render();
-
     if (isFunction(stateHandler)) {
       stateHandler()
     }
+    
+    const template = this.render();
+
 
     // clearing the component
     removeChilds(this.node);
