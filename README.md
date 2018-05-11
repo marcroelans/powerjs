@@ -2,7 +2,7 @@
 
 <p align="left">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
-  <img src="https://img.shields.io/github/size/janmarkuslanger/dist/power.js.svg?style=flat-square">
+  <img src="https://img.shields.io/github/size/janmarkuslanger/powerjs/dist/power.js.svg?style=flat-square">
 </p>
 
 **Powerjs is a small but powerful library for building user interfaces with no depenencies.**
