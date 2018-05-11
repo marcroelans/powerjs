@@ -14,14 +14,16 @@ import { createElement } from '../createElement/createElement.js';
 export const render = (model, root) => {
 
   // root is no element in window
-  if(!isHtml(root)) {
+  if(!isHtml(root) && model === null) {
     return;
   }
 
   if(isArray(model)) {
 
     model.forEach(item => {
-      root.appendChild(item);
+      if(item !== null){
+        root.appendChild(item);
+      }
     })
 
   } else {

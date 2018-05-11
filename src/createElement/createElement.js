@@ -39,8 +39,9 @@ const appendElementEvent = (element, event, handler) => {
     ? event.substring(2, event.length)
     : event
 
-  element.addEventListener(_event, () => {
-    handler()
+  element.addEventListener(_event, (e) => {
+    // pass the event and element into the funtion
+    handler(e, element)
   })
 
 };
@@ -49,7 +50,7 @@ const appendElementEvent = (element, event, handler) => {
   * append Element Object
   *
   * @param {HTMLElement} element
-  * @param {Object} elementProbs
+  * @param {Object} elementProps
   */
 const appendElementObject = (element, elementProps) => {
 
@@ -59,7 +60,7 @@ const appendElementObject = (element, elementProps) => {
     } else if(isEvent(prop)) {
       appendElementEvent(element, prop, elementProps[prop]);
     } else if(isElementAttribute(element, prop)) {
-      element.setAttribute(prob, elementProbs[prop]);
+      element.setAttribute(prop, elementProps[prop]);
     }
   })
 
