@@ -48,7 +48,9 @@ export class Component {
     if(isArray(template)) {
 
       template.forEach(item => {
-        this.node.appendChild(item)
+        if(item !== null) {
+          this.node.appendChild(item)
+        }
       })
 
     } else {
@@ -72,7 +74,9 @@ export class Component {
     // rerender
     if(isArray(template)) {
       template.forEach(item => {
-        this.node.appendChild(item);
+        if(item !== null) {
+          this.node.appendChild(item);
+        }
       })
     } else {
       this.node.appendChild();

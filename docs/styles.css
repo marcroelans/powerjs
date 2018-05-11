@@ -26,6 +26,7 @@ body {
 }
 .stage .title {
   font-weight: 500;
+  color: #ff6b6b;
 }
 .stage .subtitle {
   font-size: 1rem;

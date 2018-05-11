@@ -133,7 +133,87 @@ Power.render(new Counter({counter: 1}), mount)
       </div>
     </div>
 
+    <div class="example todo">
 
+      <div class="inside">
+
+        <div class="title"><h3 class="title">TodoApp</h3></div>
+
+        <div class="code">
+          <pre>
+            <code>
+class TodoApp extends Power.Component {
+
+  render () {
+
+    return ([
+      Power.h('input', {type: 'text', placeholder: 'Insert task', keyup: (e, element) => {
+        if(e.keyCode === 13) {
+          this.setState(() => this.data.todos.push(element.value))
+        }
+      }}),
+      this.renderTodos()
+    ])
+
+  }
+
+  renderTodos () {
+
+    if(this.data.todos.length === 0) {
+      return null;
+    } else {
+      const todos = this.data.todos.map(todo => Power.h('li', todo) )
+      return Power.h('ul', todos)
+    }
+
+  }
+
+}
+
+Power.render(new TodoApp({todos: []}), mount)
+            </code>
+          </pre>
+        </div>
+
+        <div class="demo"><p class="result">Result</p></div>
+
+        <script>
+
+          class TodoApp extends Power.Component {
+
+            render () {
+
+              return ([
+                Power.h('input', {type: 'text', placeholder: 'Insert task', keyup: (e, element) => {
+                  if(e.keyCode === 13) {
+                    this.setState(() => this.data.todos.push(element.value))
+                  }
+                }}),
+                this.renderTodos()
+              ])
+
+            }
+
+            renderTodos () {
+
+              if(this.data.todos.length === 0) {
+                return null;
+              } else {
+                const todos = this.data.todos.map(todo => Power.h('li', todo) )
+                return Power.h('ul', todos)
+              }
+
+            }
+
+          }
+
+          Power.render(new TodoApp({todos: []}), document.querySelector('.todo .demo'))
+
+        </script>
+
+      </div>
+
+    </div>
 
 
   </body>
