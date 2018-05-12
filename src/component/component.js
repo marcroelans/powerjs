@@ -17,10 +17,9 @@ export class Component {
 
     this.name = this.constructor.name;
 
-
     // Getting called before constructor
     if(this.beforeComponentMount) {
-      this.beforeComponentMount();
+      this.beforeComponentMount(this);
     }
 
     // data
@@ -29,18 +28,13 @@ export class Component {
     }
 
     return this.create();
-
-    // Getting called after constructed
-    if(this.afterComponentMount) {
-      this.afterComponentMount();
-    }
-
-
   }
 
   create() {
+
     // creating the component root element
     this.node = document.createElement(this.name);
+    this.node.style.display = 'block';
 
     // render
     const template = this.render();
@@ -55,6 +49,11 @@ export class Component {
 
     } else {
       this.node.appendChild(template)
+    }
+
+    // Getting called after constructed
+    if(this.afterComponentMount) {
+      this.afterComponentMount(this);
     }
 
     return this.node;
