@@ -1,8 +1,8 @@
 {
-  "name": "buildyjs",
-  "version": "0.0.1",
+  "name": "powerjs",
+  "version": "1.0.0-alpha",
   "description": "",
-  "main": "index.js",
+  "main": "dist/power.js",
   "scripts": {
     "build": "webpack --config webpack/webpack.production.config.js",
     "dev": "webpack --config webpack/webpack.development.config.js",
