@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Power - Lazyload</title>
+    <style>
+      lazyimage {
+        width: 300px;
+        height: 300px;
+        background-color: grey;
+      }
+      lazyimage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 1s opacity;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script src="../../dist/power.js"></script>
+    <script src="./power-lazyload.js"></script>
+    <script>
+      Power.render(new LazyImage({src: 'https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73751/world.topo.bathy.200407.3x5400x2700.png'}), document.body)
+    </script>
+  </body>
+</html>

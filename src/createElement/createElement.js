@@ -56,7 +56,7 @@ const appendElementObject = (element, elementProps) => {
 
   Object.keys(elementProps).forEach(prop => {
     if(prop === 'style' || prop === 'styles') {
-      appendElementStyles(element, prop);
+      appendElementStyles(element, elementProps[prop]);
     } else if(isEvent(prop)) {
       appendElementEvent(element, prop, elementProps[prop]);
     } else if(isElementAttribute(element, prop)) {
