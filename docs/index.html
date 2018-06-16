@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Powerjs</title>
-    <script src="https://cdn.rawgit.com/janmarkuslanger/powerjs/e9c0168b/dist/power-dev.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/janmarkuslanger/powerjs/e9c0168b/dist/power-dev.js"></script> -->
+    <script src="../dist/power-dev.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -214,6 +215,23 @@ Power.render(new TodoApp({todos: []}), mount)
       </div>
 
     </div>
+
+
+    <div class="test">
+
+    </div>
+    <script>
+      class Projects extends Power.Component {
+
+        render() {
+          return ( Power.h('h2', 'Meine Projekte', {class: 'test'}) )
+        }
+
+      }
+
+      Power.render(new Projects({}), document.querySelector('.test'))
+
+    </script>
 
 
   </body>
