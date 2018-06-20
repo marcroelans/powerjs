@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <script src="../dist/power-dev.js"></script>
+    <div class="test"></div>
+    <script>
+
+      class Projects extends Power.Component {
+
+        render() {
+          return ( [
+            Power.h('h2', 'Meine Projekte', { class: 'test' } ),
+            Power.h('hghg', { class: 'test' } ),
+            Power.h('h2', 'Meine Projekte', {class: 'test'}),
+          ] )
+        }
+
+      }
+
+      Power.render(new Projects({}), document.body);
+
+</script>
+
+
+  </body>
+</html>
