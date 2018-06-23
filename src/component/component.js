@@ -15,6 +15,7 @@ export class Component {
 
   constructor(data) {
 
+    // the component gets the name of the class name
     this.name = this.constructor.name;
 
     // Getting called before constructor
@@ -22,7 +23,7 @@ export class Component {
       this.beforeComponentMount(this);
     }
 
-    // data
+    // check if there is any data
     if(data) {
       this.data = data;
     }
@@ -34,9 +35,11 @@ export class Component {
 
     // creating the component root element
     this.node = document.createElement(this.name);
+
+    // setting this element display to block by default
     this.node.style.display = 'block';
 
-    // render
+    // get the template by call the render
     const template = this.render();
 
     if(isArray(template)) {

@@ -8,7 +8,7 @@ import { createElement } from '../createElement/createElement.js';
 
 
 /**
-  * render  a an element or component
+  * render vdom elements or component
   *
   * @param {Object|Function} model // TODO: Better name?
   * @param {DOM Element} root
