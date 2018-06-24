@@ -6,18 +6,20 @@
   </head>
   <body>
 
-
-    <power-component name="Jan"></power-component>
+    <projects test="Marcel"></projects>
+    <projects test="Marcel"></projects>
+    <projects test="Jan"></projects>
+    <projects test="Marcel"></projects>
 
     <script src="../dist/power-dev.js"></script>
     <div class="test"></div>
     <script>
 
-      class Projects extends Power.Component {
+      class projects extends Power.Component {
 
         render() {
           return ( [
-            Power.h('h2', this.data.name, { class: 'test' } ),
+            Power.h('h2', this.data.test, { class: 'test' } ),
             Power.h('hghg', { class: 'test' } ),
             Power.h('h2', 'Meine Projekte', {class: 'test'}),
           ] )
@@ -25,7 +27,8 @@
 
       }
 
-      Power.render(new Projects({name: 'My Name is Jan'}), document.body)
+
+      Power.registerComponent(projects)
 
 </script>
 

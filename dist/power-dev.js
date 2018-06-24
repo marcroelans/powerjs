@@ -81,18 +81,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/core/component/awakeComponent.js":
-/*!**********************************************!*\
-  !*** ./src/core/component/awakeComponent.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.awakeComponentDom = void 0;\n\nvar _constants = __webpack_require__(/*! ../constants */ \"./src/core/constants.js\");\n\n/**\r\n  * This file provides the service to brint component alive in dom\r\n  */\nvar awakeComponentDom = function awakeComponentDom() {\n  document.query;\n};\n\nexports.awakeComponentDom = awakeComponentDom;\n\n//# sourceURL=webpack://Power/./src/core/component/awakeComponent.js?");
-
-/***/ }),
-
 /***/ "./src/core/component/component.js":
 /*!*****************************************!*\
   !*** ./src/core/component/component.js ***!
@@ -105,15 +93,15 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
-/***/ "./src/core/constants.js":
-/*!*******************************!*\
-  !*** ./src/core/constants.js ***!
-  \*******************************/
+/***/ "./src/core/component/registerComponent.js":
+/*!*************************************************!*\
+  !*** ./src/core/component/registerComponent.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.COMPONENT_NAME = void 0;\n\n/**\r\n  * This file provides the constants of power\r\n  */\n\n/**\r\n  * component name\r\n  *\r\n  * @type {String}\r\n  */\nvar COMPONENT_NAME = 'power-component';\nexports.COMPONENT_NAME = COMPONENT_NAME;\n\n//# sourceURL=webpack://Power/./src/core/constants.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.registerComponent = void 0;\n\nvar _log = __webpack_require__(/*! ../../utils/log */ \"./src/utils/log.js\");\n\nvar _render = __webpack_require__(/*! ../render/render */ \"./src/core/render/render.js\");\n\n/**\r\n  * This file provides the service to brint component alive in dom\r\n  */\nvar createDomComponent = function createDomComponent(component, _class, name) {\n  // get the attributes from the dom element\n  var componentAttributes = component.attributes; // create an empty data object\n\n  var dataObject = {}; // loop over the componentAttributes\n\n  var _iteratorNormalCompletion = true;\n  var _didIteratorError = false;\n  var _iteratorError = undefined;\n\n  try {\n    for (var _iterator = componentAttributes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n      var prop = _step.value;\n      // TODO: no object or array support\n      dataObject[prop.name] = prop.value;\n    } // create a class instance\n\n  } catch (err) {\n    _didIteratorError = true;\n    _iteratorError = err;\n  } finally {\n    try {\n      if (!_iteratorNormalCompletion && _iterator.return != null) {\n        _iterator.return();\n      }\n    } finally {\n      if (_didIteratorError) {\n        throw _iteratorError;\n      }\n    }\n  }\n\n  var PowerClass = new _class(dataObject); // replace node\n\n  component = component.parentNode.replaceChild(PowerClass, component);\n};\n\nvar registerComponent = function registerComponent(_class) {\n  var componentName = _class.name; // get every component in dom\n\n  var componentsContainer = [].slice.call(document.querySelectorAll(componentName));\n\n  if (componentsContainer.length === 0) {\n    return;\n  }\n\n  componentsContainer.forEach(function (component) {\n    createDomComponent(component, _class, componentName);\n  });\n};\n\nexports.registerComponent = registerComponent;\n\n//# sourceURL=webpack://Power/./src/core/component/registerComponent.js?");
 
 /***/ }),
 
@@ -149,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nObject.defineProperty(exports, \"createElement\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"h\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"render\", {\n  enumerable: true,\n  get: function get() {\n    return _render.render;\n  }\n});\nObject.defineProperty(exports, \"Component\", {\n  enumerable: true,\n  get: function get() {\n    return _component.Component;\n  }\n});\nexports.version = void 0;\n\nvar _createElement = __webpack_require__(/*! ./core/createElement/createElement.js */ \"./src/core/createElement/createElement.js\");\n\nvar _render = __webpack_require__(/*! ./core/render/render.js */ \"./src/core/render/render.js\");\n\nvar _component = __webpack_require__(/*! ./core/component/component.js */ \"./src/core/component/component.js\");\n\nvar _awakeComponent = __webpack_require__(/*! ./core/component/awakeComponent */ \"./src/core/component/awakeComponent.js\");\n\n/**\r\n  * Power version\r\n  *\r\n  * @type {String}\r\n  */\nvar version = '1.1.1';\nexports.version = version;\n(0, _awakeComponent.awakeComponentDom)();\n\n//# sourceURL=webpack://Power/./src/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nObject.defineProperty(exports, \"createElement\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"h\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"render\", {\n  enumerable: true,\n  get: function get() {\n    return _render.render;\n  }\n});\nObject.defineProperty(exports, \"Component\", {\n  enumerable: true,\n  get: function get() {\n    return _component.Component;\n  }\n});\nObject.defineProperty(exports, \"registerComponent\", {\n  enumerable: true,\n  get: function get() {\n    return _registerComponent.registerComponent;\n  }\n});\nexports.version = void 0;\n\nvar _createElement = __webpack_require__(/*! ./core/createElement/createElement.js */ \"./src/core/createElement/createElement.js\");\n\nvar _render = __webpack_require__(/*! ./core/render/render.js */ \"./src/core/render/render.js\");\n\nvar _component = __webpack_require__(/*! ./core/component/component.js */ \"./src/core/component/component.js\");\n\nvar _registerComponent = __webpack_require__(/*! ./core/component/registerComponent */ \"./src/core/component/registerComponent.js\");\n\n/**\r\n  * Power version\r\n  *\r\n  * @type {String}\r\n  */\nvar version = '1.1.1';\nexports.version = version;\n\n//# sourceURL=webpack://Power/./src/index.js?");
 
 /***/ }),
 
