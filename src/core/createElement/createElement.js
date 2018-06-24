@@ -4,7 +4,7 @@ import {
   isString,
   isObject,
   isHtml,
-  isElementAttribute } from '../utils/is.js';
+  isElementAttribute } from '../../utils/is.js';
 
 /**
   * append Element string

@@ -1,9 +1,9 @@
 import {
   isFunction,
   isArray
-} from '../utils/is.js';
+} from '../../utils/is.js';
 
-import {removeChilds} from '../utils/dom.js';
+import {removeChilds} from '../../utils/dom.js';
 
 /**
   * Power Component

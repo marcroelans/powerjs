@@ -7,6 +7,8 @@
   <body>
 
 
+    <power-component name="Jan"></power-component>
+
     <script src="../dist/power-dev.js"></script>
     <div class="test"></div>
     <script>
@@ -15,7 +17,7 @@
 
         render() {
           return ( [
-            Power.h('h2', 'Meine Projekte', { class: 'test' } ),
+            Power.h('h2', this.data.name, { class: 'test' } ),
             Power.h('hghg', { class: 'test' } ),
             Power.h('h2', 'Meine Projekte', {class: 'test'}),
           ] )
@@ -23,7 +25,7 @@
 
       }
 
-      Power.render(new Projects({}), document.body);
+      Power.render(new Projects({name: 'My Name is Jan'}), document.body)
 
 </script>
 

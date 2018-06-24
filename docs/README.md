@@ -21,11 +21,23 @@ Basic Element
 
 ``
 
-Element with an event listener
+Element with an event listener and attributes
 `` javascript
 
-  Power.createElement('h1', {onclick: () => { console.log('Hi')} }, 'Hello World');
+  Power.createElement('h1', {class: 'myElement', id: 'testId', onclick: () => { console.log('Hi')} }, 'Hello World');
 
-  // <h1>Hello World</h1>
+  // <h1 class="myElement" id="testId">Hello World</h1>
+
+``
+
+Element with child elements
+
+`` javascript
+
+  Power.createElement('div',
+    Power.createElement('h1', 'Hello World')
+  )
+
+  // <div><h1>Hello World</h1></div>
 
 ``
