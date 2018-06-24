@@ -4,6 +4,7 @@
 
 import { log } from '../../utils/log';
 import { render } from '../render/render';
+import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 
 const createDomComponent = function createDomComponent (component, _class, name) {
 
@@ -23,7 +24,7 @@ const createDomComponent = function createDomComponent (component, _class, name)
   const PowerClass = new _class(dataObject);
 
   // replace node
-  component = component.parentNode.replaceChild(PowerClass, component);
+  component = component.parentNode.replaceChild(PowerClass.create(), component);
 }
 
 export const registerComponent = function registerComponent ( _class ) {
@@ -40,7 +41,9 @@ export const registerComponent = function registerComponent ( _class ) {
   }
 
   componentsContainer.forEach(component => {
-    createDomComponent(component, _class, componentName);
+    if(!component.getAttribute(DATA_COMPONENT_ATTRIBUTE)) {
+      createDomComponent(component, _class, componentName);
+    }
   })
 
 };

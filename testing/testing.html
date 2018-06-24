@@ -6,11 +6,6 @@
   </head>
   <body>
 
-    <projects test="Marcel"></projects>
-    <projects test="Marcel"></projects>
-    <projects test="Jan"></projects>
-    <projects test="Marcel"></projects>
-
     <script src="../dist/power-dev.js"></script>
     <div class="test"></div>
     <script>
@@ -19,16 +14,17 @@
 
         render() {
           return ( [
-            Power.h('h2', this.data.test, { class: 'test' } ),
-            Power.h('hghg', { class: 'test' } ),
-            Power.h('h2', 'Meine Projekte', {class: 'test'}),
+            Power.h('h1', `My name is ${this.data.name}`)
           ] )
         }
 
       }
 
+      const myComponent = new projects({name: 'Jan'});
 
-      Power.registerComponent(projects)
+      Power.render(myComponent.create(), document.body);
+
+      
 
 </script>
 

@@ -4,6 +4,7 @@ import {
 } from '../../utils/is.js';
 
 import {removeChilds} from '../../utils/dom.js';
+import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 
 /**
   * Power Component
@@ -27,8 +28,6 @@ export class Component {
     if(data) {
       this.data = data;
     }
-
-    return this.create();
   }
 
   create() {
@@ -38,6 +37,7 @@ export class Component {
 
     // setting this element display to block by default
     this.node.style.display = 'block';
+    this.node.setAttribute(DATA_COMPONENT_ATTRIBUTE, true);
 
     // get the template by call the render
     const template = this.render();
@@ -68,9 +68,15 @@ export class Component {
       stateHandler()
     }
 
+    // update the component
+    this.update();
+  }
+
+  update() {
+
     const template = this.render();
 
-    // clearing the component
+    // clear the view
     removeChilds(this.node);
 
     // rerender
