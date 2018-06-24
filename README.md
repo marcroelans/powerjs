@@ -10,8 +10,8 @@
 ## 💥 What is powerjs?
 
 Power is a small but powerful library based on components.
-
 This library is roughly reduces to the only necessary, which makes it easy to learn and use to extend or build websites or apps.
+Powerjs uses ES6 Classes for Components and VDom to make rendering fast.
 
 ## 🌟 Example
 
