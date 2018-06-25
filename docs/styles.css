@@ -3,92 +3,100 @@
   *
   * red: #ff6b6b
   * black: #2f3335
-  * white: #f9fdff
+  * white: #ffffff
   */
 
 
 /* Basics */
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-color: #f9fdff;
-  color: #2f3335;
+  background-color: rgb(255, 255, 255);
+  color: rgb(30, 30, 30);
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+::selection {
+  background: rgb(255, 255, 255); /* WebKit/Blink Browsers */
+  color: #ff6b6b;
+}
+::-moz-selection {
+  background: rgb(255, 255, 255); /* Gecko Browsers */
+  color: #ff6b6b;
+}
+
+/* Elements */
+.button {
+  padding: 0.625rem 2.5rem;
+  display: inline-block;
+  width: 100%;
+  border: 0.125rem solid #ff6b6b;
+  border-radius: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: 500;
+}
+.button.filled {
+  background-color: #ff6b6b;
+  color: rgb(255, 255, 255);
+}
+
+/* Component - NavigationBar */
+navigationbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+navigationbar .navigation {
+  visibility: hidden;
+}
+navigationbar .logo {
+  font-size: 1rem;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  color: rgb(30, 30, 30);
+  text-decoration: none;
+}
 
 /* Stage */
 .stage {
-  padding: 10rem 0;
-  text-align: center;
+  padding: 2.5rem 1.25rem;
 }
 .stage .title {
-  font-weight: 500;
   color: #ff6b6b;
-}
-.stage .subtitle {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-pre {
-  background-color: #2f3335;
-  text-align: left;
-  width: 100%;
-  padding: 0 1.25rem;
-  border-radius: 0.25rem;
-}
-code {
-  color: #f9fdff;
-  width: 100%;
-}
-
-/* Example */
-.example .inside {
-  position: relative;
-  padding: 0.625rem;
-  margin: 0 auto;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 0.0625rem solid #2f3335;
-}
-.example .inside::after {
-  content: " ";
-  position: absolute;
-  display: block;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.0625rem;
-}
-.example .title {
-  width: 100%;
+  font-size: 1.35rem;
   margin-bottom: 1.25rem;
 }
-.example .demo {
-  padding: 1.25rem 0;
-}
-.example .demo .result {
-  margin-bottom: 0.625rem;
-}
-
-.counter button {
-  width: 100px;
-  text-align: center;
-  border: none;
-  padding: 0.625rem;
-  margin-right: 0.625rem;
+.stage .text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 
-@media (min-width: 70em) {
+@media (min-width: 50rem) {
 
-  .example .inside {
-    width: 65rem;
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+  /* Elements */
+  .button {
+    width: auto;
+    margin-right: 1.25rem;
   }
+
+  /* Stage */
+  .stage > .inside {
+    width: 50%;
+    margin: 0 auto;
+  }
+
 
 }

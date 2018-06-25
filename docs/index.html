@@ -3,218 +3,62 @@
   <head>
     <meta charset="utf-8">
     <title>Powerjs</title>
-    <script src="https://cdn.rawgit.com/janmarkuslanger/powerjs/e9c0168b/dist/power-dev.js"></script>
-    <!-- <script src="../dist/power-dev.js"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+
   <body>
 
+    <navigationbar></navigationbar>
+
     <div class="stage">
-      <h1 class="title">Power.js</h1>
-      <h2 class="subtitle">Powerjs is a small but powerful library for building user interfaces with no depenencies.</h2>
-    </div>
-
-    <div class="example stateless">
-
       <div class="inside">
 
-        <div class="title"><h3 class="title">Stateless Component</h3></div>
-
-        <div class="code">
-          <pre>
-            <code>
-class Name  extends Power.Component {
-
-  render () {
-    return (
-      Power.h('h1', `Hello my name is ${this.data.name}`)
-    )
-  }
-
-}
-
-Power.render(new Name({name: 'Max'}), mount);
-            </code>
-          </pre>
-
+        <h1 class="title">A powerful component based library</h1>
+  
+        <div class="text">
+          <p>Power is a small but powerful library based on components.
+          This library is roughly reduces to the only necessary, which makes it easy to learn and use to extend or build websites or apps.<br>
+          Powerjs uses ES6 Classes for Components and VDom to make rendering fast.</p>
         </div>
 
-        <div class="demo">
-          <p class="result">Result</p>
+        <div class="buttons">
+          <a class="button filled" href="https://cdn.rawgit.com/janmarkuslanger/powerjs/f059c74d/dist/power.js" download="power.js">Download</a>
+          <a class="button border" href="https://github.com/janmarkuslanger/powerjs">Github</a>
         </div>
 
-        <script>
+      </div>
+    </div>
 
-          class Name  extends Power.Component {
 
-            render () {
-              return (
-                Power.h('h1', `Hello my name is ${this.data.name}`)
+
+    <script src="../dist/power-dev.js"></script>
+    <script>
+
+      class NavigationBar extends Power.Component {
+
+        render() {
+          return(
+            Power.h('div', {class: 'inside'},
+              Power.h('a', {href: '/', class: 'logo'},
+                Power.h('span', 'Power.js')
+              ),
+              Power.h('div', {class: 'navigation'},
+                Power.h('a', {class: 'item', href: '#'}, 'API'),
+                Power.h('a', {class: 'item', href: '#'}, 'Demos'),
+                Power.h('a', {class: 'item', href: '#'}, 'Github')
               )
-            }
-
-          }
-
-          Power.render(new Name({name: 'Max'}), document.querySelector('.stateless .demo'));
-
-        </script>
-      </div>
-    </div>
-
-
-    <div class="example counter">
-
-      <div class="inside">
-
-        <div class="title"><h3 class="title">Counter Component</h3></div>
-
-        <div class="code">
-
-          <pre>
-            <code>
-class Counter extends Power.Component {
-
-  render () {
-    return ([
-      Power.h('p', 'Counter: ', this.data.counter.toString()),
-      Power.h('button', '+', {click: () => { this.up() } }),
-      Power.h('button', '-', {click: () => { this.down() } })
-    ])
-  }
-
-  up () {
-    this.setState(() => this.data.counter += 1)
-  }
-
-  down () {
-    this.setState(() => this.data.counter -= 1)
-  }
-
-}
-
-Power.render(new Counter({counter: 1}), mount)
-            </code>
-          </pre>
-
-        </div>
-
-        <div class="demo">
-
-          <p class="result">Result</p>
-
-        </div>
-
-        <script>
-
-          class Counter extends Power.Component {
-
-            render () {
-              return ([
-                Power.h('p', 'Counter: ', this.data.counter.toString()),
-                Power.h('button', '+', {click: () => { this.up() } }),
-                Power.h('button', '-', {click: () => { this.down() } })
-              ])
-            }
-
-            up () {
-              this.setState(() => this.data.counter += 1)
-            }
-
-            down () {
-              this.setState(() => this.data.counter -= 1)
-            }
-
-          }
-
-          Power.render(new Counter({counter: 1}), document.querySelector('.counter .demo'))
-
-        </script>
-      </div>
-    </div>
-
-    <div class="example todo">
-
-      <div class="inside">
-
-        <div class="title"><h3 class="title">TodoApp</h3></div>
-
-        <div class="code">
-          <pre>
-            <code>
-class TodoApp extends Power.Component {
-
-  render () {
-
-    return ([
-      Power.h('input', {type: 'text', placeholder: 'Insert task', keyup: (e, element) => {
-        if(e.keyCode === 13) {
-          this.setState(() => this.data.todos.push(element.value))
+            )
+          )
         }
-      }}),
-      this.renderTodos()
-    ])
 
-  }
+      }
 
-  renderTodos () {
+      Power.registerComponent(NavigationBar);
 
-    if(this.data.todos.length === 0) {
-      return null;
-    } else {
-      const todos = this.data.todos.map(todo => Power.h('li', todo) )
-      return Power.h('ul', todos)
-    }
-
-  }
-
-}
-
-Power.render(new TodoApp({todos: []}), mount)
-            </code>
-          </pre>
-        </div>
-
-        <div class="demo"><p class="result">Result</p></div>
-
-        <script>
-
-          class TodoApp extends Power.Component {
-
-            render () {
-
-              return ([
-                Power.h('input', {type: 'text', placeholder: 'Insert task', keyup: (e, element) => {
-                  if(e.keyCode === 13) {
-                    this.setState(() => this.data.todos.push(element.value))
-                  }
-                }}),
-                this.renderTodos()
-              ])
-
-            }
-
-            renderTodos () {
-
-              if(this.data.todos.length === 0) {
-                return null;
-              } else {
-                const todos = this.data.todos.map(todo => Power.h('li', todo) )
-                return Power.h('ul', todos)
-              }
-
-            }
-
-          }
-
-          Power.render(new TodoApp({todos: []}), document.querySelector('.todo .demo'))
-
-        </script>
-
-      </div>
-
-    </div>
+    </script>
 
   </body>
+
 </html>
