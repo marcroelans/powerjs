@@ -68,6 +68,14 @@ navigationbar .logo {
   text-decoration: none;
 }
 
+/** Component - CustomFooter */
+customfooter {
+  background-color: #8D8E8E;
+  color: #fff;
+  padding: 1.25rem;
+  text-align: center;
+}
+
 /* Stage */
 .stage {
   padding: 2.5rem 1.25rem;
@@ -108,7 +116,7 @@ navigationbar .logo {
   margin-bottom: 2.5rem;
 }
 .advantages p {
-  width: 50%;
+  max-width: 300px;
   margin: 0 auto;
 }
 .advantages img {
@@ -116,8 +124,14 @@ navigationbar .logo {
   height: auto;
 }
 
+/* Demo Example */
+.example-demo img {
+  width: 100%;
+  height: auto;
+}
 
-@media (min-width: 50rem) {
+
+@media (min-width: 65rem) {
 
   /* Elements */
   .button {
@@ -126,10 +140,23 @@ navigationbar .logo {
   }
 
   /* Stage */
+  .stage {
+    margin-bottom: 5rem;
+  }
   .stage > .inside {
-    width: 50%;
+    width: 65rem;
     margin: 0 auto;
   }
 
+  /* Advantages */
+
+  .advantages {
+    width: 65rem;
+    margin: 0 auto 5rem auto;
+    display: flex;
+  }
+  .advantages .item {
+    width: 33.3333%;
+  }
 
 }

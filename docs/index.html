@@ -24,7 +24,8 @@
         </div>
 
         <div class="buttons">
-          <a class="button filled" href="https://cdn.rawgit.com/janmarkuslanger/powerjs/f059c74d/dist/power.js" download="power.js">Download</a>
+          <a class="button filled" href="./get-started.html">Get started</a>
+          <a class="button border" href="https://cdn.rawgit.com/janmarkuslanger/powerjs/f059c74d/dist/power.js" download="power.js">Download</a>
           <a class="button border" href="https://github.com/janmarkuslanger/powerjs">Github</a>
         </div>
 
@@ -50,32 +51,11 @@
 
     </div>
 
+
     <script src="../dist/power-dev.js"></script>
-    <script>
-
-      class NavigationBar extends Power.Component {
-
-        render() {
-          return(
-            Power.h('div', {class: 'inside'},
-              Power.h('a', {href: '/', class: 'logo'},
-                Power.h('span', 'Power.js')
-              ),
-              Power.h('div', {class: 'navigation'},
-                Power.h('a', {class: 'item', href: '#'}, 'API'),
-                Power.h('a', {class: 'item', href: '#'}, 'Demos'),
-                Power.h('a', {class: 'item', href: '#'}, 'Github')
-              )
-            )
-          )
-        }
-
-      }
-
-      Power.registerComponent(NavigationBar);
-
-    </script>
-
+    <script src="./docs-components/navigationbar.js"></script>
+    <script src="./docs-components/footer.js"></script>
+    
   </body>
 
 </html>
