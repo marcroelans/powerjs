@@ -15,30 +15,29 @@ Powerjs uses ES6 Classes for Components and VDom to make rendering fast.
 
 ## 📁 Installation
 
-`` npm
+``` npm
   npm i powerjs-lib
-``
+```
 
 or download this repository.
 
 ## 💻 Usage
 
 1. Just place the script
-``
+``` html
 <script src="https://unpkg.com/powerjs-lib@latest/dist/power.js"></script>
 <script>
-  // Power is now available globally 
   console.log(Power)
 </script>
-``
+```
 
 2. require
 
-`` javascript
+``` javascript
 
   const Power = require('powerjs-lib');
 
-``
+```
 
 
 ## 🌟 Example
