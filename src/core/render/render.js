@@ -1,8 +1,8 @@
 import {
   isArray,
-  isHtml } from '../utils/is.js';
+  isHtml } from '../../utils/is.js';
 
-import { log } from '../utils/log.js';
+import { log } from '../../utils/log.js';
 
 import { createElement } from '../createElement/createElement.js';
 

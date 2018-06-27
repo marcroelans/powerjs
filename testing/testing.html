@@ -6,24 +6,31 @@
   </head>
   <body>
 
+    <projects name="[volvo,vw,BMW]"></projects>
 
     <script src="../dist/power-dev.js"></script>
-    <div class="test"></div>
+
     <script>
 
-      class Projects extends Power.Component {
+      class projects extends Power.Component {
 
         render() {
-          return ( [
-            Power.h('h2', 'Meine Projekte', { class: 'test' } ),
-            Power.h('hghg', { class: 'test' } ),
-            Power.h('h2', 'Meine Projekte', {class: 'test'}),
-          ] )
+          return (this.renderList())
+        }
+
+        renderList() {
+
+          return this.data.name.map(function(item) {
+            return Power.h('h1', `My name is ${item}`);
+          })
+
         }
 
       }
 
-      Power.render(new Projects({}), document.body);
+      Power.registerComponent(projects)
+
+
 
 </script>
 
