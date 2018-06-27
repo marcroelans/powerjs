@@ -8,12 +8,30 @@ class NavigationBar extends Power.Component {
           Power.h('span', 'Power.js')
         ),
         Power.h('div', {class: 'navigation'},
-          Power.h('a', {class: 'item', href: '#'}, 'API'),
-          Power.h('a', {class: 'item', href: '#'}, 'Demos'),
-          Power.h('a', {class: 'item', href: '#'}, 'Github')
-        )
+          Power.h('div', {class: 'inner'},
+            Power.h('a', {class: 'item', href: '#'}, 'API (Comming soon)'),
+            Power.h('a', {class: 'item', href: '#'}, 'Demos (Comming soon)'),
+            Power.h('a', {class: 'item', href: 'https://github.com/janmarkuslanger/powerjs', target: '_blank'}, 'Github')
+          )
+        ),
+        Power.h('div', {class: 'burger'},
+          Power.h('div', {class: 'inner'},
+            Power.h('div'),
+            Power.h('div'),
+            Power.h('div')
+          )
+        ),
       )
     )
+  }
+
+  afterComponentMount(component) {
+
+    component.node.querySelector('.burger').addEventListener('click', function(){
+      this.classList.toggle('is--active')
+      component.node.querySelector('.navigation').classList.toggle('is--active');
+    });
+
   }
 
 }

@@ -54,8 +54,42 @@ navigationbar {
   height: 2.5rem;
   margin-bottom: 2.5rem;
 }
+navigationbar .burger {
+  display: none;
+}
 navigationbar .navigation {
   visibility: hidden;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: visibility 0s, transform .3s ease;
+}
+navigationbar .navigation.is--active {
+  visibility: visible;
+  transform: translateX(0);
+}
+navigationbar .navigation .inner {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+navigationbar .navigation .item {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(30, 30, 30);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+navigationbar .navigation .item:last-child {
+  margin-bottom: 0;
 }
 navigationbar .logo {
   font-size: 1rem;
@@ -66,6 +100,49 @@ navigationbar .logo {
   transform: translateY(-50%);
   color: rgb(30, 30, 30);
   text-decoration: none;
+  z-index: 2;
+}
+navigationbar .burger {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+navigationbar .burger .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 0.125rem;
+}
+navigationbar .burger .inner div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(30, 30, 30);
+  transition: transform .3s ease;
+}
+navigationbar .burger .inner div:nth-child(1) {
+  transform: translateY(-0.425rem);
+}
+navigationbar .burger .inner div:nth-child(3) {
+  transform: translateY(0.425rem);
+}
+navigationbar .burger.is--active .inner div:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+navigationbar .burger.is--active .inner div:nth-child(2) {
+  display: none;
+}
+navigationbar .burger.is--active .inner div:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
 }
 
 /** Component - CustomFooter */
@@ -125,13 +202,48 @@ customfooter {
 }
 
 /* Demo Example */
-.example-demo img {
+.demoimage {
+  padding: 1.25rem;
+}
+.demoimage img {
   width: 100%;
   height: auto;
 }
 
 
 @media (min-width: 65rem) {
+
+  /* Custom Component NavigationBar */
+  navigationbar {
+    width: 65rem;
+    margin: 0 auto;
+  }
+  navigationbar .logo {
+    left: 0;
+  }
+  navigationbar .navigation {
+    visibility: visible !important;
+    position: absolute;
+    top: 50%;
+    left: inherit;
+    right: 0;
+    height: auto;
+    width: auto;
+    transform: translate(0, -50%);
+  }
+  navigationbar .navigation .item {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 1.25rem;
+  }
+  navigationbar .navigation .item:first-child {
+    margin-left: 0;
+  }
+  navigationbar .navigation .inner {
+    position: relative;
+    width: auto;
+    transform: rotateY(0);
+  }
 
   /* Elements */
   .button {
@@ -157,6 +269,19 @@ customfooter {
   }
   .advantages .item {
     width: 33.3333%;
+  }
+
+  /* Demo Example */
+  .demoimage {
+    padding: 1.25rem;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .demoimage img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
   }
 
 }
