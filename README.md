@@ -13,6 +13,34 @@ Power is a small but powerful library based on components.
 This library is roughly reduces to the only necessary, which makes it easy to learn and use to extend or build websites or apps.
 Powerjs uses ES6 Classes for Components and VDom to make rendering fast.
 
+## 📁 Installation
+
+`` npm
+  npm i powerjs-lib
+``
+
+or download this repository.
+
+## 💻 Usage
+
+1. Just place the script
+``
+<script src="https://unpkg.com/powerjs-lib@latest/dist/power.js"></script>
+<script>
+  // Power is now available globally 
+  console.log(Power)
+</script>
+``
+
+2. require
+
+`` javascript
+
+  const Power = require('powerjs-lib');
+
+``
+
+
 ## 🌟 Example
 
 ``` javascript
