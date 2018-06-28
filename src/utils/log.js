@@ -1,11 +1,9 @@
 export const log = (message, type) => {
-
-  if(!window.console) {
-    return
+  if (!window.console) {
+    return;
   }
 
-  switch(type) {
-
+  switch (type) {
     case 'log':
       console.log(message);
       break;
@@ -18,6 +16,8 @@ export const log = (message, type) => {
       console.error(message);
       break;
 
+    default:
+      console.log(message);
+      break;
   }
-
-}
+};
