@@ -4,7 +4,8 @@ import {
   isString,
   isObject,
   isHtml,
-  isElementAttribute } from '../../utils/is.js';
+  isElementAttribute,
+} from '../../utils/is';
 
 /**
   * append Element string
@@ -34,16 +35,14 @@ const appendElementStyles = (element, styles) => {
   * @param {*} handler
   */
 const appendElementEvent = (element, event, handler) => {
-
-  const _event = event.startsWith('on')
+  const eventListener = event.startsWith('on')
     ? event.substring(2, event.length)
-    : event
+    : event;
 
-  element.addEventListener(_event, (e) => {
+  element.addEventListener(eventListener, (e) => {
     // pass the event and element into the funtion
-    handler(e, element)
-  })
-
+    handler(e, element);
+  });
 };
 
 /**
@@ -53,17 +52,16 @@ const appendElementEvent = (element, event, handler) => {
   * @param {Object} elementProps
   */
 const appendElementObject = (element, elementProps) => {
-
-  Object.keys(elementProps).forEach(prop => {
-    if(prop === 'style' || prop === 'styles') {
+  // Loop throught the element props
+  Object.keys(elementProps).forEach((prop) => {
+    if (prop === 'style' || prop === 'styles') {
       appendElementStyles(element, elementProps[prop]);
-    } else if(isEvent(prop)) {
+    } else if (isEvent(prop)) {
       appendElementEvent(element, prop, elementProps[prop]);
-    } else if(isElementAttribute(element, prop)) {
+    } else if (isElementAttribute(element, prop)) {
       element.setAttribute(prop, elementProps[prop]);
     }
-  })
-
+  });
 };
 
 /**
@@ -73,21 +71,18 @@ const appendElementObject = (element, elementProps) => {
   * @param {*} childrens
   */
 const appendElementArray = (element, childrens) => {
-
-  childrens.forEach(child => {
-
-    if(isArray(child)) {
+  // loop thought the elemnt childs
+  childrens.forEach((child) => {
+    if (isArray(child)) {
       appendElementArray(element, child);
-    } else if(isHtml(child)) {
+    } else if (isHtml(child)) {
       element.appendChild(child);
     } else if (isString(child)) {
       appendElementText(element, child);
     } else if (isObject(child)) {
       appendElementObject(element, child);
     }
-
   });
-
 };
 
 /**
@@ -98,23 +93,20 @@ const appendElementArray = (element, childrens) => {
   * @returns {HTMLElement}
   */
 export const createElement = (tag, ...args) => {
-
+  // create the element
   const element = document.createElement(tag);
 
-  args.forEach(arg => {
-
-    if(isArray(arg)) {
+  args.forEach((arg) => {
+    if (isArray(arg)) {
       appendElementArray(element, arg);
     } else if (isHtml(arg)) {
       element.appendChild(arg);
     } else if (isString(arg)) {
       appendElementText(element, arg);
-    } else if(isObject(arg)) {
+    } else if (isObject(arg)) {
       appendElementObject(element, arg);
     }
-
-  })
+  });
 
   return element;
-
 };

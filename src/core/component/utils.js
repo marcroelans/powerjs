@@ -8,12 +8,12 @@
   * @param {String} chars
   * @returns {Boolean}
   */
-export const isStringArray = function isStringArray (chars) {
+export const isStringArray = function isStringArray(chars) {
   return (
-    chars[0] === '[' &&
-    chars[chars.length-1] === ']'
+    chars[0] === '['
+    && chars[chars.length - 1] === ']'
   );
-}
+};
 
 /**
   * function that detects an objects in a string
@@ -21,34 +21,32 @@ export const isStringArray = function isStringArray (chars) {
   * @param {String} chars
   * @returns {Boolean}
   */
-export const isStringObject = function isStringObject (chars) {
+export const isStringObject = function isStringObject(chars) {
   return (
-    chars[0] === '{' &&
-    chars[chars.length-1] === '}'
+    chars[0] === '{' && chars[chars.length - 1] === '}'
   );
-}
+};
 
 /**
-  * Converts a string to array
+  * Converts a string to an array
   *
   * @param {String} chars
   * @returns {Array}
   */
-export const convertStringArray = function convertStringArray (chars) {
-
+export const convertStringArray = function convertStringArray(chars) {
   // remove first and last letter
-  let stringArray = chars.substring(1, chars.length-1);
+  const stringArray = chars.substring(1, chars.length - 1);
 
   // split into chunks
   return stringArray.split(',');
-}
+};
 
 /**
-  * Converts a string to object
+  * Converts a string to an object
   *
   * @param {String} chars
-  * @returns {Array}
+  * @returns {Object}
   */
-export const convertStringObject = function convertStringObject (chars) {
+export const convertStringObject = function convertStringObject() {
 
-}
+};

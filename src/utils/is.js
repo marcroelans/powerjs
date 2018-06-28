@@ -54,7 +54,6 @@ export const isHtml = expectedHtml => expectedHtml instanceof Element;
   */
 export const isFunction = expectedFunction => typeof expectedFunction === 'function';
 
-
 /**
   * validate event
   *
@@ -71,9 +70,7 @@ export const isEvent = expectedEvent => (expectedEvent.startsWith('on')
   * @param {HTMLElement} element
   * @param {String} attribute
   */
-export const isElementAttribute = (element, attribute) => {
-  return (
-    attribute in element ||
-    attribute === 'class'
-  ) ;
-};
+export const isElementAttribute = (element, attribute) => (
+  attribute in element
+  || attribute === 'class'
+);

@@ -1,9 +1,9 @@
 import {
   isFunction,
-  isArray
-} from '../../utils/is.js';
+  isArray,
+} from '../../utils/is';
 
-import {removeChilds} from '../../utils/dom.js';
+import { removeChilds } from '../../utils/dom';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 
 /**
@@ -11,27 +11,23 @@ import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
   *
   * @class Component
   */
-
 export class Component {
-
   constructor(data) {
-
     // the component gets the name of the class name
     this.name = this.constructor.name;
 
     // Getting called before constructor
-    if(this.beforeComponentMount) {
+    if (this.beforeComponentMount) {
       this.beforeComponentMount(this);
     }
 
     // check if there is any data
-    if(data) {
+    if (data) {
       this.data = data;
     }
   }
 
   create() {
-
     // creating the component root element
     this.node = document.createElement(this.name);
 
@@ -42,20 +38,18 @@ export class Component {
     // get the template by call the render
     const template = this.render();
 
-    if(isArray(template)) {
-
-      template.forEach(item => {
-        if(item !== null) {
-          this.node.appendChild(item)
+    if (isArray(template)) {
+      template.forEach((item) => {
+        if (item !== null) {
+          this.node.appendChild(item);
         }
-      })
-
+      });
     } else {
-      this.node.appendChild(template)
+      this.node.appendChild(template);
     }
 
     // Getting called after constructed
-    if(this.afterComponentMount) {
+    if (this.afterComponentMount) {
       this.afterComponentMount(this);
     }
 
@@ -63,9 +57,8 @@ export class Component {
   }
 
   setState(stateHandler) {
-
     if (isFunction(stateHandler)) {
-      stateHandler()
+      stateHandler();
     }
 
     // update the component
@@ -73,23 +66,20 @@ export class Component {
   }
 
   update() {
-
     const template = this.render();
 
     // clear the view
     removeChilds(this.node);
 
     // rerender
-    if(isArray(template)) {
-      template.forEach(item => {
-        if(item !== null) {
+    if (isArray(template)) {
+      template.forEach((item) => {
+        if (item !== null) {
           this.node.appendChild(item);
         }
-      })
+      });
     } else {
       this.node.appendChild();
     }
-
   }
-
-};
+}
