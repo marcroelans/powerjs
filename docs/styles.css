@@ -219,7 +219,7 @@ customfooter {
     margin: 0 auto;
   }
   navigationbar .burger {
-    display: block;
+    display: none;
   }
   navigationbar .logo {
     left: 0;
