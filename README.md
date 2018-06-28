@@ -3,7 +3,7 @@
 <p align="left">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
   <img src="https://img.shields.io/github/size/janmarkuslanger/powerjs/dist/power.js.svg?style=flat-square">
-  <img src="https://badge.fury.io/js/powerjs-lib.svg>
+  <img src="https://badge.fury.io/js/powerjs-lib.svg">
 </p>
 
 **Powerjs is a small but powerful library for building user interfaces with no dependencies.**
