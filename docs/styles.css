@@ -55,7 +55,7 @@ navigationbar {
   margin-bottom: 2.5rem;
 }
 navigationbar .burger {
-  display: none;
+  display: block;
 }
 navigationbar .navigation {
   visibility: hidden;
@@ -217,6 +217,9 @@ customfooter {
   navigationbar {
     width: 65rem;
     margin: 0 auto;
+  }
+  navigationbar .burger {
+    display: block;
   }
   navigationbar .logo {
     left: 0;
