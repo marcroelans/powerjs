@@ -1,43 +1,22 @@
 # API
 
-Power comes with yet three powerful parts.
-**Power.createElement** or shorter Power.h
-**Power.Component**
-**Power.render**
+Coming soon.
 
----
+## Functions / Class
 
-## Power.createElement(tag, ...options);
+- [createElement](#createelement)
+- [Component](#component)
+- [render](#render)
+- [version](#version)
 
-You can also use Power.h
-This function create a VNode and returns it. It is possible to create any element you want.
+## createElement
+Coming soon.
 
-Basic Element
-`` javascript
+## Component
+Coming soon.
 
-  Power.createElement('h1', 'Hello World');
+## render
+Comming soon.
 
-  // <h1>Hello World</h1>
-
-``
-
-Element with an event listener and attributes
-`` javascript
-
-  Power.createElement('h1', {class: 'myElement', id: 'testId', onclick: () => { console.log('Hi')} }, 'Hello World');
-
-  // <h1 class="myElement" id="testId">Hello World</h1>
-
-``
-
-Element with child elements
-
-`` javascript
-
-  Power.createElement('div',
-    Power.createElement('h1', 'Hello World')
-  )
-
-  // <div><h1>Hello World</h1></div>
-
-``
+## version
+Coming soon.
