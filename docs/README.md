@@ -91,4 +91,4 @@ Comming soon
 
 Returns the current version of Power as a string 
 
-`Power.version`
+`Power.version()`
