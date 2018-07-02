@@ -50,36 +50,52 @@ or download this repository.
 
 ## 🌟 Example
 
+<p align="center"><img src="https://cdn.rawgit.com/janmarkuslanger/powerjs/6d255831/assets/example.gif"></p>
+
 ``` javascript
-class TodoApp extends Power.Component {
+ <body>
 
-  render () {
+    <todo todos="[Wash the dishes, Code]"></todo>
 
-    return ([
-      Power.h('input', {type: 'text', placeholder: 'Insert task', keyup: (e, element) => {
-        if(e.keyCode === 13) {
-          this.setState(() => this.data.todos.push(element.value))
+
+    <script src="power.js"></script>
+    <script>
+
+
+      class Todo extends Power.Component {
+
+        render() {
+          return ([
+            Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
+              if(event.keyCode === 13) {
+                this.setState(() => this.data.todos.push(element.value))
+              }
+            }}),
+            this.renderTodos()
+          ])
         }
-      }}),
-      this.renderTodos()
-    ])
 
-  }
+        renderTodos() {
+          if(this.data.todos.length === 0) {
+            return;
+          }
 
-  renderTodos () {
+          const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
+            const position = this.data.todos.indexOf(element.textContent);
+            this.setState( () => this.data.todos.splice(position, 1) )
+          }}));
 
-    if(this.data.todos.length === 0) {
-      return null;
-    } else {
-      const todos = this.data.todos.map(todo => Power.h('li', todo) )
-      return Power.h('ul', todos)
-    }
+          return Power.h('ul', todos);
+        }
 
-  }
+      }
 
-}
+      Power.registerComponent(Todo)
 
-Power.render(new TodoApp({todos: []}), mount)
+    </script>
+
+  </body>
+
 ```
 
 ## ❤️ Contributing
