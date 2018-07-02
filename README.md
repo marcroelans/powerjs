@@ -12,7 +12,7 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Example](#-example)
-- [Contributing](#-contributing)
+- [Contributing](#%EF%B8%8F-contributing)
 
 ## 💥 What is powerjs?
 
