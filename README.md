@@ -50,7 +50,7 @@ or download this repository.
 
 ## 🌟 Example
 
-<p align="center"><img src="https://cdn.rawgit.com/janmarkuslanger/powerjs/6d255831/assets/example.gif"></p>
+<p align="center"><kbd><img src="https://cdn.rawgit.com/janmarkuslanger/powerjs/6d255831/assets/example.gif"></kbd></p>
 
 ``` javascript
  <body>
