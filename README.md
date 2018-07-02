@@ -13,6 +13,7 @@
 - [Usage](#-usage)
 - [Example](#-example)
 - [Contributing](#%EF%B8%8F-contributing)
+- <a href="https://github.com/janmarkuslanger/powerjs/tree/master/docs">Documentations</a>
 
 ## 💥 What is powerjs?
 
