@@ -1,4 +1,4 @@
-# 👊 powerjs
+# 👊 power.js
 
 <p align="left">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
@@ -8,11 +8,17 @@
 
 **Powerjs is a small but powerful library for building user interfaces with no dependencies.**
 
+- [What is power.js?](#-what-is-powerjs)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Example](#-example)
+- [Contributing](#-contributing)
+
 ## 💥 What is powerjs?
 
 Power is a small but powerful library based on components.
 This library is roughly reduces to the only necessary, which makes it easy to learn and use to extend or build websites or apps.
-Powerjs uses ES6 Classes for Components and VDom to make rendering fast.
+Powerjs uses ES6 Classes for Components and the VDOM for rendering. 
 
 ## 📁 Installation
 
@@ -74,3 +80,6 @@ class TodoApp extends Power.Component {
 
 Power.render(new TodoApp({todos: []}), mount)
 ```
+
+## ❤️ Contributing
+Contributing is always good in any case. Let me know what you think.
