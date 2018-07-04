@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.production.config.js",
     "dev": "webpack --config webpack/webpack.development.config.js",
-    "watch": "webpack --watch --config webpack/webpack.development.config.js"
+    "watch": "webpack --watch --config webpack/webpack.development.config.js",
+    "tests": "mocha"
   },
   "author": "Jan-Markus Langer",
   "license": "MIT",
@@ -20,7 +21,10 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "mocha": "^5.2.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.9"
   }
