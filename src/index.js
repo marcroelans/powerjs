@@ -11,7 +11,7 @@ import { registerComponent } from './core/component/registerComponent';
   *
   * @type {String}
   */
-const version = '1.1.3';
+const version = '1.2.0';
 
 export {
   version,
