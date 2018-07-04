@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+   <todo todos="[]"></todo>
+
+
+   <script src="../dist/power-dev.js"></script>
+   <script>
+
+
+     class Todo extends Power.Component {
+
+       render() {
+         return ([
+           Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
+             if(event.keyCode === 13) {
+               this.setState(() => this.data.todos.push(element.value))
+             }
+           }}),
+           this.renderTodos()
+         ])
+       }
+
+       renderTodos() {
+         if(this.data.todos.length === 0) {
+           return;
+         }
+
+         const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
+           const position = this.data.todos.indexOf(element.textContent);
+           this.setState( () => this.data.todos.splice(position, 1) )
+         }}));
+
+         return Power.h('ul', todos);
+       }
+
+     }
+
+     Power.registerComponent(Todo)
+
+   </script>
+
+ </body>
+</html>
