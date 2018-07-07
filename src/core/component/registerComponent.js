@@ -6,9 +6,7 @@ import { log } from '../../utils/log';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import {
   isStringArray,
-  isStringObject,
   convertStringArray,
-  convertStringObject,
 } from './utils';
 
 /**
@@ -26,14 +24,11 @@ const createDomComponent = function createDomComponent(component, _class) {
 
   // loop over the componentAttributes
   for (const prop of componentAttributes) {
-    // check if we hot an array or object in a string
-    if (isStringArray(prop.value)) {
-      dataObject[prop.name] = convertStringArray(prop.value);
-    } else if (isStringObject(prop.value)) {
-      dataObject[prop.name] = convertStringObject(prop.value);
-    } else {
-      dataObject[prop.name] = prop.value;
-    }
+    dataObject[prop.name] = (
+      isStringArray(prop.value)
+        ? convertStringArray(prop.value)
+        : prop.value
+    );
   }
 
   // create a class instance
