@@ -1,7 +1,7 @@
 # 👊 power.js
 
 <p align="left">
-  <img src="http://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
+  <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
   <img src="https://img.shields.io/github/size/janmarkuslanger/powerjs/dist/power.js.svg?style=flat-square">
  <img src="https://img.shields.io/npm/v/powerjs-lib.svg?style=flat-square">
 </p>
