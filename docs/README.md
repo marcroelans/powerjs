@@ -9,11 +9,12 @@ Coming soon.
 - [Component](#component)
 - [version](#version)
 
-## createElement
+## createElement as h
 
-This function returns a VDOM Element with given arguments.
 
-`Power.component(tagName, ...arguments)`
+This function returns a VDOM Element with given arguments. You can use the function as `createElement` or `h`.
+
+`Power.g(tagName, ...arguments)`
 
 | param | type |
 |-------|------|
@@ -28,7 +29,20 @@ Power.h('h1', 'Hello World', {class: 'myClass'},
 ```
 
 ### createElement | Events
-Comming soon.
+
+You can pass the event into a object with  (on)event `onclick || click`.
+The function gets two paramters.
+1. Event
+2. Element
+
+***Example***
+
+``` javascript
+Power.h('h1', 'Click me', { click: (event, element) => {
+  console.log(event)
+  console.log(element)
+}})
+```
 
 ### createElement | Styles
 Comming soon.
@@ -48,19 +62,19 @@ This is the base class of the Components. This should get extended by your own C
 ``` javascript
 
   class myComponent extends Power.Component {
-  
+
   }
 
 ```
 
-### Component.render() 
+### Component.render()
 
 The Component needs at least this function. This function should return a VDOM Model.
 
 ``` javascript
 
   class myComponent extends Power.Component {
-    
+
     render() {
       return (
         Power.h('div', {class: 'myTest'},
@@ -68,7 +82,7 @@ The Component needs at least this function. This function should return a VDOM M
         )
       )
     }
-    
+
   }
 
 ```
@@ -76,7 +90,7 @@ The Component needs at least this function. This function should return a VDOM M
 To render a Component in the DOM you just need to pass it to the Power.render() function.
 
 ``` javascript
-  Power.render(new myComponent({message: 'Hello World'}), document.body)
+  Power.render(new myComponent({message: 'Hello World'}).create(), document.body)
 ```
 
 ### Component Hooks
@@ -89,6 +103,6 @@ Comming soon
 
 ## version
 
-Returns the current version of Power as a string 
+Returns the current version of Power as a string
 
 `Power.version()`
