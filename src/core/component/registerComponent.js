@@ -1,5 +1,5 @@
 /**
-  * This file provides the service to brint component alive in dom
+  * This file provides the service to register Components in DOM
   */
 
 import { log } from '../../utils/log';

@@ -7,14 +7,6 @@
 export const isArray = expectedArray => Array.isArray(expectedArray);
 
 /**
-  * validate a Number
-  *
-  * @param {*} expectedNumber
-  * @returns {Boolean}
-  */
-export const isNumber = expectedNumber => Number.isNumber(expectedNumber);
-
-/**
   * validate a Boolean
   *
   * @param {*} expectedBoolean
