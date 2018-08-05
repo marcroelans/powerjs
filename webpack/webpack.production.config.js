@@ -1,3 +1,4 @@
+var WebpackAutoInject = require('webpack-auto-inject-version');
 var path = require('path');
 
 module.exports = {
@@ -22,5 +23,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new WebpackAutoInject({
+      components: {
+        AutoIncreaseVersion: false
+      }
+    })
+  ]
 };

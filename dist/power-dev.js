@@ -1,4 +1,5 @@
-(function webpackUniversalModuleDefinition(root, factory) {
+// [AIV_SHORT]  Build version: 1.2.3 - Sunday, August 5th, 2018, 10:45:19 PM  
+ (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
@@ -46,17 +47,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -161,7 +177,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nObject.defineProperty(exports, \"createElement\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"h\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"render\", {\n  enumerable: true,\n  get: function get() {\n    return _render.render;\n  }\n});\nObject.defineProperty(exports, \"Component\", {\n  enumerable: true,\n  get: function get() {\n    return _component.Component;\n  }\n});\nObject.defineProperty(exports, \"registerComponent\", {\n  enumerable: true,\n  get: function get() {\n    return _registerComponent.registerComponent;\n  }\n});\nexports.version = void 0;\n\nvar _createElement = __webpack_require__(/*! ./core/createElement/createElement */ \"./src/core/createElement/createElement.js\");\n\nvar _render = __webpack_require__(/*! ./core/render/render */ \"./src/core/render/render.js\");\n\nvar _component = __webpack_require__(/*! ./core/component/component */ \"./src/core/component/component.js\");\n\nvar _registerComponent = __webpack_require__(/*! ./core/component/registerComponent */ \"./src/core/component/registerComponent.js\");\n\n/**\r\n  * Power version\r\n  *\r\n  * @type {String}\r\n  */\nvar version = '1.2.2';\nexports.version = version;\n\n//# sourceURL=webpack://Power/./src/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nObject.defineProperty(exports, \"createElement\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"h\", {\n  enumerable: true,\n  get: function get() {\n    return _createElement.createElement;\n  }\n});\nObject.defineProperty(exports, \"render\", {\n  enumerable: true,\n  get: function get() {\n    return _render.render;\n  }\n});\nObject.defineProperty(exports, \"Component\", {\n  enumerable: true,\n  get: function get() {\n    return _component.Component;\n  }\n});\nObject.defineProperty(exports, \"registerComponent\", {\n  enumerable: true,\n  get: function get() {\n    return _registerComponent.registerComponent;\n  }\n});\nexports.version = void 0;\n\nvar _createElement = __webpack_require__(/*! ./core/createElement/createElement */ \"./src/core/createElement/createElement.js\");\n\nvar _render = __webpack_require__(/*! ./core/render/render */ \"./src/core/render/render.js\");\n\nvar _component = __webpack_require__(/*! ./core/component/component */ \"./src/core/component/component.js\");\n\nvar _registerComponent = __webpack_require__(/*! ./core/component/registerComponent */ \"./src/core/component/registerComponent.js\");\n\n/**\r\n  * Power version\r\n  *\r\n  * @type {String}\r\n  */\nvar version = '1.2.3';\nexports.version = version;\n\n//# sourceURL=webpack://Power/./src/index.js?");
 
 /***/ }),
 
@@ -202,4 +218,4 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ })
 
 /******/ });
-});
+}); 

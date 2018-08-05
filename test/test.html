@@ -6,44 +6,43 @@
   </head>
   <body>
 
-   <todo todos="[]"></todo>
+
+     <todo todos="[Wash the dishes, Code]"></todo>
 
 
-   <script src="../dist/power-dev.js"></script>
-   <script>
+     <script src="../dist/power-dev.js"></script>
+     <script>
 
 
-     class Todo extends Power.Component {
+       class Todo extends Power.Component {
 
-       render() {
-         return ([
-           Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
-             if(event.keyCode === 13) {
-               this.setState(() => this.data.todos.push(element.value))
-             }
-           }}),
-           this.renderTodos()
-         ])
-       }
-
-       renderTodos() {
-         if(this.data.todos.length === 0) {
-           return;
+         render() {
+           return ([
+             Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
+               if(event.keyCode === 13) {
+                 this.setState(() => this.data.todos.push(element.value))
+               }
+             }}),
+             this.renderTodos()
+           ])
          }
 
-         const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
-           const position = this.data.todos.indexOf(element.textContent);
-           this.setState( () => this.data.todos.splice(position, 1) )
-         }}));
+         renderTodos() {
+           if(this.data.todos.length === 0) {
+             return;
+           }
 
-         return Power.h('ul', todos);
+           const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
+             const position = this.data.todos.indexOf(element.textContent);
+             this.setState( () => this.data.todos.splice(position, 1) )
+           }}));
+
+           return Power.h('ul', todos);
+         }
+
        }
 
-     }
-
-     Power.registerComponent(Todo)
-
-   </script>
-
+       Power.registerComponent(Todo)
+      </script>
  </body>
 </html>

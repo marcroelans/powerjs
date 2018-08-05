@@ -1,3 +1,4 @@
+var WebpackAutoInject = require('webpack-auto-inject-version');
 var path = require('path');
 
 module.exports = {
@@ -27,6 +28,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader']
       }
-    ]
-  }
+    ],
+  },
+  plugins: [
+    new WebpackAutoInject({
+      components: {
+        AutoIncreaseVersion: false
+      }
+    })
+  ]
 };
