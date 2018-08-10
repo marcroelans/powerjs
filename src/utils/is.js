@@ -65,4 +65,5 @@ export const isEvent = expectedEvent => (expectedEvent.startsWith('on')
 export const isElementAttribute = (element, attribute) => (
   attribute in element
   || attribute === 'class'
+  || attribute.startsWith('data-', 0)
 );

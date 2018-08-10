@@ -13,36 +13,10 @@
      <script src="../dist/power-dev.js"></script>
      <script>
 
+      const myEl = Power.h('h1',{'data-test': 'testtest', click: () => { alert('asdad') }}, 'test');
 
-       class Todo extends Power.Component {
+      Power.render(myEl, document.body);
 
-         render() {
-           return ([
-             Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
-               if(event.keyCode === 13) {
-                 this.setState(() => this.data.todos.push(element.value))
-               }
-             }}),
-             this.renderTodos()
-           ])
-         }
-
-         renderTodos() {
-           if(this.data.todos.length === 0) {
-             return;
-           }
-
-           const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
-             const position = this.data.todos.indexOf(element.textContent);
-             this.setState( () => this.data.todos.splice(position, 1) )
-           }}));
-
-           return Power.h('ul', todos);
-         }
-
-       }
-
-       Power.registerComponent(Todo)
       </script>
  </body>
 </html>
