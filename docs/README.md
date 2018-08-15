@@ -14,7 +14,7 @@ Coming soon.
 
 This function returns a VDOM Element with given arguments. You can use the function as `createElement` or `h`.
 
-`Power.g(tagName, ...arguments)`
+`Power.h(tagName, ...arguments)`
 
 | param | type |
 |-------|------|
@@ -67,9 +67,9 @@ This is the base class of the Components. This should get extended by your own C
 
 ```
 
-### Component.render()
+### Component.create()
 
-The Component needs at least this function. This function should return a VDOM Model.
+This function should return a VDOM Model.
 
 ``` javascript
 
@@ -90,7 +90,8 @@ The Component needs at least this function. This function should return a VDOM M
 To render a Component in the DOM you just need to pass it to the Power.render() function.
 
 ``` javascript
-  Power.render(new myComponent({message: 'Hello World'}).create(), document.body)
+  const componentObject = new myComponent({message: 'Hello World'});
+  Power.render(componentObject.create(), document.body)
 ```
 
 ### Component Hooks
