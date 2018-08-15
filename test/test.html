@@ -13,9 +13,19 @@
      <script src="../dist/power-dev.js"></script>
      <script>
 
-      const myEl = Power.h('h1',{'data-test': 'testtest', click: () => { alert('asdad') }}, 'test');
+      class myTest extends Power.Component {
 
-      Power.render(myEl, document.body);
+        render(){
+          return Power.h('h1', 'test', {click: () => {
+            alert(this.destroy())
+          }});
+        }
+
+      }
+
+      const myComponent = new myTest();
+
+      Power.render(myComponent.create(), document.body);
 
       </script>
  </body>

@@ -12,6 +12,11 @@ import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
   * @class Component
   */
 export class Component {
+  /**
+    * constructor of class Component
+    *
+    * @param {Object} data
+    */
   constructor(data) {
     // the component gets the name of the class name
     this.name = this.constructor.name;
@@ -27,6 +32,11 @@ export class Component {
     }
   }
 
+  /**
+    * creates the elements of a component
+    *
+    * @return {Node}
+    */
   create() {
     // creating the component root element
     this.node = document.createElement(this.name);
@@ -56,6 +66,12 @@ export class Component {
     return this.node;
   }
 
+  /**
+    * changes the component state
+    * trigger the update methods
+    *
+    * @param {Function} stateHandler
+    */
   setState(stateHandler) {
     if (isFunction(stateHandler)) {
       stateHandler();
@@ -65,6 +81,9 @@ export class Component {
     this.update();
   }
 
+  /**
+    * updates the component
+    */
   update() {
     const template = this.render();
 
@@ -81,5 +100,13 @@ export class Component {
     } else {
       this.node.appendChild();
     }
+  }
+
+  /**
+    * remove component and its childs
+    */
+  destroy() {
+    const parent = this.node.parentElement;
+    parent.removeChild(this.node);
   }
 }
