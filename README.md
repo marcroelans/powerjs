@@ -1,10 +1,12 @@
-# 👊 power.js
+<p align="center"><img width="150" height="auto" src="https://cdn.rawgit.com/janmarkuslanger/powerjs/9a5c9cc4/assets/powerjs-logo.svg"></p>
 
-<p align="left">
+<p align="center">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
   <img src="https://img.shields.io/github/size/janmarkuslanger/powerjs/dist/power.js.svg?style=flat-square">
  <img src="https://img.shields.io/npm/v/powerjs-lib.svg?style=flat-square">
 </p>
+
+---
 
 **Powerjs is a small but powerful library for building user interfaces with no dependencies.**
 
