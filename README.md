@@ -8,7 +8,7 @@
 
 ---
 
-**Powerjs is a small but powerful library for building user interfaces with no dependencies.**
+**Build powerful UI Components with no dependencies.**
 
 - [What is power.js?](#-what-is-powerjs)
 - [Installation](#-installation)
@@ -19,9 +19,7 @@
 
 ## 💥 What is powerjs?
 
-Power is a small but powerful library based on components.
-This library is roughly reduces to the only necessary, which makes it easy to learn and use to extend or build websites or apps.
-Powerjs uses ES6 Classes for Components and the VDOM for rendering. 
+Powerjs is a small library to build UI Components with no dependencies.
 
 ## 📁 Installation
 
@@ -33,7 +31,7 @@ or download this repository.
 
 ## 💻 Usage
 
-1. Just place the script
+1. Just place the script before the closing </body> tag
 ``` html
 <script src="https://unpkg.com/powerjs-lib@latest/dist/power.js"></script>
 <script>
