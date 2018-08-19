@@ -97,10 +97,12 @@ To render a Component in the DOM you just need to pass it to the Power.render() 
 ### Component Hooks
 
 #### Component Hooks - beforeComponentMount(Component)
-Comming soon
+
+This function gets called before a Component gets mounted.
 
 #### Component Hooks - afterComponentMount(Component)
-Comming soon
+
+This function gets called after a Component gets mounted.
 
 ## version
 
