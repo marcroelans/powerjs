@@ -30,6 +30,9 @@ export class Component {
     if (data) {
       this.data = data;
     }
+
+    // mark this class as a Power Component
+    this.IS_POWER_COMPONENT = true;
   }
 
   /**
@@ -56,11 +59,6 @@ export class Component {
       });
     } else {
       this.node.appendChild(template);
-    }
-
-    // Getting called after constructed
-    if (this.afterComponentMount) {
-      this.afterComponentMount(this);
     }
 
     return this.node;

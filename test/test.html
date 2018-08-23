@@ -21,11 +21,15 @@
           }});
         }
 
+        afterComponentMount(component) {
+          console.log(component)
+        }
+
       }
 
       const myComponent = new myTest();
 
-      Power.render(myComponent.create(), document.body);
+      Power.render(myComponent, document.body);
 
       </script>
  </body>
