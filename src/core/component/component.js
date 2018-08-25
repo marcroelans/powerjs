@@ -84,7 +84,6 @@ export class Component {
     */
   update() {
     const template = this.render();
-
     // clear the view
     removeChilds(this.node);
 
@@ -96,7 +95,7 @@ export class Component {
         }
       });
     } else {
-      this.node.appendChild();
+      this.node.appendChild(template);
     }
   }
 
