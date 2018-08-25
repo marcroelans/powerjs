@@ -69,7 +69,7 @@ This is the base class of the Components. This should get extended by your own C
 
 ### Component.create()
 
-This function should return a VDOM Model.
+This function should return an HTML Element.
 
 ``` javascript
 
@@ -91,7 +91,7 @@ To render a Component in the DOM you just need to pass it to the Power.render() 
 
 ``` javascript
   const componentObject = new myComponent({message: 'Hello World'});
-  Power.render(componentObject.create(), document.body)
+  Power.render(componentObject, document.body)
 ```
 
 ### Component Hooks
