@@ -12,9 +12,7 @@
       class myTest extends Power.Component {
         render() {
           return Power.h('h1', this.data.counter.toString(), {click: () => {
-            this.setState(() => {
-              this.data.counter += 1;
-            })
+            this.data.counter += 1;
           }})
         }
       }

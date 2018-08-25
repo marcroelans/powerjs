@@ -5,6 +5,7 @@ import {
 
 import { removeChilds } from '../../utils/dom';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
+import { observerComponentData } from './observer';
 
 /**
   * Power Component
@@ -28,7 +29,7 @@ export class Component {
 
     // check if there is any data
     if (data) {
-      this.data = data;
+      this.data = observerComponentData(data);
     }
 
     // mark this class as a Power Component
