@@ -1,30 +1,38 @@
+import { cloneObject } from '../../utils/object';
+
 /**
   * observer component data
   *
-  * @param {Object} data
   * @param {Class} component
+  * @param {Object} componentData
   */
-export const observerComponentData = (data) => {
+export const observerComponentData = (component, componentData) => {
 
-  let componentData = data;
-
-  Object.keys(data).forEach((keys) => {
+  Object.keys(componentData).forEach((keys) => {
     Object.defineProperty(componentData, keys, {
-      set(value) {
-        this.value = value;
-        console.log(value);
+      set: function(newValue) {
+        this[`_${keys}`] = newValue;
+        if (!component.noUpdate) {
+          component.update();
+        }
+        component.noUpdate = false;
       },
-      get() {
-        return this.value;
-      }
+      get: function() {
+        return this[`_${keys}`];
+      },
     });
-
   });
-
-  Object.keys(data).forEach((keys) => {
-    componentData[keys] = data[keys];
-    console.log(keys);
-  });
-
-  return componentData;
 };
+
+/**
+  * merge Component data
+  *
+  * @param {Class} component
+  * @param {Object} componentData
+  * @param {Object} originalData
+  */
+export const mergeComponentData = (component, componentData, originalData) => {
+  Object.keys(originalData).forEach((keys) => {
+    componentData[keys] = originalData[keys];
+  });
+}

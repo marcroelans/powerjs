@@ -12,7 +12,8 @@
       class myTest extends Power.Component {
         render() {
           return Power.h('h1', this.data.counter.toString(), {click: () => {
-            this.data.counter += 1;
+            this.data.counter += 223;
+            console.log(this.data.counter)
           }})
         }
       }
@@ -20,6 +21,8 @@
       const myComponent = new myTest({counter: 23});
 
       Power.render(myComponent, document.body);
+
+      // console.log(myComponent.data.counter);
 
       </script>
  </body>
