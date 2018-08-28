@@ -6,23 +6,24 @@
   </head>
   <body>
 
+    <myTest counter="23|number"></myTest>
+
      <script src="../dist/power-dev.js"></script>
      <script>
 
       class myTest extends Power.Component {
         render() {
           return Power.h('h1', this.data.counter.toString(), {click: () => {
-            this.data.counter += 223;
-            console.log(this.data.counter)
+            this.data.counter += 1;
           }})
         }
       }
 
-      const myComponent = new myTest({counter: 23});
+      // const myComponent = new myTest({counter: 23});
 
-      Power.render(myComponent, document.body);
+      Power.registerComponent(myTest);
 
-      // console.log(myComponent.data.counter);
+      // Power.render(myComponent, document.body);
 
       </script>
  </body>
