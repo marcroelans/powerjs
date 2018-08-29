@@ -37,18 +37,21 @@ const convertStringArray = function convertStringArray(chars) {
   * @return {String|Number}
   */
 const getStringParam = (value) => {
-  const trimed = value.trim();
-  const length = trimed.length;
-  const index = trimed.indexOf('|');
-  const valueString = '';
+  const { length } = value.length;
+  const index = value.indexOf('|');
+  let valueString = '';
   if (index > -1) {
+    const type = value.substring((index + 1), length);
+    valueString = value.substring(0, index);
 
-    
-
-  } else {
-    return value;
+    if (type.trim() === 'number') {
+      return parseFloat(valueString);
+    }
+    return valueString;
   }
-}
+
+  return value;
+};
 
 /**
   * Convert components data
@@ -58,11 +61,9 @@ const getStringParam = (value) => {
   * @return {String|Number|Array}
   */
 export const convertComponentValue = (value) => {
-
   if (isStringArray(value)) {
     return convertStringArray(value);
-  } else {
-    return getStringParam(value);
   }
 
-}
+  return getStringParam(value);
+};

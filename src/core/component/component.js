@@ -8,7 +8,7 @@ import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import {
   observerComponentData,
   mergeComponentData,
- } from './observer';
+} from './observer';
 
 /**
   * Power Component
@@ -22,9 +22,6 @@ export class Component {
     * @param {Object} data
     */
   constructor(componentData) {
-    // bind component to a var
-    const thisComponent = this;
-
     // block update
     this.noUpdate = true;
 

@@ -1,5 +1,3 @@
-import { cloneObject } from '../../utils/object';
-
 /**
   * observer component data
   *
@@ -7,17 +5,18 @@ import { cloneObject } from '../../utils/object';
   * @param {Object} componentData
   */
 export const observerComponentData = (component, componentData) => {
-
   Object.keys(componentData).forEach((keys) => {
     Object.defineProperty(componentData, keys, {
-      set: function(newValue) {
+      set(newValue) {
         this[`_${keys}`] = newValue;
         if (!component.noUpdate) {
           component.update();
         }
+        /* eslint-disable */
         component.noUpdate = false;
+        /* eslint-enable */
       },
-      get: function() {
+      get() {
         return this[`_${keys}`];
       },
     });
@@ -33,6 +32,8 @@ export const observerComponentData = (component, componentData) => {
   */
 export const mergeComponentData = (component, componentData, originalData) => {
   Object.keys(originalData).forEach((keys) => {
+    /* eslint-disable */
     componentData[keys] = originalData[keys];
+    /* eslint-enable */
   });
-}
+};
