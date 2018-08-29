@@ -31,7 +31,7 @@ or download this repository.
 
 ## 💻 Usage
 
-1. Just place the script before the closing </body> tag
+1. Just place the script before the closing `</body>` tag
 ``` html
 <script src="https://unpkg.com/powerjs-lib@latest/dist/power.js"></script>
 <script>
@@ -50,47 +50,24 @@ or download this repository.
 
 ## 🌟 Example
 
-<p align="center"><kbd><img src="https://cdn.rawgit.com/janmarkuslanger/powerjs/6d255831/assets/example.gif"></kbd></p>
-
 ``` javascript
  <body>
 
-    <todo todos="[Wash the dishes, Code]"></todo>
-
+    <Counter counter="23|number"></Counter>
 
     <script src="power.js"></script>
     <script>
 
 
-      class Todo extends Power.Component {
-
+      class Counter extends Power.Component {
         render() {
-          return ([
-            Power.h('input', {type: 'text', placeholder: 'Add task and press Enter', keyup: (event, element) => {
-              if(event.keyCode === 13) {
-                this.setState(() => this.data.todos.push(element.value))
-              }
-            }}),
-            this.renderTodos()
-          ])
+          return Power.h('h1', this.data.counter.toString(), {click: () => {
+            this.data.counter += 1;
+          }})
         }
-
-        renderTodos() {
-          if(this.data.todos.length === 0) {
-            return;
-          }
-
-          const todos = this.data.todos.map(todo => Power.h('li', todo, {click: (event, element) => {
-            const position = this.data.todos.indexOf(element.textContent);
-            this.setState( () => this.data.todos.splice(position, 1) )
-          }}));
-
-          return Power.h('ul', todos);
-        }
-
       }
 
-      Power.registerComponent(Todo)
+      Power.registerComponent(Counter);
 
     </script>
 

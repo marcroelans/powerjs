@@ -4,10 +4,7 @@
 
 import { log } from '../../utils/log';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
-import {
-  isStringArray,
-  convertStringArray,
-} from './utils';
+import { convertComponentValue } from './utils';
 
 /**
   * create a component in the dom
@@ -24,11 +21,7 @@ const createDomComponent = function createDomComponent(component, _class) {
 
   // loop over the componentAttributes
   for (const prop of componentAttributes) {
-    dataObject[prop.name] = (
-      isStringArray(prop.value)
-        ? convertStringArray(prop.value)
-        : prop.value
-    );
+    dataObject[prop.name] = convertComponentValue(prop.value);
   }
 
   // create a class instance

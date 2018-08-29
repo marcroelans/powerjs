@@ -2,9 +2,13 @@ import {
   isFunction,
   isArray,
 } from '../../utils/is';
-
+import { cloneObject } from '../../utils/object';
 import { removeChilds } from '../../utils/dom';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
+import {
+  observerComponentData,
+  mergeComponentData,
+} from './observer';
 
 /**
   * Power Component
@@ -17,7 +21,10 @@ export class Component {
     *
     * @param {Object} data
     */
-  constructor(data) {
+  constructor(componentData) {
+    // block update
+    this.noUpdate = true;
+
     // the component gets the name of the class name
     this.name = this.constructor.name;
 
@@ -27,8 +34,13 @@ export class Component {
     }
 
     // check if there is any data
-    if (data) {
-      this.data = data;
+    if (componentData) {
+      // clone the object to store the original data
+      this.data = cloneObject(componentData);
+      // start observing with defineProperty
+      observerComponentData(this, this.data);
+      // merge the original data to the new observer object
+      mergeComponentData(this, this.data, componentData);
     }
 
     // mark this class as a Power Component
