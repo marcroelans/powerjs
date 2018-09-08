@@ -1,4 +1,6 @@
-<p align="center"><img width="150" height="auto" src="https://cdn.rawgit.com/janmarkuslanger/powerjs/9a5c9cc4/assets/powerjs-logo.svg"></p>
+# 👊 Powerjs
+
+**Powerjs is a library to build Components for the web.**
 
 <p align="center">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
@@ -8,72 +10,99 @@
 
 ---
 
-**Build powerful UI Components with no dependencies.**
+## ❓ Why Powerjs?
 
-- [What is power.js?](#-what-is-powerjs)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Example](#-example)
-- [Contributing](#%EF%B8%8F-contributing)
-- <a href="https://github.com/janmarkuslanger/powerjs/tree/master/docs">Documentations</a>
+**⌚️ Fast Rendering**
+Using Virtual DOM makes rendering elements pretty fast.
 
-## 💥 What is powerjs?
+**💾 Minimalistic**
+Powerjs makes use of just 3 functions.
 
-Powerjs is a small library to build UI Components with no dependencies.
+**🐦 No Dependencies**
+Powerjs is a standalone library with no dependencies.
 
-## 📁 Installation
+**📦 Components**
+Build Components with an encapsulated state.
 
-``` npm
-  npm i powerjs-lib
+## 👉 Before you start
+You can use Powerjs with just place the script into your document, but if you prefer html Syntax you should take a look at JSX. There is a <a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/">Babel plugin</a> which transforms your JSX Sytax into a VDom.
+
+## 💻 Installation
+
+Powerjs comes as an UMD library, so you have a few options to start using it.
+
+Attach the library as a Object to the window `Power`:
+`<script src="power.js"></script>`
+
+Via import:
+``` javascript
+import { render, h, Component } from 'powerjs-lib';
+
+// h(...)
+
 ```
 
-or download this repository.
+Via require:
+``` javascript
+const Power = require('powerjs-lib');
 
-## 💻 Usage
+// Power.h(...)
 
-1. Just place the script before the closing `</body>` tag
-``` html
-<script src="https://unpkg.com/powerjs-lib@latest/dist/power.js"></script>
-<script>
-  console.log(Power)
-</script>
 ```
 
-2. require
+## 🔥 Get started
+
+There is a <a href="https://github.com/janmarkuslanger/powerjs-starter">repository</a> on github which helps you to get started.
+
+Here is a typical example for a counter component.
+
+JSX:
 
 ``` javascript
 
-  const Power = require('powerjs-lib');
+import { h, render, Component } from 'powerjs-lib';
+
+class Counter extends Component {
+  render(){
+    return (
+      <div className="counter">
+        <p>Counter: {this.data.counter.toString()}</p>
+        <button click={() => { this.data.counter += 1; }}>+</button>
+        <button click={() => { this.data.counter -= 1; }}>-</button>
+        <button click={() => { this.data.counter = 0; }}>Reset</button>
+      </div>
+    )
+  }
+}
+
+const myCounter = new Counter({counter: 0});
+render(myCounter, document.body);
 
 ```
 
-
-## 🌟 Example
+Plain JS:
 
 ``` javascript
- <body>
 
-    <Counter counter="23|number"></Counter>
+import { h, render, Component } from 'powerjs-lib';
 
-    <script src="power.js"></script>
-    <script>
+class Counter extends Component {
+  render() {
+    return (
+      h('div', {class: 'counter'},
+        h('p', null, `Counter: ${this.data.counter.toString()}`),
+        h('button', {click: () => { this.data.counter += 1; }}, '+'),
+        h('button', {click: () => { this.data.counter -= 1; }}, '-'),
+        h('button', {click: () => { this.data.counter = 0; }}, 'Reset')
+      )
+    )
+  }
+}
 
-
-      class Counter extends Power.Component {
-        render() {
-          return Power.h('h1', this.data.counter.toString(), {click: () => {
-            this.data.counter += 1;
-          }})
-        }
-      }
-
-      Power.registerComponent(Counter);
-
-    </script>
-
-  </body>
+const myCounter = new Counter({counter: 0});
+render(myCounter, document.body);
 
 ```
 
-## ❤️ Contributing
-Contributing is always good in any case. Let me know what you think.
+## 💗 Contribution
+Feel free to fork this project and help me to get this little project better.
