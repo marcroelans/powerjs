@@ -1,4 +1,4 @@
-# 👊 Powerjs
+# Powerjs
 
 **Powerjs is a library to build Components for the web.**
 
@@ -10,7 +10,7 @@
 
 ---
 
-## ❓ Why Powerjs?
+## Why Powerjs?
 
 **⌚️ Fast Rendering**
 Using Virtual DOM makes rendering elements pretty fast.
@@ -24,10 +24,10 @@ Powerjs is a standalone library with no dependencies.
 **📦 Components**
 Build Components with an encapsulated state.
 
-## 👉 Before you start
+## Before you start
 You can use Powerjs with just place the script into your document, but if you prefer html Syntax you should take a look at JSX. There is a <a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/">Babel plugin</a> which transforms your JSX Sytax into a VDom.
 
-## 💻 Installation
+## Installation
 
 Powerjs comes as an UMD library, so you have a few options to start using it.
 
@@ -50,7 +50,7 @@ const Power = require('powerjs-lib');
 
 ```
 
-## 🔥 Get started
+## Get started
 
 There is a <a href="https://github.com/janmarkuslanger/powerjs-starter">repository</a> on github which helps you to get started.
 
@@ -104,5 +104,5 @@ render(myCounter, document.body);
 
 ```
 
-## 💗 Contribution
-Feel free to fork this project and help me to get this little project better.
+## Contribution
+💗 Feel free to fork this project and help me to get this little project better.
