@@ -89,22 +89,23 @@ const appendElementArray = (element, childrens) => {
   * create Element
   *
   * @param {String} tag
-  * @param {*} args
+  * @param {Object|Null} props
+  * @param {Array|HTMLElement} childs
   * @returns {HTMLElement}
   */
-export const createElement = (tag, ...args) => {
+export const createElement = (tag = 'div', props = null, ...args) => {
   // create the element
   const element = document.createElement(tag);
 
+  if (isObject(props) && props !== null) {
+    appendElementObject(element, props);
+  }
+
   args.forEach((arg) => {
-    if (isArray(arg)) {
-      appendElementArray(element, arg);
+    if (isString(arg)) {
+      appendElementText(element, arg);
     } else if (isHtml(arg)) {
       element.appendChild(arg);
-    } else if (isString(arg)) {
-      appendElementText(element, arg);
-    } else if (isObject(arg)) {
-      appendElementObject(element, arg);
     }
   });
 
