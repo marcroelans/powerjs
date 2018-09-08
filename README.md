@@ -13,16 +13,16 @@
 ## Why Powerjs?
 
 **⌚️ Fast Rendering**
-Using Virtual DOM makes rendering elements pretty fast.
+<br>Using Virtual DOM makes rendering elements pretty fast.
 
 **💾 Minimalistic**
-Powerjs makes use of just 3 functions.
+<br>Powerjs makes use of just 3 functions.
 
 **🐦 No Dependencies**
-Powerjs is a standalone library with no dependencies.
+<br>Powerjs is a standalone library with no dependencies.
 
 **📦 Components**
-Build Components with an encapsulated state.
+<br>Build Components with an encapsulated state.
 
 ## Before you start
 You can use Powerjs with just place the script into your document, but if you prefer html Syntax you should take a look at JSX. There is a <a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/">Babel plugin</a> which transforms your JSX Sytax into a VDom.
