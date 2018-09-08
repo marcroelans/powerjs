@@ -9,17 +9,39 @@
     <Counter counter="23| number"></Counter>
 
      <script src="../dist/power-dev.js"></script>
+     <script src="test.js"></script>
      <script>
 
       class Counter extends Power.Component {
         render() {
-          return Power.h('h1', this.data.counter.toString(), {click: () => {
-            this.data.counter += 1;
-          }})
-        }
+          return Power.h('h1', {
+            click: () => {
+              this.data.counter += 1;
+            }
+          },
+          this.data.counter.toString()
+        )}
       }
 
-      Power.registerComponent(Counter);
+      var testCase = function testCase () {
+        // create class
+        var myComponent = new Counter({counter: 2});
+        // render class
+        Power.render(myComponent, document.body);
+        // update components
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+        myComponent.data.counter += 10;
+      }
+
+      performanceChecks(testCase, 1000);
 
       </script>
  </body>
