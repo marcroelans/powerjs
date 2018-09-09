@@ -31,7 +31,7 @@ You can use Powerjs with just place the script into your document, but if you pr
 
 Powerjs comes as an UMD library, so you have a few options to start using it.
 
-Attach the library as a Object to the window `Power`:
+Attach the library as an bbject to the window `Power`:
 `<script src="power.js"></script>`
 
 Via import:
