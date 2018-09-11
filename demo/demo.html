@@ -6,11 +6,22 @@
   </head>
   <body>
 
+    <DemoComponent counter="2|number"></DemoComponent>
+
     <script src="../dist/power-dev.js"></script>
 
     <script>
 
       class DemoComponent extends Power.Component {
+
+        beforeComponentMount() {
+          console.log('before');
+        }
+
+        afterComponentMount(component) {
+          console.log(component);
+        }
+
         render() {
           return (
             Power.h('p', {
@@ -22,7 +33,9 @@
         }
       }
 
-      Power.render(new DemoComponent({counter: 2, test: 3434}), document.body);
+      Power.registerComponent(DemoComponent);
+
+      // Power.render(new DemoComponent({counter: 2, test: 3434}), document.body);
 
     </script>
 

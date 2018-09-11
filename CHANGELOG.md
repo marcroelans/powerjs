@@ -12,3 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Components data excepts more then one property now
+
+## [2.0.0-alpha.4] - 2018-09-11
+### Fixed
+- Component which gets rendered by the registerComponent Method can use the afterComponentMount Method now 

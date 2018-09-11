@@ -27,6 +27,11 @@ const createDomComponent = function createDomComponent(component, _class) {
   // create a class instance
   const PowerClass = new _class(dataObject);
 
+  // check for hook // afterComponentMount
+  if (PowerClass.afterComponentMount) {
+    PowerClass.afterComponentMount(PowerClass);
+  }
+
   // replace node
   component.parentNode.replaceChild(PowerClass.create(), component);
 };
