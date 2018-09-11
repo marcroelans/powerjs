@@ -29,13 +29,13 @@
 - <a href="https://github.com/janmarkuslanger/powerjs/blob/master/CHANGELOG.md">Change log</a>
 
 ## Before you start
-You can use Powerjs with just place the script into your document, but if you prefer html Syntax you should take a look at JSX. There is a <a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/">Babel plugin</a> which transforms your JSX Sytax into a VDom.
+You can use Powerjs with just place the script into your document, but if you prefer html Syntax you should take a look at JSX. There is a <a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/">Babel plugin</a> which transforms your JSX Syntax into a VDom.
 
 ## Installation
 
 Powerjs comes as an UMD library, so you have a few options to start using it.
 
-Attach the library as an bbject to the window `Power`:
+Attach the library as an object to the window `Power`:
 `<script src="power.js"></script>`
 
 Via import:
