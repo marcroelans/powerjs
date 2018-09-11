@@ -12,9 +12,6 @@ export const observerComponentData = (component, componentData) => {
         if (!component.noUpdate) {
           component.update();
         }
-        /* eslint-disable */
-        component.noUpdate = false;
-        /* eslint-enable */
       },
       get() {
         return this[`_${keys}`];

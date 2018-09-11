@@ -41,6 +41,9 @@ export class Component {
       observerComponentData(this, this.data);
       // merge the original data to the new observer object
       mergeComponentData(this, this.data, componentData);
+
+      // deactive the update block
+      this.noUpdate = false;
     }
 
     // mark this class as a Power Component
