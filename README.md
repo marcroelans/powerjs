@@ -1,6 +1,6 @@
-# Powerjs
+<h1 align="center">Powerjs</h1>
 
-**Powerjs is a library to build Components for the web.**
+<p align="center"><strong>Powerjs is a library to build Components for the web.</strong></p>
 
 <p align="center">
   <img src="https://img.shields.io/github/license/janmarkuslanger/powerjs.svg?style=flat-square">
