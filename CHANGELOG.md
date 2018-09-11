@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A simple demo page
 
 ### Fixed
-- Components data except now more then one property
+- Components data excepts more then one property now
