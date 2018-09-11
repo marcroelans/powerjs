@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script src="../dist/power-dev.js"></script>
+
+    <script>
+
+      class DemoComponent extends Power.Component {
+        render() {
+          return (
+            Power.h('p', {
+              click: () => {
+                this.data.counter += 1;
+              }
+            }, this.data.counter.toString())
+          );
+        }
+      }
+
+      Power.render(new DemoComponent({counter: 2, test: 3434}), document.body);
+
+    </script>
+
+  </body>
+</html>
