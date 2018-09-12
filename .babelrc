@@ -1,4 +1,15 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": [["@babel/plugin-transform-react-jsx", { "pragma": "h" }]]
+  "env": {
+    "test": {
+      "presets": ["env"]
+    },
+    "production": {
+      "presets": ["@babel/preset-env"],
+      "plugins": [["@babel/plugin-transform-react-jsx", { "pragma": "h" }]]
+    },
+    "development": {
+      "presets": ["@babel/preset-env"],
+      "plugins": [["@babel/plugin-transform-react-jsx", { "pragma": "h" }]]
+    }
+  }
 }

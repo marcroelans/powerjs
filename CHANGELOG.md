@@ -6,9 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-alpha.5] - 2018-09-12
+### Added
+- Jest as a testing framework (testing files are located in the /test dir)
+
+### Changed
+- .babelrc splited in 3 environments now (test / development / production)
+
+### Removed
+- Karma as a testing tool
+
 ## [2.0.0-alpha.4] - 2018-09-11
 ### Fixed
-- Component which gets rendered by the registerComponent Method can use the afterComponentMount Method now 
+- Component which gets rendered by the registerComponent Method can use the afterComponentMount Method now
 
 ## [2.0.0-alpha.3] - 2018-09-11
 ### Added
