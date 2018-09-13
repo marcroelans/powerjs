@@ -120,3 +120,29 @@ test('checks if null is not a string', () => {
 test('checks if a number is not a string', () => {
   expect(isString(234234)).toBe(false);
 });
+
+/* is Object */
+
+test('checks if an object is an object', () => {
+  expect(isObject({test: 'hello world'})).toBe(true);
+});
+
+test('checks if a string is not an object', () => {
+  expect(isObject('hello world')).toBe(false);
+});
+
+test('checks if a number is not an object', () => {
+  expect(isObject(234234)).toBe(false);
+});
+
+test('checks if an array is not an object', () => {
+  expect(isObject(['asd', 234])) .toBe(false);
+});
+
+test('checks if null is not an object', () => {
+  expect(isObject(null)).toBe(false);
+});
+
+test('checks if undefined is not an object', () => {
+  expect(isObject(undefined)).toBe(false);
+});

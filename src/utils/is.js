@@ -41,7 +41,11 @@ export const isString = expectedString => typeof expectedString === 'string';
   *
   * @returns {Boolean}
   */
-export const isObject = expectedObject => typeof expectedObject === 'object' && !isNull(expectedObject);
+export const isObject = expectedObject => (typeof expectedObject === 'object'
+  && !isNull(expectedObject)
+  && !isArray(expectedObject)
+);
+
 
 /**
   * validate HTML Element
