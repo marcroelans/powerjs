@@ -109,4 +109,7 @@ render(myCounter, document.body);
 ```
 
 ## Contribution
-💗 Feel free to fork this project and help me to get this little project better.
+💗 Feel free to fork this project and help me to get this better.
+
+## Thanks to
+- <a href="https://github.com/marcroelans">marcroelans</a> 

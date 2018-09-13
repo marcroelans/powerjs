@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-alpha.6] - 2018-09-13
+### Added
+- Tests for is.js
+
+### Bugfix
+- isObject returned true when passing an array
+
+### Changed
+- do not ignore package-lock.json anymore in .gitignore 
+
 ## [2.0.0-alpha.5] - 2018-09-12
 ### Added
 - Jest as a testing framework (testing files are located in the /test dir)
