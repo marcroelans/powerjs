@@ -10,6 +10,8 @@ import {
   isElementAttribute
 } from '../../src/utils/is';
 
+import { createElement as h } from "../../src/core/createElement/createElement";
+
 /* isArray */
 test('tests validator if [] is an array', () => {
   expect(isArray([])).toBe(true);
@@ -193,4 +195,41 @@ test('tests validator if isclick is not an event', () => {
 
 test('tests validator if onfail is not an event', () => {
   expect(isEvent( 'onfail' )).toBe(false);
+});
+
+/* is HTML Element */
+test('tests validator if an HTML ELement is an HTML Element', () => {
+  expect(isHtml(h('div'))).toBe(true);
+});
+
+test('tests validator if an Object is not an HTML Element', () => {
+  expect(isHtml({test: 'test'})).toBe(false);
+});
+
+test('tests validator if an Array is not an HTML Element', () => {
+  expect(isHtml(['sadasd', 234234])).toBe(false);
+});
+
+test('tests validator if a String is not an HTML Element', () => {
+  expect(isHtml('Test')).toBe(false);
+});
+
+test('tests validator if a Number is not an HTML Element', () => {
+  expect(isHtml(23423)).toBe(false);
+});
+
+/* isElementAttribute */
+
+test('tests validator if data-test is an HTML Element Attribute', () => {
+
+  const element = h('div', {'data-test': 'test'});
+
+  expect(isElementAttribute(element, 'data-test')).toBe(true);
+});
+
+test('tests validator if test-test is not HTML Element Attribute', () => {
+
+  const element = h('div', {'test-test': 'test'});
+
+  expect(isElementAttribute(element, 'test-test')).toBe(false);
 });
