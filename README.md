@@ -1,4 +1,4 @@
-<h1 align="center">Powerjs</h1>
+<p align="center" ><a href="https://github.com/janmarkuslanger/powerjs"><img alt="Powerjs - Logo" src="https://cdn.rawgit.com/janmarkuslanger/powerjs/fd582465/assets/logo.svg" width="300" height="auto"/></a></p>
 
 <p align="center"><strong>Powerjs is a library to build Components for the web.</strong></p>
 
