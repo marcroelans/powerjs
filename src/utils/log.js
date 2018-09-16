@@ -1,23 +1,8 @@
-export const log = (message, type) => {
-  if (!window.console) {
-    return;
-  }
+const Logger = {};
+const noop = function noop() {};
 
-  switch (type) {
-    case 'log':
-      console.log(message);
-      break;
+['log', 'debug', 'info', 'warn', 'error'].forEach((level) => {
+  Logger[level] = window.console ? window.console[level] : noop;
+});
 
-    case 'warn':
-      console.warn(message);
-      break;
-
-    case 'error':
-      console.error(message);
-      break;
-
-    default:
-      console.log(message);
-      break;
-  }
-};
+export default Logger;

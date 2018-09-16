@@ -2,7 +2,7 @@ import {
   isArray,
   isHtml,
 } from '../../utils/is';
-import { log } from '../../utils/log';
+import Logger from '../../utils/log';
 
 /**
   * render vdom elements or component
@@ -20,13 +20,13 @@ export const render = (model, root) => {
 
   // return if there is no valid model given
   if (!htmlModel) {
-    log('There is no valid model given', 'error');
+    Logger.error('There is no valid model given');
     return;
   }
 
   // return if there is no valid root given
   if (!isHtml(htmlModel)) {
-    log('There is no valid root given', 'error');
+    Logger.error('There is no valid root given');
     return;
   }
 
