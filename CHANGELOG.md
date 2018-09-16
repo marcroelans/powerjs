@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-alpha.8] - 2018-09-16
+### Changed
+- wrap console log for future control of log output (#18)
+
 ## [2.0.0-alpha.7] - 2018-09-16
 ### Changed
 - better typechecking (#17)
