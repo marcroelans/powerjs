@@ -47,3 +47,22 @@ it("renders a div with props and a string and a child in it", () => {
 
   expect(tree).toMatchInlineSnapshot(template);
 });
+
+
+it("render a custom element with mulitple props and childs", () => {
+  const tree = h("custom-element", {id: 'myDiv', class: 'myClass'}, 'Hello World', h('p', null, 'another Hello'));
+
+  const template = `
+<custom-element
+  class="myClass"
+  id="myDiv"
+>
+  Hello World
+  <p>
+    another Hello
+  </p>
+</custom-element>
+`;
+
+  expect(tree).toMatchInlineSnapshot(template);
+});

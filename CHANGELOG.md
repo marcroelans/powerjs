@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Tests (test/utils/is.test.js) for all function in src/utils/is.js
+- Tests (test/core/createElement/createElement.test.js) for createElement in src/core/createElement/createElement.js
 
 ## [2.0.0-alpha.6] - 2018-09-13
 ### Added
