@@ -113,4 +113,4 @@ render(myCounter, document.body);
 💗 Feel free to fork this project and help me to get this better.
 
 ## Thanks to
-- <a href="https://github.com/marcroelans">marcroelans</a> 
+- <a href="https://github.com/dysfunc">Dysfunc</a>

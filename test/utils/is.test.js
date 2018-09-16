@@ -7,7 +7,12 @@ import {
   isHtml,
   isFunction,
   isEvent,
-  isElementAttribute
+  isElementAttribute,
+  isUndefined,
+  isError,
+  isDocument,
+  isRegExp,
+  isWindow,
 } from '../../src/utils/is';
 
 import { createElement as h } from "../../src/core/createElement/createElement";
@@ -219,7 +224,6 @@ test('tests validator if a Number is not an HTML Element', () => {
 });
 
 /* isElementAttribute */
-
 test('tests validator if data-test is an HTML Element Attribute', () => {
 
   const element = h('div', {'data-test': 'test'});
@@ -232,4 +236,102 @@ test('tests validator if test-test is not HTML Element Attribute', () => {
   const element = h('div', {'test-test': 'test'});
 
   expect(isElementAttribute(element, 'test-test')).toBe(false);
+});
+
+/* isUndefined */
+test('tests validator if undefined is undefined', () => {
+  expect(isUndefined(undefined)).toBe(true);
+});
+
+test('tests validator if null is not undefined', () => {
+  expect(isUndefined(null)).toBe(false);
+});
+
+test('tests validator if string is not undefined', () => {
+  expect(isUndefined('Hello World')).toBe(false);
+});
+
+test('tests validator if number is not undefined', () => {
+  expect(isUndefined(999)).toBe(false);
+});
+
+test('tests validator if an array is not undefined', () => {
+  expect(isUndefined([90, 'Test'])).toBe(false);
+});
+
+test('tests validator if an object is not undefined', () => {
+  expect(isUndefined({test: 21})).toBe(false);
+});
+
+/* isError */
+test('tests validator if an Error is an Error', () => {
+  expect(isError(new Error())).toBe(true);
+});
+
+test('tests validator if Null is not an Error', () => {
+  expect(isError(null)).toBe(false);
+});
+
+test('tests validator if string is not an Error', () => {
+  expect(isError('test')).toBe(false);
+});
+
+test('tests validator if number is not an Error', () => {
+  expect(isError(100)).toBe(false);
+});
+
+test('tests validator if an array is not an Error', () => {
+  expect(isError([234, 234])).toBe(false);
+});
+
+test('tests validator if an object is not an Error', () => {
+  expect(isError({test: 'test'})).toBe(false);
+});
+
+/* isRegExp */
+test('tests validator if literal RegExp is a RegExp', () => {
+  const myReg = /ab+c/i;
+  expect(isRegExp(myReg)).toBe(true);
+});
+
+test('tests validator if constructor RegExp is a RegExp', () => {
+  const myReg = new RegExp("ab+c", "i");
+  expect(isRegExp(myReg)).toBe(true);
+});
+
+test('tests validator if null is not a RegExp', () => {
+  expect(isRegExp(null)).toBe(false);
+});
+
+test('tests validator if undefined is not a RegExp', () => {
+  expect(isRegExp(undefined)).toBe(false);
+});
+
+test('tests validator if an array is not a RegExp', () => {
+  expect(isRegExp([undefined, null])).toBe(false);
+});
+
+test('tests validator if an object is not a RegExp', () => {
+  expect(isRegExp({test: 'test'})).toBe(false);
+});
+
+/* isWindow */
+test('tests validator if window is a window', () => {
+  expect(isWindow(window)).toBe(true);
+});
+
+test('tests validator if null is not a window', () => {
+  expect(isWindow(null)).toBe(false);
+});
+
+test('tests validator if undefined is not a window', () => {
+  expect(isWindow(undefined)).toBe(false);
+});
+
+test('tests validator if an array is not a window', () => {
+  expect(isWindow(['sdf',234])).toBe(false);
+});
+
+test('tests validator if an object is not a window', () => {
+  expect(isWindow({test: 'test'})).toBe(false);
 });
