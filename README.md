@@ -109,8 +109,8 @@ render(myCounter, document.body);
 
 ```
 
-## Contribution
-💗 Feel free to fork this project and help me to get this better.
+## Features wishes, Bugfixes or anything else?
+Feel free to submit an issue in any case or fork this project to make this better.
 
 ## Thanks to
 - <a href="https://github.com/dysfunc">Dysfunc</a>
