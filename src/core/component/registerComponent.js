@@ -2,7 +2,7 @@
   * This file provides the service to register Components in DOM
   */
 
-import { log } from '../../utils/log';
+import Logger from '../../utils/log';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { convertComponentValue } from './utils';
 
@@ -40,7 +40,7 @@ export const registerComponent = function registerComponent(_class) {
   // if there is no _class
   if (!_class) {
     // TODO: Better class validation
-    log('Cannot register Component', 'error');
+    Logger.error('Cannot register Component');
     return;
   }
 
