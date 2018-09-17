@@ -1,4 +1,4 @@
-// [AIV_SHORT]  Build version: 2.0.0-alpha.8 - Sunday, September 16th, 2018, 7:24:12 PM  
+// [AIV_SHORT]  Build version: 2.0.0-alpha.8 - Monday, September 17th, 2018, 8:19:07 PM  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
