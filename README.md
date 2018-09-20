@@ -27,6 +27,7 @@
 ## Links
 
 - <a href="https://github.com/janmarkuslanger/powerjs/blob/master/CHANGELOG.md">Change log</a>
+- <a href="https://github.com/janmarkuslanger/powerjs/blob/master/docs/readme.md">Documentation</a>
 - <a href="https://github.com/janmarkuslanger/powerjs/tree/master/test">Testing</a>
 
 ## Before you start
