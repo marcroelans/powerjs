@@ -8,64 +8,14 @@
         -   [Parameters][4]
     -   [update][5]
     -   [destroy][6]
--   [observerComponentData][7]
+-   [createDomComponent][7]
     -   [Parameters][8]
--   [mergeComponentData][9]
-    -   [Parameters][10]
--   [Logger][11]
--   [Logger][12]
--   [createDomComponent][13]
-    -   [Parameters][14]
--   [isStringArray][15]
-    -   [Parameters][16]
--   [isStringArray][17]
-    -   [Parameters][18]
--   [convertStringArray][19]
-    -   [Parameters][20]
--   [getStringParam][21]
-    -   [Parameters][22]
--   [convertComponentValue][23]
-    -   [Parameters][24]
--   [DATA_COMPONENT_ATTRIBUTE][25]
--   [DATA_COMPONENT_ATTRIBUTE][26]
--   [IS_COMPONENT][27]
--   [appendElementText][28]
-    -   [Parameters][29]
--   [appendElementStyles][30]
-    -   [Parameters][31]
--   [appendElementEvent][32]
-    -   [Parameters][33]
--   [appendElementObject][34]
-    -   [Parameters][35]
--   [appendElementArray][36]
-    -   [Parameters][37]
--   [createElement][38]
-    -   [Parameters][39]
--   [render][40]
-    -   [Parameters][41]
--   [version][42]
--   [removeChilds][43]
-    -   [Parameters][44]
--   [class2type][45]
--   [typeOf][46]
-    -   [Parameters][47]
--   [methods][48]
--   [forEach][49]
-    -   [Parameters][50]
--   [isWindow][51]
-    -   [Parameters][52]
--   [isHtml][53]
-    -   [Parameters][54]
--   [isEvent][55]
-    -   [Parameters][56]
--   [isElementAttribute][57]
-    -   [Parameters][58]
--   [noop][59]
-    -   [Parameters][60]
--   [cloneObject][61]
-    -   [Parameters][62]
--   [deepcloneObject][63]
-    -   [Parameters][64]
+-   [DATA_COMPONENT_ATTRIBUTE][9]
+-   [createElement][10]
+    -   [Parameters][11]
+-   [render][12]
+    -   [Parameters][13]
+-   [version][14]
 
 ## Component
 
@@ -75,7 +25,7 @@ Power Component
 
 creates the elements of a component
 
-Returns **[Node][65]** 
+Returns **[Node][15]** 
 
 ### setState
 
@@ -84,7 +34,7 @@ trigger the update methods
 
 #### Parameters
 
--   `stateHandler` **[Function][66]** 
+-   `stateHandler` **[Function][16]** 
 
 ### update
 
@@ -93,35 +43,6 @@ updates the component
 ### destroy
 
 remove component and its childs
-
-## observerComponentData
-
-observer component data
-
-### Parameters
-
--   `component` **Class** 
--   `componentData` **[Object][67]** 
-
-## mergeComponentData
-
-merge Component data
-
-### Parameters
-
--   `component` **Class** 
--   `componentData` **[Object][67]** 
--   `originalData` **[Object][67]** 
-
-## Logger
-
-This file provides the service to register Components in DOM
-
-## Logger
-
-wrapper object
-
-Type: [Object][67]
 
 ## createDomComponent
 
@@ -132,118 +53,11 @@ create a component in the dom
 -   `component` **DOM** 
 -   `_class` **CLass** 
 
-## isStringArray
-
-function that detects an array in a string
-
-### Parameters
-
--   `chars` **[String][68]** 
-
-Returns **[Boolean][69]** 
-
-## isStringArray
-
-This file provides component utils
-
-### Parameters
-
--   `chars`  
-
-## convertStringArray
-
-Converts a string to an array
-
-### Parameters
-
--   `chars` **[String][68]** 
-
-Returns **[Array][70]** 
-
-## getStringParam
-
-get string param
-
-### Parameters
-
--   `value` **[String][68]** 
-
-Returns **([String][68] \| [Number][71])** 
-
-## convertComponentValue
-
-Convert components data
-
-### Parameters
-
--   `value`  
--   `String`  
-
-Returns **([String][68] \| [Number][71] \| [Array][70])** 
-
 ## DATA_COMPONENT_ATTRIBUTE
 
 This file provides the constants of power
 
-Type: [string][68]
-
-## DATA_COMPONENT_ATTRIBUTE
-
-Data power attribute
-
-Type: [String][68]
-
-## IS_COMPONENT
-
-Is Component
-
-Type: [Boolean][69]
-
-## appendElementText
-
-append Element string
-
-### Parameters
-
--   `element` **[HTMLElement][72]** 
--   `text` **[String][68]** 
-
-## appendElementStyles
-
-append Element Styles
-
-### Parameters
-
--   `element` **[HTMLElement][72]** 
--   `styles` **[String][68]** 
-
-## appendElementEvent
-
-append Element Event
-
-### Parameters
-
--   `element` **[HTMLElement][72]** 
--   `event` **[Event][73]** 
--   `handler` **any** 
-
-## appendElementObject
-
-append Element Object
-
-### Parameters
-
--   `element` **[HTMLElement][72]** 
--   `elementProps` **[Object][67]** 
-
-## appendElementArray
-
-append Element Array
-
-### Parameters
-
--   `element` **[HTMLElement][72]** 
--   `childrens` **any** 
+Type: [string][17]
 
 ## createElement
 
@@ -251,12 +65,12 @@ create Element
 
 ### Parameters
 
--   `tag` **[String][68]**  (optional, default `'div'`)
--   `props` **([Object][67] \| [Null][74])**  (optional, default `null`)
+-   `tag` **[String][17]**  (optional, default `'div'`)
+-   `props` **([Object][18] \| [Null][19])**  (optional, default `null`)
 -   `args` **...any** 
--   `childs` **([Array][70] \| [HTMLElement][72])** 
+-   `childs` **([Array][20] \| [HTMLElement][21])** 
 
-Returns **[HTMLElement][72]** 
+Returns **[HTMLElement][21]** 
 
 ## render
 
@@ -264,123 +78,14 @@ render vdom elements or component
 
 ### Parameters
 
--   `model` **([Object][67] \| [Function][66])** 
+-   `model` **([Object][18] \| [Function][16])** 
 -   `root`  
 
 ## version
 
 Power version
 
-Type: [String][68]
-
-## removeChilds
-
-remove all child nodes
-
-### Parameters
-
--   `node` **[Node][65]** 
-
-## class2type
-
-class2type dictionary
-
-Type: [Object][67]
-
-## typeOf
-
-Returns the internal JavaScript [Class]] of an object
-
-### Parameters
-
--   `obj` **[Object][67]** Object to check the class property of
-
-Returns **[String][68]** Only the class property of the object
-
-## methods
-
-Object containing our "is" methods
-
-Type: [Object][67]
-
-## forEach
-
-Creates type checks methods: isArray(), isBoolean(), isFunction(), and more.
-
-### Parameters
-
--   `obj` **[Object][67]** Object to check the class property of
-
-Returns **[Boolean][69]** Returns true if the passed object passes the type check, else false
-
-## isWindow
-
-Determines whether the passed object is the window object
-
-### Parameters
-
--   `obj` **[Object][67]** Object to check
-
-Returns **[Boolean][69]** Returns true if the passed object is window, else false
-
-## isHtml
-
-Determines whether the passed object is a valid HTML Element
-
-### Parameters
-
--   `obj` **[Object][67]** Object to check
-
-Returns **[Boolean][69]** Returns true if the passed object is an element, else false
-
-## isEvent
-
-Determines whether the passed string is a valid event
-
-### Parameters
-
--   `event` **[String][68]** String containing the event
-
-Returns **[Boolean][69]** Returns true if the passed string is an event, else false
-
-## isElementAttribute
-
-Determines whether the passed object is a valid element attribte
-
-### Parameters
-
--   `element` **[HTMLElement][72]** DOM Element to check the property against
--   `attribute` **[String][68]** String containing the property name to lookup
-
-Returns **[Boolean][69]** Returns true if the passed attribute exists inside the element
-
-## noop
-
-no operation function
-
-### Parameters
-
--   `Function`  
-
-## cloneObject
-
-clones an object
-
-### Parameters
-
--   `originalObject` **[Object][67]** 
-
-Returns **[Object][67]** 
-
-## deepcloneObject
-
-deep clones an object
-
-### Parameters
-
--   `originalObject` **[Object][67]** 
-
-Returns **[Object][67]** 
+Type: [String][17]
 
 [1]: #component
 
@@ -394,138 +99,32 @@ Returns **[Object][67]**
 
 [6]: #destroy
 
-[7]: #observercomponentdata
+[7]: #createdomcomponent
 
 [8]: #parameters-1
 
-[9]: #mergecomponentdata
+[9]: #data_component_attribute
 
-[10]: #parameters-2
+[10]: #createelement
 
-[11]: #logger
+[11]: #parameters-2
 
-[12]: #logger-1
+[12]: #render
 
-[13]: #createdomcomponent
+[13]: #parameters-3
 
-[14]: #parameters-3
+[14]: #version
 
-[15]: #isstringarray
+[15]: https://developer.mozilla.org/docs/Web/API/Node/nextSibling
 
-[16]: #parameters-4
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[17]: #isstringarray-1
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[18]: #parameters-5
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[19]: #convertstringarray
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null
 
-[20]: #parameters-6
+[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[21]: #getstringparam
-
-[22]: #parameters-7
-
-[23]: #convertcomponentvalue
-
-[24]: #parameters-8
-
-[25]: #data_component_attribute
-
-[26]: #data_component_attribute-1
-
-[27]: #is_component
-
-[28]: #appendelementtext
-
-[29]: #parameters-9
-
-[30]: #appendelementstyles
-
-[31]: #parameters-10
-
-[32]: #appendelementevent
-
-[33]: #parameters-11
-
-[34]: #appendelementobject
-
-[35]: #parameters-12
-
-[36]: #appendelementarray
-
-[37]: #parameters-13
-
-[38]: #createelement
-
-[39]: #parameters-14
-
-[40]: #render
-
-[41]: #parameters-15
-
-[42]: #version
-
-[43]: #removechilds
-
-[44]: #parameters-16
-
-[45]: #class2type
-
-[46]: #typeof
-
-[47]: #parameters-17
-
-[48]: #methods
-
-[49]: #foreach
-
-[50]: #parameters-18
-
-[51]: #iswindow
-
-[52]: #parameters-19
-
-[53]: #ishtml
-
-[54]: #parameters-20
-
-[55]: #isevent
-
-[56]: #parameters-21
-
-[57]: #iselementattribute
-
-[58]: #parameters-22
-
-[59]: #noop
-
-[60]: #parameters-23
-
-[61]: #cloneobject
-
-[62]: #parameters-24
-
-[63]: #deepcloneobject
-
-[64]: #parameters-25
-
-[65]: https://developer.mozilla.org/docs/Web/API/Node/nextSibling
-
-[66]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
-[67]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[68]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[69]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
-[70]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-[71]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
-[72]: https://developer.mozilla.org/docs/Web/HTML/Element
-
-[73]: https://developer.mozilla.org/docs/Web/API/Event
-
-[74]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null
+[21]: https://developer.mozilla.org/docs/Web/HTML/Element

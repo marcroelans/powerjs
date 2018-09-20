@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First version of docs under /docs
 - package.json script "docs"
 - env preset for docs
+- unitize commentary
+- adding `@public` and `@private` to the comments
 
 ## [2.0.0-alpha.9] - 2018-09-17
 ### Added

@@ -6,7 +6,7 @@ import Logger from '../../utils/log';
 
 /**
   * render vdom elements or component
-  *
+  * @public
   * @param {Object|Function} model
   * @param {DOM Element} root
   */

@@ -12,13 +12,13 @@ import {
 
 /**
   * Power Component
-  *
+  * @public
   * @class Component
   */
 export class Component {
   /**
     * constructor of class Component
-    *
+    * @public
     * @param {Object} data
     */
   constructor(componentData) {
@@ -52,7 +52,7 @@ export class Component {
 
   /**
     * creates the elements of a component
-    *
+    * @public
     * @return {Node}
     */
   create() {
@@ -82,7 +82,7 @@ export class Component {
   /**
     * changes the component state
     * trigger the update methods
-    *
+    * @public
     * @param {Function} stateHandler
     */
   setState(stateHandler) {

@@ -1,6 +1,6 @@
 /**
   * remove all child nodes
-  *
+  * @private
   * @param {Node} node
   */
 export const removeChilds = (node) => {

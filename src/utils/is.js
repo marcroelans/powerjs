@@ -1,14 +1,14 @@
 
 /**
  * class2type dictionary
- *
+ * @private
  * @type {Object}
  */
 const class2type = {};
 
 /**
  * Returns the internal JavaScript [Class]] of an object
- *
+ * @private
  * @param {Object} obj Object to check the class property of
  * @return {String} Only the class property of the object
  */
@@ -16,14 +16,14 @@ const typeOf = obj => (obj === null ? String(obj) : class2type[{}.toString.call(
 
 /**
  * Object containing our "is" methods
- *
+ * @private
  * @type {Object}
  */
 const methods = {};
 
 /**
  * Creates type checks methods: isArray(), isBoolean(), isFunction(), and more.
- *
+ * @private
  * @param {Object} obj Object to check the class property of
  * @return {Boolean} Returns true if the passed object passes the type check, else false
  */
@@ -50,7 +50,7 @@ export const {
 
 /**
  * Determines whether the passed object is the window object
- *
+ * @private
  * @param {Object} obj Object to check
  * @return {Boolean} Returns true if the passed object is window, else false
  */
@@ -58,7 +58,7 @@ export const isWindow = obj => obj != null && obj === obj.window;
 
 /**
  * Determines whether the passed object is a valid HTML Element
- *
+ * @private
  * @param {Object} obj Object to check
  * @return {Boolean} Returns true if the passed object is an element, else false
  */
@@ -66,7 +66,7 @@ export const isHtml = obj => obj instanceof Element;
 
 /**
  * Determines whether the passed string is a valid event
- *
+ * @private
  * @param {String} event String containing the event
  * @return {Boolean} Returns true if the passed string is an event, else false
  */
@@ -74,7 +74,7 @@ export const isEvent = event => (event.startsWith('on') ? event : `on${event}`) 
 
 /**
  * Determines whether the passed object is a valid element attribte
- *
+ * @private
  * @param {HTMLElement} element DOM Element to check the property against
  * @param {String} attribute String containing the property name to lookup
  * @return {Boolean} Returns true if the passed attribute exists inside the element

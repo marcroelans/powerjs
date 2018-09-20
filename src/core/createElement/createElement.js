@@ -9,7 +9,7 @@ import {
 
 /**
   * append Element string
-  *
+  * @private
   * @param {HTMLElement} element
   * @param {String} text
   */
@@ -19,7 +19,7 @@ const appendElementText = (element, text) => {
 
 /**
   * append Element Styles
-  *
+  * @private
   * @param {HTMLElement} element
   * @param {String} styles
   */
@@ -29,7 +29,7 @@ const appendElementStyles = (element, styles) => {
 
 /**
   * append Element Event
-  *
+  * @private
   * @param {HTMLElement} element
   * @param {Event} event
   * @param {*} handler
@@ -47,7 +47,7 @@ const appendElementEvent = (element, event, handler) => {
 
 /**
   * append Element Object
-  *
+  * @private
   * @param {HTMLElement} element
   * @param {Object} elementProps
   */
@@ -66,7 +66,7 @@ const appendElementObject = (element, elementProps) => {
 
 /**
   * append Element Array
-  *
+  * @private
   * @param {HTMLElement} element
   * @param {*} childrens
   */
@@ -87,7 +87,7 @@ const appendElementArray = (element, childrens) => {
 
 /**
   * create Element
-  *
+  * @public
   * @param {String} tag
   * @param {Object|Null} props
   * @param {Array|HTMLElement} childs

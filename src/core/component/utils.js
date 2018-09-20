@@ -1,10 +1,6 @@
 /**
-  * This file provides component utils
-  */
-
-/**
   * function that detects an array in a string
-  *
+  * @private
   * @param {String} chars
   * @returns {Boolean}
   */
@@ -17,7 +13,7 @@ const isStringArray = function isStringArray(chars) {
 
 /**
   * Converts a string to an array
-  *
+  * @private
   * @param {String} chars
   * @returns {Array}
   */
@@ -31,9 +27,8 @@ const convertStringArray = function convertStringArray(chars) {
 
 /**
   * get string param
-  *
+  * @private
   * @param {String} value
-  *
   * @return {String|Number}
   */
 const getStringParam = (value) => {
@@ -55,9 +50,8 @@ const getStringParam = (value) => {
 
 /**
   * Convert components data
-  *
+  * @private
   * @param {String}
-  *
   * @return {String|Number|Array}
   */
 export const convertComponentValue = (value) => {

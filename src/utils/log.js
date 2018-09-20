@@ -1,13 +1,13 @@
 /**
   * wrapper object
-  *
+  * @private
   * @type {Object}
   */
 const Logger = {};
 
 /**
-  *  no operation function
-  *
+  * no operation function
+  * @private
   * @param {Function}
   */
 const noop = () => {};

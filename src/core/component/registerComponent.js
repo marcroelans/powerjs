@@ -1,14 +1,10 @@
-/**
-  * This file provides the service to register Components in DOM
-  */
-
 import Logger from '../../utils/log';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { convertComponentValue } from './utils';
 
 /**
   * create a component in the dom
-  *
+  * @public
   * @param {DOM} component
   * @param {CLass} _class
   */

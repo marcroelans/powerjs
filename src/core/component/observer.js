@@ -1,6 +1,6 @@
 /**
   * observer component data
-  *
+  * @private
   * @param {Class} component
   * @param {Object} componentData
   */
@@ -22,7 +22,7 @@ export const observerComponentData = (component, componentData) => {
 
 /**
   * merge Component data
-  *
+  * @private
   * @param {Class} component
   * @param {Object} componentData
   * @param {Object} originalData
