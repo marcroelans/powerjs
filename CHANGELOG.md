@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- First version of docs under /docs
+- package.json script "docs"
+- env preset for docs
 
 ## [2.0.0-alpha.9] - 2018-09-17
 ### Added

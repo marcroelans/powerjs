@@ -8,7 +8,8 @@
     "dev": "webpack --config webpack/webpack.development.config.js",
     "watch": "webpack --watch --config webpack/webpack.development.config.js",
     "test": "jest",
-    "prepare": "npm run dev && npm run build && npm run test"
+    "prepare": "npm run dev && npm run build && npm run test",
+    "docs": "set NODE_ENV=docs && documentation build src/** -f md -o docs/readme.md"
   },
   "repository": {
     "type": "git",
