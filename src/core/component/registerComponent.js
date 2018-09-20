@@ -4,9 +4,9 @@ import { convertComponentValue } from './utils';
 
 /**
   * create a component in the dom
-  * @public
+  * @private
   * @param {DOM} component
-  * @param {CLass} _class
+  * @param {Class} _class
   */
 const createDomComponent = function createDomComponent(component, _class) {
   // get the attributes from the dom element
@@ -32,6 +32,11 @@ const createDomComponent = function createDomComponent(component, _class) {
   component.parentNode.replaceChild(PowerClass.create(), component);
 };
 
+/**
+  * register a Component
+  * @public
+  * @param {Class}
+  */
 export const registerComponent = function registerComponent(_class) {
   // if there is no _class
   if (!_class) {

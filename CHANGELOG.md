@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - unitize commentary
 - adding `@public` and `@private` to the comments
 
+### Bugfix
+- Fix JsDocs Bugs in comments
+
 ## [2.0.0-alpha.9] - 2018-09-17
 ### Added
 - more infos to the package.json

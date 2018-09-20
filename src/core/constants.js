@@ -1,8 +1,4 @@
 /**
-  * This file provides the constants of power
-  */
-
-/**
   * Data power attribute
   * @private
   * @type {String}
