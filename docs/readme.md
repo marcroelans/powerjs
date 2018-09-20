@@ -8,14 +8,13 @@
         -   [Parameters][4]
     -   [update][5]
     -   [destroy][6]
--   [createDomComponent][7]
+-   [registerComponent][7]
     -   [Parameters][8]
--   [DATA_COMPONENT_ATTRIBUTE][9]
--   [createElement][10]
-    -   [Parameters][11]
--   [render][12]
-    -   [Parameters][13]
--   [version][14]
+-   [createElement][9]
+    -   [Parameters][10]
+-   [render][11]
+    -   [Parameters][12]
+-   [version][13]
 
 ## Component
 
@@ -25,7 +24,7 @@ Power Component
 
 creates the elements of a component
 
-Returns **[Node][15]** 
+Returns **[Node][14]** 
 
 ### setState
 
@@ -34,7 +33,7 @@ trigger the update methods
 
 #### Parameters
 
--   `stateHandler` **[Function][16]** 
+-   `stateHandler` **[Function][15]** 
 
 ### update
 
@@ -44,20 +43,14 @@ updates the component
 
 remove component and its childs
 
-## createDomComponent
+## registerComponent
 
-create a component in the dom
+register a Component
 
 ### Parameters
 
--   `component` **DOM** 
--   `_class` **CLass** 
-
-## DATA_COMPONENT_ATTRIBUTE
-
-This file provides the constants of power
-
-Type: [string][17]
+-   `_class`  
+-   `Class`  
 
 ## createElement
 
@@ -65,12 +58,12 @@ create Element
 
 ### Parameters
 
--   `tag` **[String][17]**  (optional, default `'div'`)
--   `props` **([Object][18] \| [Null][19])**  (optional, default `null`)
+-   `tag` **[String][16]**  (optional, default `'div'`)
+-   `props` **([Object][17] \| [Null][18])**  (optional, default `null`)
 -   `args` **...any** 
--   `childs` **([Array][20] \| [HTMLElement][21])** 
+-   `childs` **([Array][19] \| [HTMLElement][20])** 
 
-Returns **[HTMLElement][21]** 
+Returns **[HTMLElement][20]** 
 
 ## render
 
@@ -78,14 +71,14 @@ render vdom elements or component
 
 ### Parameters
 
--   `model` **([Object][18] \| [Function][16])** 
+-   `model` **([Object][17] \| [Function][15])** 
 -   `root`  
 
 ## version
 
 Power version
 
-Type: [String][17]
+Type: [String][16]
 
 [1]: #component
 
@@ -99,32 +92,30 @@ Type: [String][17]
 
 [6]: #destroy
 
-[7]: #createdomcomponent
+[7]: #registercomponent
 
 [8]: #parameters-1
 
-[9]: #data_component_attribute
+[9]: #createelement
 
-[10]: #createelement
+[10]: #parameters-2
 
-[11]: #parameters-2
+[11]: #render
 
-[12]: #render
+[12]: #parameters-3
 
-[13]: #parameters-3
+[13]: #version
 
-[14]: #version
+[14]: https://developer.mozilla.org/docs/Web/API/Node/nextSibling
 
-[15]: https://developer.mozilla.org/docs/Web/API/Node/nextSibling
+[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null
 
-[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/null
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-[21]: https://developer.mozilla.org/docs/Web/HTML/Element
+[20]: https://developer.mozilla.org/docs/Web/HTML/Element
