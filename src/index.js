@@ -8,7 +8,7 @@ import { registerComponent } from './core/component/registerComponent';
 
 /**
   * Power version
-  *
+  * @public
   * @type {String}
   */
 const version = '[AIV]{version}[/AIV]';
