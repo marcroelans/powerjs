@@ -1,28 +1,35 @@
-/**
-  * function that detects an array in a string
-  * @private
-  * @param {String} chars
-  * @returns {Boolean}
-  */
-const isStringArray = function isStringArray(chars) {
-  return (
-    chars[0] === '['
-    && chars[chars.length - 1] === ']'
-  );
-};
+import { isNumeric } from '../../utils/is';
 
 /**
-  * Converts a string to an array
+  * Converts a string value to an array or object
   * @private
-  * @param {String} chars
-  * @returns {Array}
+  * @param {String} value
+  * @returns {*} Array, Object or the original value if parse fails
   */
-const convertStringArray = function convertStringArray(chars) {
+const convertStringValue = function convertStringValue(value, isArray) {
   // remove first and last letter
-  const stringArray = chars.substring(1, chars.length - 1);
+  const contents = value.substring(1, value.length - 1);
+  // check an empty object or array was set
+  const isEmpty = contents.trim() === '';
+
+  if (!isArray) {
+    let result = value;
+
+    if (isEmpty) {
+      return {};
+    }
+
+    try {
+      result = JSON.parse(value);
+    } catch(error) {
+      result = value;
+    }
+
+    return result;
+  }
 
   // split into chunks
-  return (stringArray.trim() === '' ? [] : stringArray.split(','));
+  return isEmpty ? [] : contents.split(',');
 };
 
 /**
@@ -32,31 +39,31 @@ const convertStringArray = function convertStringArray(chars) {
   * @return {String|Number}
   */
 const getStringParam = (value) => {
-  const { length } = value.length;
-  const index = value.indexOf('|');
-  let valueString = '';
-  if (index > -1) {
-    const type = value.substring((index + 1), length);
-    valueString = value.substring(0, index);
+  const val = value.trim();
 
-    if (type.trim() === 'number') {
-      return parseFloat(valueString);
-    }
-    return valueString;
+  if (isNumeric(val)) {
+    return parseFloat(val);
   }
 
-  return value;
+  return val;
 };
 
 /**
   * Convert components data
   * @private
   * @param {String}
-  * @return {String|Number|Array}
+  * @return {String|Number|Array|Object}
   */
 export const convertComponentValue = (value) => {
-  if (isStringArray(value)) {
-    return convertStringArray(value);
+  const isArray = value[0] === '[' && value[value.length - 1] === ']';
+  const isJSON = value[0] === '{' && value[value.length - 1] === '}';
+
+  if (isArray || isJSON) {
+    if (isJSON) {
+      value = value.replace(/'/g, '"');
+    }
+
+    return convertStringValue(value, isArray);
   }
 
   return getStringParam(value);
