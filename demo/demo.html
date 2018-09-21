@@ -6,7 +6,7 @@
   </head>
   <body>
 
-    <DemoComponent counter="2|number"></DemoComponent>
+    <DemoComponent counter="2" config="{ 'hello': 'world' }"></DemoComponent>
 
     <script src="../dist/power-dev.js"></script>
 
@@ -18,15 +18,17 @@
           console.log('before');
         }
 
-        afterComponentMount(component) {
-          console.log(component);
+        afterComponentMount() {
+          console.log(this);
         }
 
         render() {
+
           return (
             Power.h('p', {
               click: () => {
                 this.data.counter += 1;
+                this.data.config.counter = this.data.counter;
               }
             }, this.data.counter.toString())
           );
