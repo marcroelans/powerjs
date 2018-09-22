@@ -28,5 +28,7 @@ export const observerComponentData = (component, componentData) => {
   * @param {Object} originalData
   */
 export const mergeComponentData = (component, componentData, originalData) => {
-  Object.keys(originalData).forEach((keys) => componentData[keys] = originalData[keys]);
+  Object.keys(originalData).forEach((keys) => {
+    componentData[keys] = originalData[keys];
+  });
 };

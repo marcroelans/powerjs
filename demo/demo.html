@@ -35,9 +35,12 @@
         }
       }
 
-      Power.registerComponent(DemoComponent);
+      Power.registerComponent(DemoComponent)
 
-      // Power.render(new DemoComponent({counter: 2, test: 3434}), document.body);
+
+      var myDemo = new DemoComponent({counter: 2, test: 3434});
+
+      Power.render(myDemo, document.body);
 
     </script>
 

@@ -21,7 +21,7 @@ const convertStringValue = function convertStringValue(value, isArray) {
 
     try {
       result = JSON.parse(value);
-    } catch(error) {
+    } catch (error) {
       result = value;
     }
 

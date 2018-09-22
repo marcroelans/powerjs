@@ -5,12 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.0-alpha.10] - 2018-09-22
 ### Added
 - First version of docs under /docs
 - package.json script "docs"
 - env preset for docs
 - unitize commentary
 - adding `@public` and `@private` to the comments
+- Updates .is tests (#27)
+- Supports inline objects as param values (#27)
+
+### Changed
+- Removes the need for |number and uses a new util method .isNumeric to handle type casting properly of numerical param values (#27)
 
 ### Bugfix
 - Fix JsDocs Bugs in comments
