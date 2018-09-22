@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-alpha.11] - 2018-09-22
+### Bugfix
+- Added webpack production config `optimization: {minimize: false},` because `this.construcor.name` was always n
+
 ## [2.0.0-alpha.10] - 2018-09-22
 ### Added
 - First version of docs under /docs
