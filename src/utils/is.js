@@ -1,4 +1,3 @@
-
 /**
  * class2type dictionary
  * @private
@@ -12,7 +11,7 @@ const class2type = {};
  * @param {Object} obj Object to check the class property of
  * @return {String} Only the class property of the object
  */
-const typeOf = obj => (obj === null ? String(obj) : class2type[{}.toString.call(obj)] || 'object');
+const typeOf = (obj) => (obj === null ? String(obj) : class2type[{}.toString.call(obj)] || 'object');
 
 /**
  * Object containing our "is" methods
@@ -32,21 +31,10 @@ const methods = {};
   // populate class2type object with type
   class2type[`[object ${type}]`] = lcase;
   // create isType method
-  methods[`is${type}`] = obj => typeOf(obj) === lcase;
+  methods[`is${type}`] = (obj) => typeOf(obj) === lcase;
 });
 
-export const {
-  isArray,
-  isBoolean,
-  isError,
-  isFunction,
-  isNull,
-  isNumber,
-  isObject,
-  isRegExp,
-  isString,
-  isUndefined,
-} = methods;
+export const { isArray, isBoolean, isError, isFunction, isNull, isNumber, isObject, isRegExp, isString, isUndefined } = methods;
 
 /**
  * Determines whether the passed object is numerical
@@ -54,7 +42,7 @@ export const {
  * @param {Object} obj Object to check
  * @return {Boolean} Returns true if the passed object is a numerical, else false
  */
-export const isNumeric = obj => !isArray(obj) && obj - parseFloat(obj) >= 0;
+export const isNumeric = (obj) => !isArray(obj) && obj - parseFloat(obj) >= 0;
 
 /**
  * Determines whether the passed object is the window object
@@ -62,7 +50,7 @@ export const isNumeric = obj => !isArray(obj) && obj - parseFloat(obj) >= 0;
  * @param {Object} obj Object to check
  * @return {Boolean} Returns true if the passed object is window, else false
  */
-export const isWindow = obj => obj != null && obj === obj.window;
+export const isWindow = (obj) => obj != null && obj === obj.window;
 
 /**
  * Determines whether the passed object is a valid HTML Element
@@ -70,7 +58,7 @@ export const isWindow = obj => obj != null && obj === obj.window;
  * @param {Object} obj Object to check
  * @return {Boolean} Returns true if the passed object is an element, else false
  */
-export const isHtml = obj => obj instanceof Element;
+export const isHtml = (obj) => obj instanceof Element;
 
 /**
  * Determines whether the passed string is a valid event
@@ -78,7 +66,7 @@ export const isHtml = obj => obj instanceof Element;
  * @param {String} event String containing the event
  * @return {Boolean} Returns true if the passed string is an event, else false
  */
-export const isEvent = event => (event.startsWith('on') ? event : `on${event}`) in window;
+export const isEvent = (event) => (event.startsWith('on') ? event : `on${event}`) in window;
 
 /**
  * Determines whether the passed object is a valid element attribte
@@ -87,6 +75,4 @@ export const isEvent = event => (event.startsWith('on') ? event : `on${event}`) 
  * @param {String} attribute String containing the property name to lookup
  * @return {Boolean} Returns true if the passed attribute exists inside the element
  */
-export const isElementAttribute = (element, attribute) => (
-  attribute in element || attribute === 'class' || attribute.startsWith('data-', 0)
-);
+export const isElementAttribute = (element, attribute) => attribute in element || attribute === 'class' || attribute.startsWith('data-', 0);

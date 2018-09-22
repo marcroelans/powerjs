@@ -4,9 +4,11 @@
   "description": "A Component Library for the web.",
   "main": "dist/power.js",
   "scripts": {
+    "precommit": "lint-staged",
     "build": "webpack --config webpack/webpack.production.config.js",
     "dev": "webpack --config webpack/webpack.development.config.js",
     "watch": "webpack --watch --config webpack/webpack.development.config.js",
+    "lint": "eslint -c ./.eslintrc --fix ./src --ext .js",
     "test": "jest",
     "prepare": "npm run dev && npm run build && npm run test",
     "docs": "set NODE_ENV=docs && documentation build src/** -f md -o docs/readme.md"
@@ -29,11 +31,15 @@
     "babel-loader": "^8.0.2",
     "babel-preset-env": "^1.7.0",
     "eslint": "^5.6.0",
-    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.6.0",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "husky": "^0.14.3",
     "jest": "^23.6.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
     "webpack": "^4.17.2",
     "webpack-auto-inject-version": "^1.1.0",
     "webpack-cli": "^3.1.0"

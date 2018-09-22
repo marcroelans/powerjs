@@ -1,22 +1,15 @@
-import {
-  isArray,
-  isHtml,
-} from '../../utils/is';
+import { isArray, isHtml } from '../../utils/is';
 import Logger from '../../utils/log';
 
 /**
-  * render vdom elements or component
-  * @public
-  * @param {Object|Function} model
-  * @param {DOM Element} root
-  */
+ * render vdom elements or component
+ * @public
+ * @param {Object|Function} model
+ * @param {DOM Element} root
+ */
 export const render = (model, root) => {
   // Check if model is a Power Component
-  const htmlModel = (
-    model.IS_POWER_COMPONENT
-      ? model.create()
-      : model
-  );
+  const htmlModel = model.IS_POWER_COMPONENT ? model.create() : model;
 
   // return if there is no valid model given
   if (!htmlModel) {

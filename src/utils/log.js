@@ -1,15 +1,15 @@
 /**
-  * wrapper object
-  * @private
-  * @type {Object}
-  */
+ * wrapper object
+ * @private
+ * @type {Object}
+ */
 const Logger = {};
 
 /**
-  * no operation function
-  * @private
-  * @param {Function}
-  */
+ * no operation function
+ * @private
+ * @param {Function}
+ */
 const noop = () => {};
 
 ['log', 'debug', 'info', 'warn', 'error'].forEach((level) => {

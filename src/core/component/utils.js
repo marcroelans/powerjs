@@ -1,11 +1,11 @@
 import { isNumeric } from '../../utils/is';
 
 /**
-  * Converts a string value to an array or object
-  * @private
-  * @param {String} value
-  * @returns {*} Array, Object or the original value if parse fails
-  */
+ * Converts a string value to an array or object
+ * @private
+ * @param {String} value
+ * @returns {*} Array, Object or the original value if parse fails
+ */
 const convertStringValue = function convertStringValue(value, isArray) {
   // remove first and last letter
   const contents = value.substring(1, value.length - 1);
@@ -33,11 +33,11 @@ const convertStringValue = function convertStringValue(value, isArray) {
 };
 
 /**
-  * get string param
-  * @private
-  * @param {String} value
-  * @return {String|Number}
-  */
+ * get string param
+ * @private
+ * @param {String} value
+ * @return {String|Number}
+ */
 const getStringParam = (value) => {
   const val = value.trim();
 
@@ -49,11 +49,11 @@ const getStringParam = (value) => {
 };
 
 /**
-  * Convert components data
-  * @private
-  * @param {String}
-  * @return {String|Number|Array|Object}
-  */
+ * Convert components data
+ * @private
+ * @param {String}
+ * @return {String|Number|Array|Object}
+ */
 export const convertComponentValue = (value) => {
   const isArray = value[0] === '[' && value[value.length - 1] === ']';
   const isJSON = value[0] === '{' && value[value.length - 1] === '}';
