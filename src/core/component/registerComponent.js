@@ -3,11 +3,11 @@ import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { convertComponentValue } from './utils';
 
 /**
-  * create a component in the dom
-  * @private
-  * @param {DOM} component
-  * @param {Class} _class
-  */
+ * create a component in the dom
+ * @private
+ * @param {DOM} component
+ * @param {Class} _class
+ */
 const createDomComponent = function createDomComponent(component, _class) {
   // get the attributes from the dom element
   const componentAttributes = component.attributes;
@@ -33,10 +33,10 @@ const createDomComponent = function createDomComponent(component, _class) {
 };
 
 /**
-  * register a Component
-  * @public
-  * @param {Class}
-  */
+ * register a Component
+ * @public
+ * @param {Class}
+ */
 export const registerComponent = function registerComponent(_class) {
   // if there is no _class
   if (!_class) {
@@ -48,9 +48,7 @@ export const registerComponent = function registerComponent(_class) {
   const componentName = _class.name;
 
   // get every component in dom
-  const componentsContainer = []
-    .slice
-    .call(document.querySelectorAll(componentName));
+  const componentsContainer = [].slice.call(document.querySelectorAll(componentName));
 
   if (componentsContainer.length === 0) {
     return;

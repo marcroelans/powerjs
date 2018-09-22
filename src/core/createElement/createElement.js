@@ -1,43 +1,34 @@
-import {
-  isArray,
-  isEvent,
-  isString,
-  isObject,
-  isHtml,
-  isElementAttribute,
-} from '../../utils/is';
+import { isArray, isEvent, isString, isObject, isHtml, isElementAttribute } from '../../utils/is';
 
 /**
-  * append Element string
-  * @private
-  * @param {HTMLElement} element
-  * @param {String} text
-  */
+ * append Element string
+ * @private
+ * @param {HTMLElement} element
+ * @param {String} text
+ */
 const appendElementText = (element, text) => {
   element.appendChild(document.createTextNode(text));
 };
 
 /**
-  * append Element Styles
-  * @private
-  * @param {HTMLElement} element
-  * @param {String} styles
-  */
+ * append Element Styles
+ * @private
+ * @param {HTMLElement} element
+ * @param {String} styles
+ */
 const appendElementStyles = (element, styles) => {
   element.setAttribute('style', styles);
 };
 
 /**
-  * append Element Event
-  * @private
-  * @param {HTMLElement} element
-  * @param {Event} event
-  * @param {*} handler
-  */
+ * append Element Event
+ * @private
+ * @param {HTMLElement} element
+ * @param {Event} event
+ * @param {*} handler
+ */
 const appendElementEvent = (element, event, handler) => {
-  const eventListener = event.startsWith('on')
-    ? event.substring(2, event.length)
-    : event;
+  const eventListener = event.startsWith('on') ? event.substring(2, event.length) : event;
 
   element.addEventListener(eventListener, (e) => {
     // pass the event and element into the funtion
@@ -46,11 +37,11 @@ const appendElementEvent = (element, event, handler) => {
 };
 
 /**
-  * append Element Object
-  * @private
-  * @param {HTMLElement} element
-  * @param {Object} elementProps
-  */
+ * append Element Object
+ * @private
+ * @param {HTMLElement} element
+ * @param {Object} elementProps
+ */
 const appendElementObject = (element, elementProps) => {
   // Loop throught the element props
   Object.keys(elementProps).forEach((prop) => {
@@ -65,11 +56,11 @@ const appendElementObject = (element, elementProps) => {
 };
 
 /**
-  * append Element Array
-  * @private
-  * @param {HTMLElement} element
-  * @param {*} childrens
-  */
+ * append Element Array
+ * @private
+ * @param {HTMLElement} element
+ * @param {*} childrens
+ */
 const appendElementArray = (element, childrens) => {
   // loop thought the elemnt childs
   childrens.forEach((child) => {
@@ -86,13 +77,13 @@ const appendElementArray = (element, childrens) => {
 };
 
 /**
-  * create Element
-  * @public
-  * @param {String} tag
-  * @param {Object|Null} props
-  * @param {Array|HTMLElement} childs
-  * @returns {HTMLElement}
-  */
+ * create Element
+ * @public
+ * @param {String} tag
+ * @param {Object|Null} props
+ * @param {Array|HTMLElement} childs
+ * @returns {HTMLElement}
+ */
 export const createElement = (tag = 'div', props = null, ...args) => {
   // create the element
   const element = document.createElement(tag);

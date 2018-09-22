@@ -1,26 +1,20 @@
-import {
-  isFunction,
-  isArray,
-} from '../../utils/is';
+import { isFunction, isArray } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
 import { removeChilds } from '../../utils/dom';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
-import {
-  observerComponentData,
-  mergeComponentData,
-} from './observer';
+import { observerComponentData, mergeComponentData } from './observer';
 
 /**
-  * Power Component
-  * @public
-  * @class Component
-  */
+ * Power Component
+ * @public
+ * @class Component
+ */
 export class Component {
   /**
-    * constructor of class Component
-    * @public
-    * @param {Object} data
-    */
+   * constructor of class Component
+   * @public
+   * @param {Object} data
+   */
   constructor(componentData) {
     // block update
     this.noUpdate = true;
@@ -51,10 +45,10 @@ export class Component {
   }
 
   /**
-    * creates the elements of a component
-    * @public
-    * @return {Node}
-    */
+   * creates the elements of a component
+   * @public
+   * @return {Node}
+   */
   create() {
     // creating the component root element
     this.node = document.createElement(this.name);
@@ -80,11 +74,11 @@ export class Component {
   }
 
   /**
-    * changes the component state
-    * trigger the update methods
-    * @public
-    * @param {Function} stateHandler
-    */
+   * changes the component state
+   * trigger the update methods
+   * @public
+   * @param {Function} stateHandler
+   */
   setState(stateHandler) {
     if (isFunction(stateHandler)) {
       stateHandler();
@@ -95,8 +89,8 @@ export class Component {
   }
 
   /**
-    * updates the component
-    */
+   * updates the component
+   */
   update() {
     const template = this.render();
     // clear the view
@@ -115,8 +109,8 @@ export class Component {
   }
 
   /**
-    * remove component and its childs
-    */
+   * remove component and its childs
+   */
   destroy() {
     const parent = this.node.parentElement;
     parent.removeChild(this.node);

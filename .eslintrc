@@ -1,15 +1,35 @@
 {
-  parser: "babel-eslint",
-  "rules": {
-    "max-len": [1, 70, 2, {ignoreComments: true}],
-    "linebreak-style": 0,
-    "import/prefer-default-export": "off",
-    "no-restricted-syntax": "off",
-    "no-param-reassign": "off"
-  },
-  "extends": ["airbnb-base"],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["prettier"],
+  "settings": {
+    "react": {
+      "version": "0.14.9"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "consistent-return": "off",
+    "valid-typeof": "error",
+    "no-loop-func": "error",
+    "no-mixed-requires": "off",
+    "no-return-assign": "off",
+    "no-undef": "error",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": ["error", { "vars": "local", "args": "none" }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "prefer-const": "error"
   }
 }

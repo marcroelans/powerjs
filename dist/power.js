@@ -1,4 +1,4 @@
-// [AIV_SHORT]  Build version: 2.0.0-alpha.11 - Saturday, September 22nd, 2018, 2:05:45 PM  
+// [AIV_SHORT]  Build version: 2.0.0-alpha.11 - Saturday, September 22nd, 2018, 10:13:27 AM  
  (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -208,33 +208,33 @@ var isElementAttribute = function isElementAttribute(element, attribute) {
 // CONCATENATED MODULE: ./src/core/createElement/createElement.js
 
 /**
-  * append Element string
-  * @private
-  * @param {HTMLElement} element
-  * @param {String} text
-  */
+ * append Element string
+ * @private
+ * @param {HTMLElement} element
+ * @param {String} text
+ */
 
 var appendElementText = function appendElementText(element, text) {
   element.appendChild(document.createTextNode(text));
 };
 /**
-  * append Element Styles
-  * @private
-  * @param {HTMLElement} element
-  * @param {String} styles
-  */
+ * append Element Styles
+ * @private
+ * @param {HTMLElement} element
+ * @param {String} styles
+ */
 
 
 var appendElementStyles = function appendElementStyles(element, styles) {
   element.setAttribute('style', styles);
 };
 /**
-  * append Element Event
-  * @private
-  * @param {HTMLElement} element
-  * @param {Event} event
-  * @param {*} handler
-  */
+ * append Element Event
+ * @private
+ * @param {HTMLElement} element
+ * @param {Event} event
+ * @param {*} handler
+ */
 
 
 var appendElementEvent = function appendElementEvent(element, event, handler) {
@@ -245,11 +245,11 @@ var appendElementEvent = function appendElementEvent(element, event, handler) {
   });
 };
 /**
-  * append Element Object
-  * @private
-  * @param {HTMLElement} element
-  * @param {Object} elementProps
-  */
+ * append Element Object
+ * @private
+ * @param {HTMLElement} element
+ * @param {Object} elementProps
+ */
 
 
 var createElement_appendElementObject = function appendElementObject(element, elementProps) {
@@ -265,11 +265,11 @@ var createElement_appendElementObject = function appendElementObject(element, el
   });
 };
 /**
-  * append Element Array
-  * @private
-  * @param {HTMLElement} element
-  * @param {*} childrens
-  */
+ * append Element Array
+ * @private
+ * @param {HTMLElement} element
+ * @param {*} childrens
+ */
 
 
 var createElement_appendElementArray = function appendElementArray(element, childrens) {
@@ -287,13 +287,13 @@ var createElement_appendElementArray = function appendElementArray(element, chil
   });
 };
 /**
-  * create Element
-  * @public
-  * @param {String} tag
-  * @param {Object|Null} props
-  * @param {Array|HTMLElement} childs
-  * @returns {HTMLElement}
-  */
+ * create Element
+ * @public
+ * @param {String} tag
+ * @param {Object|Null} props
+ * @param {Array|HTMLElement} childs
+ * @returns {HTMLElement}
+ */
 
 
 var createElement_createElement = function createElement() {
@@ -321,16 +321,16 @@ var createElement_createElement = function createElement() {
 };
 // CONCATENATED MODULE: ./src/utils/log.js
 /**
-  * wrapper object
-  * @private
-  * @type {Object}
-  */
+ * wrapper object
+ * @private
+ * @type {Object}
+ */
 var Logger = {};
 /**
-  * no operation function
-  * @private
-  * @param {Function}
-  */
+ * no operation function
+ * @private
+ * @param {Function}
+ */
 
 var noop = function noop() {};
 
@@ -342,11 +342,11 @@ var noop = function noop() {};
 
 
 /**
-  * render vdom elements or component
-  * @public
-  * @param {Object|Function} model
-  * @param {DOM Element} root
-  */
+ * render vdom elements or component
+ * @public
+ * @param {Object|Function} model
+ * @param {DOM Element} root
+ */
 
 var render_render = function render(model, root) {
   // Check if model is a Power Component
@@ -381,30 +381,30 @@ var render_render = function render(model, root) {
 };
 // CONCATENATED MODULE: ./src/utils/object.js
 /**
-  * clones an object
-  * @private
-  * @param {Object} originalObject
-  * @return {Object}
-  */
+ * clones an object
+ * @private
+ * @param {Object} originalObject
+ * @return {Object}
+ */
 var cloneObject = function cloneObject(originalObject) {
   return Object.assign({}, originalObject);
 };
 /**
-  * deep clones an object
-  * @private
-  * @param {Object} originalObject
-  * @return {Object}
-  */
+ * deep clones an object
+ * @private
+ * @param {Object} originalObject
+ * @return {Object}
+ */
 
 var deepcloneObject = function deepcloneObject(originalObject) {
   return JSON.parse(JSON.stringify(originalObject));
 };
 // CONCATENATED MODULE: ./src/utils/dom.js
 /**
-  * remove all child nodes
-  * @private
-  * @param {Node} node
-  */
+ * remove all child nodes
+ * @private
+ * @param {Node} node
+ */
 var removeChilds = function removeChilds(node) {
   while (node.firstChild) {
     node.removeChild(node.firstChild);
@@ -412,25 +412,25 @@ var removeChilds = function removeChilds(node) {
 };
 // CONCATENATED MODULE: ./src/core/constants.js
 /**
-  * Data power attribute
-  * @private
-  * @type {String}
-  */
+ * Data power attribute
+ * @private
+ * @type {String}
+ */
 var DATA_COMPONENT_ATTRIBUTE = 'data-power-component';
 /**
-  * Is Component
-  * @private
-  * @type {Boolean}
-  */
+ * Is Component
+ * @private
+ * @type {Boolean}
+ */
 
 var IS_COMPONENT = 'IS_COMPONENT';
 // CONCATENATED MODULE: ./src/core/component/observer.js
 /**
-  * observer component data
-  * @private
-  * @param {Class} component
-  * @param {Object} componentData
-  */
+ * observer component data
+ * @private
+ * @param {Class} component
+ * @param {Object} componentData
+ */
 var observerComponentData = function observerComponentData(component, componentData) {
   Object.keys(componentData).forEach(function (keys) {
     Object.defineProperty(componentData, keys, {
@@ -448,12 +448,12 @@ var observerComponentData = function observerComponentData(component, componentD
   });
 };
 /**
-  * merge Component data
-  * @private
-  * @param {Class} component
-  * @param {Object} componentData
-  * @param {Object} originalData
-  */
+ * merge Component data
+ * @private
+ * @param {Class} component
+ * @param {Object} componentData
+ * @param {Object} originalData
+ */
 
 var mergeComponentData = function mergeComponentData(component, componentData, originalData) {
   Object.keys(originalData).forEach(function (keys) {
@@ -473,19 +473,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
-  * Power Component
-  * @public
-  * @class Component
-  */
+ * Power Component
+ * @public
+ * @class Component
+ */
 
 var component_Component =
 /*#__PURE__*/
 function () {
   /**
-    * constructor of class Component
-    * @public
-    * @param {Object} data
-    */
+   * constructor of class Component
+   * @public
+   * @param {Object} data
+   */
   function Component(componentData) {
     _classCallCheck(this, Component);
 
@@ -514,10 +514,10 @@ function () {
     this.IS_POWER_COMPONENT = true;
   }
   /**
-    * creates the elements of a component
-    * @public
-    * @return {Node}
-    */
+   * creates the elements of a component
+   * @public
+   * @return {Node}
+   */
 
 
   _createClass(Component, [{
@@ -546,11 +546,11 @@ function () {
       return this.node;
     }
     /**
-      * changes the component state
-      * trigger the update methods
-      * @public
-      * @param {Function} stateHandler
-      */
+     * changes the component state
+     * trigger the update methods
+     * @public
+     * @param {Function} stateHandler
+     */
 
   }, {
     key: "setState",
@@ -563,8 +563,8 @@ function () {
       this.update();
     }
     /**
-      * updates the component
-      */
+     * updates the component
+     */
 
   }, {
     key: "update",
@@ -586,8 +586,8 @@ function () {
       }
     }
     /**
-      * remove component and its childs
-      */
+     * remove component and its childs
+     */
 
   }, {
     key: "destroy",
@@ -602,11 +602,11 @@ function () {
 // CONCATENATED MODULE: ./src/core/component/utils.js
 
 /**
-  * Converts a string value to an array or object
-  * @private
-  * @param {String} value
-  * @returns {*} Array, Object or the original value if parse fails
-  */
+ * Converts a string value to an array or object
+ * @private
+ * @param {String} value
+ * @returns {*} Array, Object or the original value if parse fails
+ */
 
 var convertStringValue = function convertStringValue(value, isArray) {
   // remove first and last letter
@@ -634,11 +634,11 @@ var convertStringValue = function convertStringValue(value, isArray) {
   return isEmpty ? [] : contents.split(',');
 };
 /**
-  * get string param
-  * @private
-  * @param {String} value
-  * @return {String|Number}
-  */
+ * get string param
+ * @private
+ * @param {String} value
+ * @return {String|Number}
+ */
 
 
 var utils_getStringParam = function getStringParam(value) {
@@ -651,11 +651,11 @@ var utils_getStringParam = function getStringParam(value) {
   return val;
 };
 /**
-  * Convert components data
-  * @private
-  * @param {String}
-  * @return {String|Number|Array|Object}
-  */
+ * Convert components data
+ * @private
+ * @param {String}
+ * @return {String|Number|Array|Object}
+ */
 
 
 var convertComponentValue = function convertComponentValue(value) {
@@ -677,11 +677,11 @@ var convertComponentValue = function convertComponentValue(value) {
 
 
 /**
-  * create a component in the dom
-  * @private
-  * @param {DOM} component
-  * @param {Class} _class
-  */
+ * create a component in the dom
+ * @private
+ * @param {DOM} component
+ * @param {Class} _class
+ */
 
 var registerComponent_createDomComponent = function createDomComponent(component, _class) {
   // get the attributes from the dom element
@@ -724,10 +724,10 @@ var registerComponent_createDomComponent = function createDomComponent(component
   component.parentNode.replaceChild(PowerClass.create(), component);
 };
 /**
-  * register a Component
-  * @public
-  * @param {Class}
-  */
+ * register a Component
+ * @public
+ * @param {Class}
+ */
 
 
 var registerComponent_registerComponent = function registerComponent(_class) {
@@ -764,10 +764,10 @@ var registerComponent_registerComponent = function registerComponent(_class) {
 
 
 /**
-  * Power version
-  * @public
-  * @type {String}
-  */
+ * Power version
+ * @public
+ * @type {String}
+ */
 
 var version = '2.0.0-alpha.11';
 
