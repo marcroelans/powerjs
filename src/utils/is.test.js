@@ -13,12 +13,12 @@ import {
   isError,
   isDocument,
   isRegExp,
-  isWindow,
-} from '../../src/utils/is';
+  isWindow
+} from './is';
 
-import { createElement as h } from "../../src/core/createElement/createElement";
+import { createElement as h } from '../core/createElement/createElement';
 
-describe('Utils: is', () => {
+describe('Utils → is', () => {
   describe('#isArray', () => {
     it('should validate if [] is an array', () => {
       expect(isArray([])).toBe(true);
@@ -75,7 +75,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an object is not a boolean', () => {
-      expect(isBoolean({test: 'anothertest'})).toBe(false);
+      expect(isBoolean({ test: 'anothertest' })).toBe(false);
     });
   });
 
@@ -133,7 +133,7 @@ describe('Utils: is', () => {
 
   describe('#isObject', () => {
     it('should validate if an object is an object', () => {
-      expect(isObject({test: 'hello world'})).toBe(true);
+      expect(isObject({ test: 'hello world' })).toBe(true);
     });
 
     it('should validate if a string is not an object', () => {
@@ -145,7 +145,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an array is not an object', () => {
-      expect(isObject(['asd', 234])) .toBe(false);
+      expect(isObject(['asd', 234])).toBe(false);
     });
 
     it('should validate if null is not an object', () => {
@@ -159,49 +159,53 @@ describe('Utils: is', () => {
 
   describe('#isFunction', () => {
     it('should validate if an arrow function is a function', () => {
-      expect(isFunction( () => {} )).toBe(true);
+      expect(isFunction(() => {})).toBe(true);
     });
 
     it('should validate if a function is a function', () => {
-      expect(isFunction( function test() {} )).toBe(true);
+      expect(isFunction(function test() {})).toBe(true);
     });
 
     it('should validate if a function with a return statement is a function', () => {
-      expect(isFunction( function test() { return false; } )).toBe(true);
+      expect(
+        isFunction(function test() {
+          return false;
+        })
+      ).toBe(true);
     });
 
     it('should validate if an object is not a function', () => {
-      expect(isFunction( {test: 2} )).toBe(false);
+      expect(isFunction({ test: 2 })).toBe(false);
     });
 
     it('should validate if an array is not a function', () => {
-      expect(isFunction( ['3234', 'asdasd'] )).toBe(false);
+      expect(isFunction(['3234', 'asdasd'])).toBe(false);
     });
 
     it('should validate if a number is not a function', () => {
-      expect(isFunction( 2 )).toBe(false);
+      expect(isFunction(2)).toBe(false);
     });
 
     it('should validate if a string is not a function', () => {
-      expect(isFunction( 'sdf' )).toBe(false);
+      expect(isFunction('sdf')).toBe(false);
     });
   });
 
   describe('#isEvent', () => {
     it('should validate if click is an event', () => {
-      expect(isEvent( 'click' )).toBe(true);
+      expect(isEvent('click')).toBe(true);
     });
 
     it('should validate if onclick is an event', () => {
-      expect(isEvent( 'onclick' )).toBe(true);
+      expect(isEvent('onclick')).toBe(true);
     });
 
     it('should validate if isclick is not an event', () => {
-      expect(isEvent( 'isclick' )).toBe(false);
+      expect(isEvent('isclick')).toBe(false);
     });
 
     it('should validate if onfail is not an event', () => {
-      expect(isEvent( 'onfail' )).toBe(false);
+      expect(isEvent('onfail')).toBe(false);
     });
   });
 
@@ -211,7 +215,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an Object is not an HTML Element', () => {
-      expect(isHtml({test: 'test'})).toBe(false);
+      expect(isHtml({ test: 'test' })).toBe(false);
     });
 
     it('should validate if an Array is not an HTML Element', () => {
@@ -229,15 +233,13 @@ describe('Utils: is', () => {
 
   describe('#isElementAttribute', () => {
     it('should validate if data-test is an HTML Element Attribute', () => {
-
-      const element = h('div', {'data-test': 'test'});
+      const element = h('div', { 'data-test': 'test' });
 
       expect(isElementAttribute(element, 'data-test')).toBe(true);
     });
 
     it('should validate if test-test is not HTML Element Attribute', () => {
-
-      const element = h('div', {'test-test': 'test'});
+      const element = h('div', { 'test-test': 'test' });
 
       expect(isElementAttribute(element, 'test-test')).toBe(false);
     });
@@ -265,7 +267,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an object is not undefined', () => {
-      expect(isUndefined({test: 21})).toBe(false);
+      expect(isUndefined({ test: 21 })).toBe(false);
     });
   });
 
@@ -291,7 +293,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an object is not an Error', () => {
-      expect(isError({test: 'test'})).toBe(false);
+      expect(isError({ test: 'test' })).toBe(false);
     });
   });
 
@@ -302,7 +304,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if constructor RegExp is a RegExp', () => {
-      const myReg = new RegExp("ab+c", "i");
+      const myReg = new RegExp('ab+c', 'i');
       expect(isRegExp(myReg)).toBe(true);
     });
 
@@ -319,7 +321,7 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an object is not a RegExp', () => {
-      expect(isRegExp({test: 'test'})).toBe(false);
+      expect(isRegExp({ test: 'test' })).toBe(false);
     });
   });
 
@@ -337,11 +339,11 @@ describe('Utils: is', () => {
     });
 
     it('should validate if an array is not a window', () => {
-      expect(isWindow(['sdf',234])).toBe(false);
+      expect(isWindow(['sdf', 234])).toBe(false);
     });
 
     it('should validate if an object is not a window', () => {
-      expect(isWindow({test: 'test'})).toBe(false);
+      expect(isWindow({ test: 'test' })).toBe(false);
     });
   });
 
