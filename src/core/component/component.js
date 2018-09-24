@@ -70,6 +70,11 @@ export class Component {
       this.node.appendChild(template);
     }
 
+    // execute hook if exist
+    if (this.onComponentCreate) {
+      this.onComponentCreate(this);
+    }
+
     return this.node;
   }
 

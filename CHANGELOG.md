@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.0-alpha.12] - 2018-09-24
 ### Added
 - add prettier + eslint + lintstaged; apply formatting rules (#28)
+- add code coverage (#29)
+- add hook onComponentCreate
+
+### Changed
+- clean up tests
 
 ## [2.0.0-alpha.11] - 2018-09-22
 ### Bugfix
