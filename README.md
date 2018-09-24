@@ -1,4 +1,4 @@
-<p align="center" ><a href="https://github.com/janmarkuslanger/powerjs"><img alt="Powerjs - Logo" src="https://cdn.rawgit.com/janmarkuslanger/powerjs/fd582465/assets/logo.svg" width="300" height="auto"/></a></p>
+<p align="center" ><a href="https://github.com/janmarkuslanger/powerjs"><img alt="Powerjs - Logo" src="https://camo.githubusercontent.com/9bb8be7b58dc3dc9722117a2ef2e59a46272770e/68747470733a2f2f63646e2e7261776769742e636f6d2f6a616e6d61726b75736c616e6765722f706f7765726a732f66643538323436352f6173736574732f6c6f676f2e737667" width="300" height="auto"/></a></p>
 
 <p align="center"><strong>Powerjs is a library to build Components for the web.</strong></p>
 

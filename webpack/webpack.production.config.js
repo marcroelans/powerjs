@@ -3,9 +3,6 @@ var path = require('path');
 
 module.exports = {
   mode: 'production',
-  optimization: {
-    minimize: false
-  },
   entry:  './src/index.js',
   output: {
     library: 'Power',

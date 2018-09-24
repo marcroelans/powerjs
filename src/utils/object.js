@@ -1,5 +1,5 @@
 /**
- * clones an object
+ * shallow copies an object
  * @private
  * @param {Object} originalObject
  * @return {Object}
@@ -7,7 +7,7 @@
 export const cloneObject = (originalObject) => Object.assign({}, originalObject);
 
 /**
- * deep clones an object
+ * deep copies an object
  * @private
  * @param {Object} originalObject
  * @return {Object}
