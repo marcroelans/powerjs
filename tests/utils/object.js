@@ -1,4 +1,4 @@
-import { cloneObject, deepcloneObject } from './object';
+import { cloneObject, deepcloneObject } from '../../src/utils/object';
 
 describe('Utils → object', () => {
   describe('#cloneObject', () => {
