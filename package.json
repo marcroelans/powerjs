@@ -53,7 +53,7 @@
     "collectCoverageFrom" : [
       "src/**/*.js"
     ],
-    "testRegex": "src/.*\\.test\\.js$",
+    "testRegex": "tests/.*.js$",
     "moduleFileExtensions": [
       "js"
     ],

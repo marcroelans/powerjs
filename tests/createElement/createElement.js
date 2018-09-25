@@ -1,4 +1,4 @@
-import { createElement as h } from './createElement';
+import { createElement as h } from '../../src/core/createElement/createElement';
 
 describe('Core → createElement', () => {
   it('should render a simple div', () => {
