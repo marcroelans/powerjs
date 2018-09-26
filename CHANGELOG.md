@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0-alpha.13] - 2018-09-26
+### Bugfix
+- createElement could not except an array as arg of `...args`
+
 ## [2.0.0-alpha.12] - 2018-09-24
 ### Added
 - add prettier + eslint + lintstaged; apply formatting rules (#28)

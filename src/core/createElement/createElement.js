@@ -97,6 +97,8 @@ export const createElement = (tag = 'div', props = null, ...args) => {
       appendElementText(element, arg);
     } else if (isHtml(arg)) {
       element.appendChild(arg);
+    } else if (isArray(arg)) {
+      appendElementArray(element, arg);
     }
   });
 
