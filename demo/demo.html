@@ -14,16 +14,37 @@
 
       class DemoComponent extends Power.Component {
 
-        beforeComponentMount() {
-          console.log('before');
+        beforeComponentConstruct() {
+          console.log(this)
         }
 
-        afterComponentMount() {
-          console.log(this);
+        afterComponentConstruct() {
+          console.log(this)
+          this.name = 'TETTETT'
         }
 
-        onComponentCreate() {
-          console.log(`On create: ${this}`);
+        beforeComponentLoad() {
+          console.log(this)
+        }
+
+        afterComponentLoad() {
+          console.log(this)
+        }
+
+        beforeComponentUpdate() {
+          console.log(this)
+        }
+
+        afterComponentUpdate() {
+          console.log(this)
+        }
+
+        beforeComponentUnload() {
+          console.log(this)
+        }
+
+        afterComponentUnload() {
+          console.log(this)
         }
 
         render() {
@@ -42,7 +63,7 @@
       Power.registerComponent(DemoComponent)
 
 
-      var myDemo = new DemoComponent({counter: 2, test: 3434});
+      var myDemo = new DemoComponent({counter: 2, config: 3434});
 
       Power.render(myDemo, document.body);
 

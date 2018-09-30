@@ -16,16 +16,16 @@ export class Component {
    * @param {Object} data
    */
   constructor(componentData) {
+    // Getting called before constructor
+    if (this.beforeComponentConstruct) {
+      this.beforeComponentConstruct(this);
+    }
+
     // block update
     this.noUpdate = true;
 
     // the component gets the name of the class name
     this.name = this.constructor.name;
-
-    // Getting called before constructor
-    if (this.beforeComponentMount) {
-      this.beforeComponentMount(this);
-    }
 
     // check if there is any data
     if (componentData) {
@@ -42,6 +42,11 @@ export class Component {
 
     // mark this class as a Power Component
     this.IS_POWER_COMPONENT = true;
+
+    // Getting called after constructor
+    if (this.afterComponentConstruct) {
+      this.afterComponentConstruct(this);
+    }
   }
 
   /**
@@ -70,11 +75,6 @@ export class Component {
       this.node.appendChild(template);
     }
 
-    // execute hook if exist
-    if (this.onComponentCreate) {
-      this.onComponentCreate(this);
-    }
-
     return this.node;
   }
 
@@ -97,6 +97,10 @@ export class Component {
    * updates the component
    */
   update() {
+    if (this.beforeComponentUpdate) {
+      this.beforeComponentUpdate(this);
+    }
+
     const template = this.render();
     // clear the view
     removeChilds(this.node);
@@ -111,13 +115,25 @@ export class Component {
     } else {
       this.node.appendChild(template);
     }
+
+    if (this.afterComponentUpdate) {
+      this.afterComponentUpdate(this);
+    }
   }
 
   /**
    * remove component and its childs
    */
   destroy() {
+    if (this.beforeComponentUnload) {
+      this.beforeComponentUnload(this);
+    }
+
     const parent = this.node.parentElement;
     parent.removeChild(this.node);
+
+    if (this.beforeComponentUnload) {
+      this.beforeComponentUnload(this);
+    }
   }
 }
