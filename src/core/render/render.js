@@ -8,6 +8,10 @@ import Logger from '../../utils/log';
  * @param {DOM Element} root
  */
 export const render = (model, root) => {
+  if (model.IS_POWER_COMPONENT && model.beforeComponentMount) {
+    model.beforeComponentMount(model);
+  }
+
   // Check if model is a Power Component
   const htmlModel = model.IS_POWER_COMPONENT ? model.create() : model;
 

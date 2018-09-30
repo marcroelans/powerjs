@@ -55,8 +55,8 @@ export class Component {
    * @return {Node}
    */
   create() {
-    if (this.beforeComponentCreate) {
-      this.beforeComponentCreate(this);
+    if (this.beforeComponentLoad) {
+      this.beforeComponentLoad(this);
     }
 
     // creating the component root element
@@ -79,8 +79,8 @@ export class Component {
       this.node.appendChild(template);
     }
 
-    if (this.afterComponentCreate) {
-      this.afterComponentCreate(this);
+    if (this.afterComponentLoad) {
+      this.afterComponentLoad(this);
     }
 
     return this.node;
@@ -133,15 +133,15 @@ export class Component {
    * remove component and its childs
    */
   destroy() {
-    if (this.beforeComponentDestroy) {
-      this.beforeComponentDestroy(this);
+    if (this.beforeComponentUnload) {
+      this.beforeComponentUnload(this);
     }
 
     const parent = this.node.parentElement;
     parent.removeChild(this.node);
 
-    if (this.afterComponentDestroy) {
-      this.afterComponentDestroy(this);
+    if (this.beforeComponentUnload) {
+      this.beforeComponentUnload(this);
     }
   }
 }

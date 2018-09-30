@@ -23,11 +23,11 @@
           this.name = 'TETTETT'
         }
 
-        beforeComponentCreate() {
+        beforeComponentLoad() {
           console.log(this)
         }
 
-        afterComponentCreate() {
+        afterComponentLoad() {
           console.log(this)
         }
 
@@ -39,11 +39,19 @@
           console.log(this)
         }
 
-        beforeComponentDestroy() {
+        beforeComponentUnload() {
           console.log(this)
         }
 
-        afterComponentDestroy() {
+        afterComponentUnload() {
+          console.log(this)
+        }
+
+        beforeComponentMount() {
+          console.log(this)
+        }
+
+        afterComponentMount() {
           console.log(this)
         }
 
