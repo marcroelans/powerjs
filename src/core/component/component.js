@@ -55,6 +55,9 @@ export class Component {
    * @return {Node}
    */
   create() {
+    if (this.beforeComponentCreate) {
+      this.beforeComponentCreate(this);
+    }
     // creating the component root element
     this.node = document.createElement(this.name);
 
@@ -73,6 +76,10 @@ export class Component {
       });
     } else {
       this.node.appendChild(template);
+    }
+
+    if (this.afterComponentCreate) {
+      this.afterComponentCreate(this);
     }
 
     return this.node;
