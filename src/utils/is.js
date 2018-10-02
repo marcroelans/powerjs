@@ -66,7 +66,7 @@ export const isHtml = (obj) => obj instanceof Element;
  * @param {String} event String containing the event
  * @return {Boolean} Returns true if the passed string is an event, else false
  */
-export const isEvent = (event) => (event.startsWith('on') ? event : `on${event}`) in window;
+export const isEvent = (event) => (event[0] === 'o' && event[1] === 'n' ? event : `on${event}`) in window;
 
 /**
  * Determines whether the passed object is a valid element attribte
