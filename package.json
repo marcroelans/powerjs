@@ -1,6 +1,6 @@
 {
   "name": "powerjs-lib",
-  "version": "2.0.0-alpha.15",
+  "version": "2.0.0-alpha.16",
   "description": "A Component Library for the web.",
   "main": "dist/power.js",
   "scripts": {
