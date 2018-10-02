@@ -1,4 +1,4 @@
-import { createElement, createElement as h } from './core/createElement/createElement';
+import { createVnode as h } from './core/vdom/createVdom';
 import { render } from './core/render/render';
 import { Component } from './core/component/component';
 import { registerComponent } from './core/component/registerComponent';
@@ -10,4 +10,4 @@ import { registerComponent } from './core/component/registerComponent';
  */
 const version = '[AIV]{version}[/AIV]';
 
-export { version, createElement, h, render, Component, registerComponent };
+export { version, h, render, Component, registerComponent };

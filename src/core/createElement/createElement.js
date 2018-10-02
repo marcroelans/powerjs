@@ -75,32 +75,3 @@ const appendElementArray = (element, childrens) => {
     }
   });
 };
-
-/**
- * create Element
- * @public
- * @param {String} tag
- * @param {Object|Null} props
- * @param {Array|HTMLElement} childs
- * @returns {HTMLElement}
- */
-export const createElement = (tag = 'div', props = null, ...args) => {
-  // create the element
-  const element = document.createElement(tag);
-
-  if (isObject(props) && props !== null) {
-    appendElementObject(element, props);
-  }
-
-  args.forEach((arg) => {
-    if (isString(arg)) {
-      appendElementText(element, arg);
-    } else if (isHtml(arg)) {
-      element.appendChild(arg);
-    } else if (isArray(arg)) {
-      appendElementArray(element, arg);
-    }
-  });
-
-  return element;
-};

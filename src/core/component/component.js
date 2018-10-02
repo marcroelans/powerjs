@@ -1,6 +1,5 @@
 import { isFunction, isArray } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
-import { removeChilds } from '../../utils/dom';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
 
@@ -66,16 +65,16 @@ export class Component {
     this.node.setAttribute(DATA_COMPONENT_ATTRIBUTE, true);
 
     // get the template by call the render
-    const template = this.render();
+    this.template = this.render();
 
-    if (isArray(template)) {
-      template.forEach((item) => {
+    if (isArray(this.template)) {
+      this.template.forEach((item) => {
         if (item !== null) {
           this.node.appendChild(item);
         }
       });
     } else {
-      this.node.appendChild(template);
+      this.node.appendChild(this.template);
     }
 
     if (this.afterComponentCreate) {
@@ -108,24 +107,21 @@ export class Component {
       this.beforeComponentUpdate(this);
     }
 
-    const template = this.render();
-    // clear the view
-    removeChilds(this.node);
+    const newTemplate = this.render();
 
-    // rerender
-    if (isArray(template)) {
-      template.forEach((item) => {
-        if (item !== null) {
-          this.node.appendChild(item);
-        }
-      });
-    } else {
-      this.node.appendChild(template);
-    }
+    this.patch(this.template, newTemplate);
 
     if (this.afterComponentUpdate) {
       this.afterComponentUpdate(this);
     }
+  }
+
+  /**
+   * patch
+   */
+  patch(oldTemplate, newTemplate) {
+    console.log(oldTemplate);
+    console.log(newTemplate);
   }
 
   /**
