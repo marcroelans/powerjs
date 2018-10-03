@@ -69,10 +69,18 @@ export const isHtml = (obj) => obj instanceof Element;
 export const isEvent = (event) => (event.startsWith('on') ? event : `on${event}`) in window;
 
 /**
- * Determines whether the passed object is a valid element attribte
+ * Determines whether the passed object is a valid element attribute
  * @private
  * @param {HTMLElement} element DOM Element to check the property against
  * @param {String} attribute String containing the property name to lookup
  * @return {Boolean} Returns true if the passed attribute exists inside the element
  */
 export const isElementAttribute = (element, attribute) => attribute in element || attribute === 'class' || attribute.startsWith('data-', 0);
+
+/**
+ * Determines wheter the passed object is a vnode
+ * @private
+ * @param {Object} vnode
+ * @return {Boolean}
+ */
+export const isVnode = (vnode) => vnode.tagName !== undefined && vnode.props !== undefined && vnode.children !== undefined;

@@ -2,6 +2,7 @@ import { isFunction, isArray } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
+import { createElement } from '../createElement/createElement';
 
 /**
  * Power Component
@@ -64,18 +65,13 @@ export class Component {
     this.node.style.display = 'block';
     this.node.setAttribute(DATA_COMPONENT_ATTRIBUTE, true);
 
-    // get the template by call the render
-    this.template = this.render();
+    // get the vnode construct
+    this.componentVdom = this.render();
 
-    if (isArray(this.template)) {
-      this.template.forEach((item) => {
-        if (item !== null) {
-          this.node.appendChild(item);
-        }
-      });
-    } else {
-      this.node.appendChild(this.template);
-    }
+    // get the template by call the render
+    this.template = createElement(this.componentVdom);
+
+    this.node.appendChild(this.template);
 
     if (this.afterComponentCreate) {
       this.afterComponentCreate(this);

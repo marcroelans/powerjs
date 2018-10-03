@@ -10,13 +10,22 @@
 
     <script>
 
-      var test = Power.h('div', null, 'Hallo',
-        Power.h('p', {click: () => { console.log('TEST') } }, 'TEST')
-      )
+      class Test extends Power.Component {
+        render() {
+          return (
+            Power.h('div', {class: 'test'}, 'Hallo',
+              Power.h('p', {click: () => { console.log('TEST') } }, 'TEST'),
+              Power.h('p', {click: () => { console.log('TEST') } }, 'TEST',
+                Power.h('p', {click: () => { console.log('TEST') } }, 'TEST')
+              )
+            )
+          )
+        }
+      }
 
-      console.log(test)
+      const myTest = new Test({});
 
-      Power.render(test, document.body);
+      Power.render(myTest, document.body);
 
     </script>
 

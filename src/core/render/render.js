@@ -1,42 +1,30 @@
-import { isArray, isHtml } from '../../utils/is';
+import { isArray, isHtml, isVnode } from '../../utils/is';
 import Logger from '../../utils/log';
+import { createElement } from '../createElement/createElement';
 
 /**
- * render vdom elements or component
+ * renders a component or vnodes in the given root
  * @public
  * @param {Object|Function} model
  * @param {DOM Element} root
  */
 export const render = (model, root) => {
+  // check if model is neither a vdom or component
+  if (!isVnode(model) && !model.IS_POWER_COMPONENT) {
+    Logger.error('No VNode or Component given');
+    return;
+  }
+
+  // check if model is a component
   if (model.IS_POWER_COMPONENT && model.beforeComponentLoad) {
     model.beforeComponentLoad(model);
   }
 
-  // Check if model is a Power Component
-  const htmlModel = model.IS_POWER_COMPONENT ? model.create() : model;
+  // convert the vnodes real dom elements
+  const domTree = model.IS_POWER_COMPONENT ? model.create() : createElement(model);
 
-  // return if there is no valid model given
-  if (!htmlModel) {
-    Logger.error('There is no valid model given');
-    return;
-  }
-
-  // return if there is no valid root given
-  if (!isHtml(htmlModel)) {
-    Logger.error('There is no valid root given');
-    return;
-  }
-
-  if (isArray(htmlModel)) {
-    // get all the elements
-    htmlModel.forEach((item) => {
-      if (isHtml(item)) {
-        root.appendChild(item);
-      }
-    });
-  } else {
-    // there is just one item in the root
-    root.appendChild(htmlModel);
+  if (isHtml(domTree)) {
+    root.appendChild(domTree);
   }
 
   if (model.IS_POWER_COMPONENT && model.afterComponentLoad) {

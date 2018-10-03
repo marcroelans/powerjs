@@ -1,4 +1,4 @@
-import { isArray, isEvent, isString, isObject, isHtml, isElementAttribute } from '../../utils/is';
+import { isArray, isEvent, isString, isObject, isHtml, isElementAttribute, isVnode } from '../../utils/is';
 
 /**
  * append Element string
@@ -56,22 +56,34 @@ const appendElementObject = (element, elementProps) => {
 };
 
 /**
- * append Element Array
- * @private
- * @param {HTMLElement} element
- * @param {*} childrens
+ * appends a vnode
+ * @param {Object}
  */
-const appendElementArray = (element, childrens) => {
-  // loop thought the elemnt childs
-  childrens.forEach((child) => {
-    if (isArray(child)) {
-      appendElementArray(element, child);
-    } else if (isHtml(child)) {
-      element.appendChild(child);
-    } else if (isString(child)) {
+const appendElementVnode = (element, vnode) => {
+  element.appendChild(createElement(vnode));
+};
+
+/**
+ * converts a vnode into an html element
+ * @public
+ * @param {Object} vnode
+ * @returns {HTMLElement}
+ */
+export const createElement = (vnode = {}) => {
+  // create the element
+  const element = document.createElement(vnode.tagName);
+
+  if (isObject(vnode.props)) {
+    appendElementObject(element, vnode.props);
+  }
+
+  vnode.children.forEach((child) => {
+    if (isString(child)) {
       appendElementText(element, child);
-    } else if (isObject(child)) {
-      appendElementObject(element, child);
+    } else if (isVnode(child)) {
+      appendElementVnode(element, child);
     }
   });
+
+  return element;
 };
