@@ -1,4 +1,4 @@
-import { isArray, isEvent, isString, isObject, isHtml, isElementAttribute, isVnode } from '../../utils/is';
+import { isEvent, isString, isObject, isElementAttribute, isVnode } from '../../utils/is';
 
 /**
  * append Element string

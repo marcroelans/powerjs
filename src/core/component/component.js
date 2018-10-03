@@ -1,4 +1,4 @@
-import { isFunction, isArray } from '../../utils/is';
+import { isFunction } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';

@@ -1,4 +1,4 @@
-import { isArray, isHtml, isVnode } from '../../utils/is';
+import { isHtml, isVnode } from '../../utils/is';
 import Logger from '../../utils/log';
 import { createElement } from '../createElement/createElement';
 
@@ -15,12 +15,16 @@ export const render = (model, root) => {
     return;
   }
 
+  if (!isHtml(root)) {
+    Logger.error('No valid root given.');
+  }
+
   // check if model is a component
   if (model.IS_POWER_COMPONENT && model.beforeComponentLoad) {
     model.beforeComponentLoad(model);
   }
 
-  // convert the vnodes real dom elements
+  // convert the vnodes / component into real dom elements
   const domTree = model.IS_POWER_COMPONENT ? model.create() : createElement(model);
 
   if (isHtml(domTree)) {
