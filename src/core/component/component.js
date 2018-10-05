@@ -105,7 +105,7 @@ export class Component {
 
     const newTemplate = this.render();
 
-    this.patch(this.template, newTemplate);
+    this.patch(this.template, this.componentVdom, newTemplate);
 
     if (this.afterComponentUpdate) {
       this.afterComponentUpdate(this);
@@ -115,10 +115,7 @@ export class Component {
   /**
    * patch
    */
-  patch(oldTemplate, newTemplate) {
-    console.log(oldTemplate);
-    console.log(newTemplate);
-  }
+  patch(template, oldTree, newTree) {}
 
   /**
    * remove component and its childs

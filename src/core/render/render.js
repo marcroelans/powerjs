@@ -15,6 +15,7 @@ export const render = (model, root) => {
     return;
   }
 
+  // check if a root is given
   if (!isHtml(root)) {
     Logger.error('No valid root given.');
   }
