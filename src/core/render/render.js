@@ -9,15 +9,18 @@ import { createElement } from '../createElement/createElement';
  * @param {DOM Element} root
  */
 export const render = (model, root) => {
-  // check if model is neither a vdom or component
-  if (!isVnode(model) && !model.IS_POWER_COMPONENT) {
+  if (!isHtml(model)) {
     Logger.error('No VNode or Component given');
-    return;
   }
 
   // check if a root is given
   if (!isHtml(root)) {
     Logger.error('No valid root given.');
+  }
+
+  // check if model is neither a vdom or component
+  if (!isVnode(model) && !model.IS_POWER_COMPONENT) {
+    return render(new model(), root);
   }
 
   // check if model is a component
