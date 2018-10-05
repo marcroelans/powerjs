@@ -6,66 +6,26 @@
   </head>
   <body>
 
-    <DemoComponent counter="2" config="{ 'hello': 'world' }"></DemoComponent>
-
     <script src="../dist/power-dev.js"></script>
 
     <script>
 
-      class DemoComponent extends Power.Component {
-
-        beforeComponentConstruct() {
-          console.log(this)
-        }
-
-        afterComponentConstruct() {
-          console.log(this)
-          this.name = 'TETTETT'
-        }
-
-        beforeComponentLoad() {
-          console.log(this)
-        }
-
-        afterComponentLoad() {
-          console.log(this)
-        }
-
-        beforeComponentUpdate() {
-          console.log(this)
-        }
-
-        afterComponentUpdate() {
-          console.log(this)
-        }
-
-        beforeComponentUnload() {
-          console.log(this)
-        }
-
-        afterComponentUnload() {
-          console.log(this)
-        }
-
+      class Test extends Power.Component {
         render() {
-
           return (
-            Power.h('p', {
-              onclick: () => {
-                this.data.counter += 1;
-                this.data.config.counter = this.data.counter;
-              }
-            }, this.data.counter.toString())
-          );
+            Power.h('div', {class: 'test'}, 'Hallo',
+              Power.h('p', {click: () => { console.log('TEST') } }, 'TEST'),
+              Power.h('p', {click: () => { console.log('TEST') } }, 'TEST',
+                Power.h('p', {click: () => { console.log('TEST') } }, 'TEST')
+              )
+            )
+          )
         }
       }
 
-      Power.registerComponent(DemoComponent)
+      const myTest = new Test({});
 
-
-      var myDemo = new DemoComponent({counter: 2, config: 3434});
-
-      Power.render(myDemo, document.body);
+      Power.render(myTest, document.body);
 
     </script>
 

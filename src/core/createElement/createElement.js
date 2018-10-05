@@ -1,4 +1,4 @@
-import { isArray, isEvent, isString, isObject, isHtml, isElementAttribute } from '../../utils/is';
+import { isEvent, isString, isObject, isElementAttribute, isVnode } from '../../utils/is';
 
 /**
  * append Element string
@@ -56,49 +56,32 @@ const appendElementObject = (element, elementProps) => {
 };
 
 /**
- * append Element Array
- * @private
- * @param {HTMLElement} element
- * @param {*} childrens
+ * appends a vnode
+ * @param {Object}
  */
-const appendElementArray = (element, childrens) => {
-  // loop thought the elemnt childs
-  childrens.forEach((child) => {
-    if (isArray(child)) {
-      appendElementArray(element, child);
-    } else if (isHtml(child)) {
-      element.appendChild(child);
-    } else if (isString(child)) {
-      appendElementText(element, child);
-    } else if (isObject(child)) {
-      appendElementObject(element, child);
-    }
-  });
+const appendElementVnode = (element, vnode) => {
+  element.appendChild(createElement(vnode));
 };
 
 /**
- * create Element
+ * converts a vnode into an html element
  * @public
- * @param {String} tag
- * @param {Object|Null} props
- * @param {Array|HTMLElement} childs
+ * @param {Object} vnode
  * @returns {HTMLElement}
  */
-export const createElement = (tag = 'div', props = null, ...args) => {
+export const createElement = (vnode = {}) => {
   // create the element
-  const element = document.createElement(tag);
+  const element = document.createElement(vnode.tagName);
 
-  if (isObject(props) && props !== null) {
-    appendElementObject(element, props);
+  if (isObject(vnode.props)) {
+    appendElementObject(element, vnode.props);
   }
 
-  args.forEach((arg) => {
-    if (isString(arg)) {
-      appendElementText(element, arg);
-    } else if (isHtml(arg)) {
-      element.appendChild(arg);
-    } else if (isArray(arg)) {
-      appendElementArray(element, arg);
+  vnode.children.forEach((child) => {
+    if (isString(child)) {
+      appendElementText(element, child);
+    } else if (isVnode(child)) {
+      appendElementVnode(element, child);
     }
   });
 
