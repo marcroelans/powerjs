@@ -40,6 +40,9 @@ export class Component {
       this.noUpdate = false;
     }
 
+    // init node counter
+    this.nodeCounter = 0;
+
     // mark this class as a Power Component
     this.IS_POWER_COMPONENT = true;
 
@@ -69,7 +72,7 @@ export class Component {
     this.componentVdom = this.render();
 
     // get the template by call the render
-    this.template = createElement(this.componentVdom);
+    this.template = createElement(this.componentVdom, this);
 
     this.node.appendChild(this.template);
 
