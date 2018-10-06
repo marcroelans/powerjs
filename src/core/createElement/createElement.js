@@ -79,7 +79,7 @@ export const createElement = (vnode = {}, Component) => {
   // if a component gets passed asign and increment node id
   if (Component) {
     Component.nodeCounter += 1;
-    vnode.props[DATA_NODE_ATTRIBUTE] = Component.nodeCounter;
+    element.setAttribute(DATA_NODE_ATTRIBUTE, Component.nodeCounter);
   }
 
   if (isObject(vnode.props)) {

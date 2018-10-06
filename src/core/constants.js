@@ -3,7 +3,14 @@
  * @private
  * @type {String}
  */
-export const DATA_COMPONENT_ATTRIBUTE = 'data-power-component';
+export const DATA_COMPONENT_ATTRIBUTE = 'power-component';
+
+/**
+ * data node id
+ * @private
+ * @type {String}
+ */
+export const DATA_NODE_ATTRIBUTE = 'power-id';
 
 /**
  * Is Component
@@ -11,10 +18,3 @@ export const DATA_COMPONENT_ATTRIBUTE = 'data-power-component';
  * @type {Boolean}
  */
 export const IS_COMPONENT = 'IS_COMPONENT';
-
-/**
- * data node id
- * @private
- * @type {Number}
- */
-export const DATA_NODE_ATTRIBUTE = 'data-node-id';

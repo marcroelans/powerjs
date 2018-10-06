@@ -9,10 +9,6 @@ import { createElement } from '../createElement/createElement';
  * @param {DOM Element} root
  */
 export const render = (model, root) => {
-  if (!isHtml(model)) {
-    Logger.error('No VNode or Component given');
-  }
-
   // check if a root is given
   if (!isHtml(root)) {
     Logger.error('No valid root given.');
