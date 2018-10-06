@@ -1,4 +1,5 @@
 import { isEvent, isString, isObject, isElementAttribute, isVnode } from '../../utils/is';
+import { DATA_NODE_ATTRIBUTE } from '../constants';
 
 /**
  * append Element string
@@ -57,10 +58,12 @@ const appendElementObject = (element, elementProps) => {
 
 /**
  * appends a vnode
+ * @param {HTMLElement}
  * @param {Object}
+ * @param {Class} Component
  */
-const appendElementVnode = (element, vnode) => {
-  element.appendChild(createElement(vnode));
+const appendElementVnode = (element, vnode, Component) => {
+  element.appendChild(createElement(vnode, Component));
 };
 
 /**
@@ -69,9 +72,18 @@ const appendElementVnode = (element, vnode) => {
  * @param {Object} vnode
  * @returns {HTMLElement}
  */
-export const createElement = (vnode = {}) => {
+export const createElement = (vnode = {}, Component) => {
   // create the element
   const element = document.createElement(vnode.tagName);
+
+  // if a component gets passed asign and increment node id
+  if (Component) {
+    Component.nodeCounter += 1;
+    // add node id to the vnode
+    vnode.props[DATA_NODE_ATTRIBUTE] = Component.nodeCounter;
+    // add node id to the element
+    element.setAttribute(DATA_NODE_ATTRIBUTE, Component.nodeCounter);
+  }
 
   if (isObject(vnode.props)) {
     appendElementObject(element, vnode.props);
@@ -81,7 +93,11 @@ export const createElement = (vnode = {}) => {
     if (isString(child)) {
       appendElementText(element, child);
     } else if (isVnode(child)) {
-      appendElementVnode(element, child);
+      if (Component) {
+        appendElementVnode(element, child, Component);
+      } else {
+        appendElementVnode(element, child);
+      }
     }
   });
 
