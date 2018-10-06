@@ -1,3 +1,5 @@
+import { startsWith } from './helpers';
+
 /**
  * class2type dictionary
  * @private
@@ -66,7 +68,7 @@ export const isHtml = (obj) => obj instanceof Element;
  * @param {String} event String containing the event
  * @return {Boolean} Returns true if the passed string is an event, else false
  */
-export const isEvent = (event) => (event.startsWith('on') ? event : `on${event}`) in window;
+export const isEvent = (event) => (startsWith(event, 'on') ? event : `on${event}`) in window;
 
 /**
  * Determines whether the passed object is a valid element attribute
@@ -75,7 +77,7 @@ export const isEvent = (event) => (event.startsWith('on') ? event : `on${event}`
  * @param {String} attribute String containing the property name to lookup
  * @return {Boolean} Returns true if the passed attribute exists inside the element
  */
-export const isElementAttribute = (element, attribute) => attribute in element || attribute === 'class' || attribute.startsWith('data-', 0);
+export const isElementAttribute = (element, attribute) => attribute in element || attribute === 'class' || startsWith(attribute, 'data-') || startsWith(attribute, 'power-');
 
 /**
  * Determines wheter the passed object is a vnode

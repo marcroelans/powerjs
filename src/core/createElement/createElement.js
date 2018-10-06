@@ -1,5 +1,6 @@
 import { isEvent, isString, isObject, isElementAttribute, isVnode } from '../../utils/is';
 import { DATA_NODE_ATTRIBUTE } from '../constants';
+import { each, startsWith } from '../../utils/helpers';
 
 /**
  * append Element string
@@ -12,46 +13,49 @@ const appendElementText = (element, text) => {
 };
 
 /**
- * append Element Styles
+ * Sets the style value on the specified element
  * @private
  * @param {HTMLElement} element
  * @param {String} styles
  */
-const appendElementStyles = (element, styles) => {
+const setElementStyles = (element, styles) => {
   element.setAttribute('style', styles);
 };
 
 /**
- * append Element Event
+ * Assigns a callback function to the event type on the specificed element that
+ * will be called whenever the event is triggered
  * @private
  * @param {HTMLElement} element
  * @param {Event} event
- * @param {*} handler
+ * @param {Function} handler
  */
-const appendElementEvent = (element, event, handler) => {
-  const eventListener = event.startsWith('on') ? event.substring(2, event.length) : event;
-
-  element.addEventListener(eventListener, (e) => {
-    // pass the event and element into the funtion
-    handler(e, element);
-  });
+const addEventListener = (element, event, handler) => {
+  const eventType = startsWith(event, 'on') ? event.substring(2, event.length) : event;
+  // invoke the callback function in the context of the DOM element
+  element.addEventListener(eventType, (e) => handler.call(element, e, element));
 };
 
 /**
- * append Element Object
+ * Iterates over the passed props and assigns any attributes and/or binds
+ * events to the specified element
  * @private
  * @param {HTMLElement} element
  * @param {Object} elementProps
  */
-const appendElementObject = (element, elementProps) => {
-  // Loop throught the element props
-  Object.keys(elementProps).forEach((prop) => {
+const decorateElement = (element, elementProps) => {
+  // iterate over element props
+  each(Object.keys(elementProps), (prop) => {
     if (prop === 'style' || prop === 'styles') {
-      appendElementStyles(element, elementProps[prop]);
-    } else if (isEvent(prop)) {
-      appendElementEvent(element, prop, elementProps[prop]);
-    } else if (isElementAttribute(element, prop)) {
-      element.setAttribute(prop, elementProps[prop]);
+      return setElementStyles(element, elementProps[prop]);
+    }
+
+    if (isEvent(prop)) {
+      return addEventListener(element, prop, elementProps[prop]);
+    }
+
+    if (isElementAttribute(element, prop)) {
+      return element.setAttribute(prop, elementProps[prop]);
     }
   });
 };
@@ -86,10 +90,10 @@ export const createElement = (vnode = {}, Component) => {
   }
 
   if (isObject(vnode.props)) {
-    appendElementObject(element, vnode.props);
+    decorateElement(element, vnode.props);
   }
 
-  vnode.children.forEach((child) => {
+  each(vnode.children, (child) => {
     if (isString(child)) {
       appendElementText(element, child);
     } else if (isVnode(child)) {

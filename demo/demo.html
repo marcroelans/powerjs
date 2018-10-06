@@ -13,14 +13,18 @@
       class Test extends Power.Component {
         render() {
           return (
-            Power.h('div', {class: 'test'}, this.data.counter.toString(),
-              Power.h('p', {click: () => { this.data.counter += 1; } }, 'TEST')
+            Power.h('div', { className: 'test'}, this.data.counter.toString(),
+              Power.h('p', { click: (e) => {
+                console.log(e);
+                this.data.counter += 1;
+              } 
+            }, 'TEST')
             )
           )
         }
       }
 
-      const myTest = new Test({counter: 0});
+      const myTest = new Test({ counter: 0 });
 
       Power.render(myTest, document.body);
 
