@@ -1,8 +1,9 @@
 import { isFunction } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
-import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
+import { DATA_COMPONENT_ATTRIBUTE, DATA_NODE_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
 import { createElement } from '../createElement/createElement';
+import { propsDiff } from '../vdom/diff';
 
 /**
  * Power Component
@@ -118,7 +119,16 @@ export class Component {
   /**
    * patch
    */
-  patch(template, oldTree, newTree) {}
+  patch(template, oldVnode, newVnode) {
+    // compare the tag
+    if (oldVnode.tagName !== newVnode.tagName) {
+      console.log('tagName changed');
+    }
+
+    // compare props
+    newVnode.props[DATA_NODE_ATTRIBUTE] = oldVnode.props[DATA_NODE_ATTRIBUTE];
+    propsDiff(newVnode.props, oldVnode.props);
+  }
 
   /**
    * remove component and its childs
