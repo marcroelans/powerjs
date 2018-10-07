@@ -1,5 +1,6 @@
 /**
  * Returns the first index at which a given element can be found in the array, or -1 if it is not present.
+ * @private
  * @param  {Array}  array The Array to perform the lookup
  * @param  {*}      item  The item to lookup
  * @return {Number}       The first matched index or -1
@@ -20,6 +21,7 @@ const indexOf = (array, item) => {
 /**
  * Iterates over an Array executing a callback function on each item. This allows
  * for iterative breaking at anytime by returning false
+ * @private
  * @param  {Array}    array The Array to iterate over
  * @param  {Function} fn    The callback function to execute on each item in the Array
  */
@@ -39,6 +41,7 @@ const each = (array, fn) => {
 /**
  * Iterates over an Array or Object executing a callback function on each item. This allows
  * for iterative breaking at anytime by returning false
+ * @private
  * @param  {*}        Object The Array or Object to iterate over
  * @param  {Function} fn     The callback function to execute on each item in the array
  *
@@ -89,6 +92,7 @@ const addScript = (node) => {
 
 /**
  * Use document fragments for faster DOM manipulation
+ * @private
  * @param {Array}   elements  The elements to append to the fragement
  * @param {Object}  container The container element to append the fragment to
  * @param {Boolean} insert    A flag to determine insertion
@@ -130,6 +134,7 @@ const documentFragments = (elements, container, insert) => {
 
 /**
  * Determines whether a string begins with the characters of a specified string, returning true or false.
+ * @private
  * @param  {String} text     The text string that will be searched
  * @param  {String} search   The characters to be searched for at the start of this string
  * @param  {Number} position The position in the text to begin searching - defaults to 0 (optional)
