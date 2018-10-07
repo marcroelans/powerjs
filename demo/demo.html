@@ -25,7 +25,7 @@
           return (
             Power.h('div', { className: this.data.className }, this.data.counter.toString(),
               Power.h('button', { click: () => { this.data.className = 'red'; this.data.counter += 1; } }, '+1'),
-              Power.h('div', null, 'Das ist ein Test',
+              Power.h('div', null, 'This is a test',
                 Power.h('p', null, this.data.counter.toString() )
               )
             )
