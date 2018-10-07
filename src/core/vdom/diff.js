@@ -11,8 +11,10 @@ import { iterate } from '../../utils/helpers';
 export const propsDiff = (oldObj, newObj, componentRoot) => {
   // get the element id
   const powerId = oldObj[DATA_NODE_ATTRIBUTE];
+  // get the dom element to the vnode
   const element = componentRoot.querySelector(`[${DATA_NODE_ATTRIBUTE}="${powerId}"]`);
 
+  // iterate through the old vnode
   iterate(oldObj, (key, value, index) => {
     // check if the key still excist in the new props
     if (!newObj[key]) {
@@ -21,6 +23,7 @@ export const propsDiff = (oldObj, newObj, componentRoot) => {
     }
   });
 
+  // iterate through the new vnode
   iterate(newObj, (key, value, index) => {
     // check if there a new key
     if (!oldObj[key] || newObj[key] !== oldObj[key]) {

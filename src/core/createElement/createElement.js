@@ -55,7 +55,9 @@ const decorateElement = (element, elementProps) => {
     }
 
     if (isElementAttribute(element, prop)) {
-      return element.setAttribute(prop, elementProps[prop]);
+      const name = prop === 'className' ? 'class' : prop;
+
+      return element.setAttribute(name, elementProps[prop]);
     }
   });
 };
