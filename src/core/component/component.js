@@ -1,9 +1,9 @@
 import { isFunction } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
-import { DATA_COMPONENT_ATTRIBUTE, DATA_NODE_ATTRIBUTE } from '../constants';
+import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
 import { createElement } from '../createElement/createElement';
-import { propsDiff } from '../vdom/diff';
+import { diff } from '../vdom/diff';
 
 /**
  * Power Component
@@ -109,7 +109,7 @@ export class Component {
 
     const updatedComponentVDom = this.render();
 
-    this.patch(this.template, this.componentVDom, updatedComponentVDom);
+    this.patch(this.componentVDom, updatedComponentVDom);
 
     if (this.afterComponentUpdate) {
       this.afterComponentUpdate(this);
@@ -119,15 +119,8 @@ export class Component {
   /**
    * patch
    */
-  patch(template, oldVnode, newVnode) {
-    // compare the tag
-    if (oldVnode.tagName !== newVnode.tagName) {
-      console.log('tagName changed');
-    }
-
-    // compare props
-    newVnode.props[DATA_NODE_ATTRIBUTE] = oldVnode.props[DATA_NODE_ATTRIBUTE];
-    propsDiff(oldVnode.props, newVnode.props, this.node);
+  patch(oldVnode, newVnode) {
+    diff(oldVnode, newVnode, this);
   }
 
   /**

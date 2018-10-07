@@ -1,4 +1,4 @@
-import { isHtml, isVnode } from '../../utils/is';
+import { isHtml, isVNode } from '../../utils/is';
 import Logger from '../../utils/log';
 import { createElement } from '../createElement/createElement';
 
@@ -15,7 +15,7 @@ export const render = (model, root) => {
   }
 
   // check if model is neither a vdom or component
-  if (!isVnode(model) && !model.IS_POWER_COMPONENT) {
+  if (!isVNode(model) && !model.IS_POWER_COMPONENT) {
     return render(new model(), root);
   }
 

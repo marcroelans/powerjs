@@ -65,8 +65,6 @@ const iterate = (obj, fn) => {
       }
     }
   }
-
-  return this;
 };
 
 const addScript = (node) => {

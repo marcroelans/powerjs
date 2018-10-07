@@ -85,4 +85,4 @@ export const isElementAttribute = (element, attribute) => attribute in element |
  * @param {Object} vnode
  * @return {Boolean}
  */
-export const isVnode = (vnode) => vnode.tagName !== undefined && vnode.props !== undefined && vnode.children !== undefined;
+export const isVNode = (vnode) => vnode.tagName !== undefined && vnode.props !== undefined && vnode.children !== undefined;
