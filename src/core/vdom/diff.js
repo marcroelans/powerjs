@@ -79,9 +79,6 @@ export const childrenDiff = (oldChildren, newChildren, element, Component) => {
       const childText = document.createTextNode(child);
       element.replaceChild(childText, element.childNodes[index]);
     } else if (isVNode(child)) {
-      console.log(oldChildren[index]);
-      console.log(child);
-      console.log(Component);
       diff(oldChildren[index], child, Component);
     }
   });
