@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+
+    .blue {
+      color: blue;
+    }
+    .red {
+      color: red;
+    }
+
+    </style>
   </head>
   <body>
 
@@ -13,18 +23,18 @@
       class Test extends Power.Component {
         render() {
           return (
-            Power.h('div', { className: 'test'}, this.data.counter.toString(),
-              Power.h('p', { click: (e) => {
-                console.log(e);
-                this.data.counter += 1;
-              } 
-            }, 'TEST')
+            Power.h('div', { className: this.data.className }, this.data.counter.toString(),
+              Power.h('button', { click: () => { this.data.className = 'red'; this.data.counter += 1; } }, '+1'),
+              Power.h('div', null, 'This is a test',
+                Power.h('p', null, this.data.counter.toString() )
+              )
             )
           )
         }
       }
 
-      const myTest = new Test({ counter: 0 });
+
+      const myTest = new Test({ className: 'blue', counter: 0 });
 
       Power.render(myTest, document.body);
 

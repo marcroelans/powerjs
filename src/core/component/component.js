@@ -1,9 +1,9 @@
 import { isFunction } from '../../utils/is';
 import { cloneObject } from '../../utils/object';
-import { DATA_COMPONENT_ATTRIBUTE, DATA_NODE_ATTRIBUTE } from '../constants';
+import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
 import { createElement } from '../createElement/createElement';
-import { propsDiff } from '../vdom/diff';
+import { diff } from '../vdom/diff';
 
 /**
  * Power Component
@@ -70,10 +70,10 @@ export class Component {
     this.node.setAttribute(DATA_COMPONENT_ATTRIBUTE, true);
 
     // get the vnode construct
-    this.componentVdom = this.render();
+    this.componentVDom = this.render();
 
     // get the template by call the render
-    this.template = createElement(this.componentVdom, this);
+    this.template = createElement(this.componentVDom, this);
 
     this.node.appendChild(this.template);
 
@@ -107,9 +107,9 @@ export class Component {
       this.beforeComponentUpdate(this);
     }
 
-    const newTemplate = this.render();
+    const updatedComponentVDom = this.render();
 
-    this.patch(this.template, this.componentVdom, newTemplate);
+    this.patch(this.componentVDom, updatedComponentVDom);
 
     if (this.afterComponentUpdate) {
       this.afterComponentUpdate(this);
@@ -119,15 +119,8 @@ export class Component {
   /**
    * patch
    */
-  patch(template, oldVnode, newVnode) {
-    // compare the tag
-    if (oldVnode.tagName !== newVnode.tagName) {
-      console.log('tagName changed');
-    }
-
-    // compare props
-    newVnode.props[DATA_NODE_ATTRIBUTE] = oldVnode.props[DATA_NODE_ATTRIBUTE];
-    propsDiff(newVnode.props, oldVnode.props);
+  patch(oldVnode, newVnode) {
+    diff(oldVnode, newVnode, this);
   }
 
   /**

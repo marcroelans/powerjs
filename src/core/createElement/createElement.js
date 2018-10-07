@@ -1,4 +1,4 @@
-import { isEvent, isString, isObject, isElementAttribute, isVnode } from '../../utils/is';
+import { isEvent, isString, isObject, isElementAttribute, isVNode } from '../../utils/is';
 import { DATA_NODE_ATTRIBUTE } from '../constants';
 import { each, startsWith } from '../../utils/helpers';
 
@@ -55,7 +55,9 @@ const decorateElement = (element, elementProps) => {
     }
 
     if (isElementAttribute(element, prop)) {
-      return element.setAttribute(prop, elementProps[prop]);
+      const name = prop === 'className' ? 'class' : prop;
+
+      return element.setAttribute(name, elementProps[prop]);
     }
   });
 };
@@ -84,7 +86,15 @@ export const createElement = (vnode = {}, Component) => {
   if (Component) {
     Component.nodeCounter += 1;
     // add node id to the vnode
+
+    // if props is null create an empty object
+    if (vnode.props === null) {
+      vnode.props = {};
+    }
+
+    // assign the id to the vnode
     vnode.props[DATA_NODE_ATTRIBUTE] = Component.nodeCounter;
+
     // add node id to the element
     element.setAttribute(DATA_NODE_ATTRIBUTE, Component.nodeCounter);
   }
@@ -96,7 +106,7 @@ export const createElement = (vnode = {}, Component) => {
   each(vnode.children, (child) => {
     if (isString(child)) {
       appendElementText(element, child);
-    } else if (isVnode(child)) {
+    } else if (isVNode(child)) {
       if (Component) {
         appendElementVnode(element, child, Component);
       } else {
