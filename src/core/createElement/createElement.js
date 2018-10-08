@@ -1,7 +1,7 @@
-import { isEvent, isString, isObject, isElementAttribute, isVNode } from '../../utils/is';
 import { DATA_NODE_ATTRIBUTE } from '../constants';
-import { each, startsWith } from '../../utils/helpers';
-
+import { iterate } from '../../utils/objects';
+import { startsWith } from '../../utils/strings';
+import { isEvent, isString, isObject, isElementAttribute, isVNode } from '../../utils/is';
 /**
  * append Element string
  * @private
@@ -45,7 +45,7 @@ const addEventListener = (element, event, handler) => {
  */
 const decorateElement = (element, elementProps) => {
   // iterate over element props
-  each(Object.keys(elementProps), (prop) => {
+  iterate(elementProps, (prop) => {
     if (prop === 'style' || prop === 'styles') {
       return setElementStyles(element, elementProps[prop]);
     }
@@ -102,8 +102,7 @@ export const createElement = (vnode = {}, Component) => {
   if (isObject(vnode.props)) {
     decorateElement(element, vnode.props);
   }
-
-  each(vnode.children, (child) => {
+  vnode.children.forEach((child) => {
     if (isString(child)) {
       appendElementText(element, child);
     } else if (isVNode(child)) {

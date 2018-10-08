@@ -1,6 +1,6 @@
-import Logger from '../../utils/log';
+import Logger from '../../utils/logger';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
-import { convertComponentValue } from './utils';
+import { convertComponentValue } from '../../utils/component';
 
 /**
  * create a component in the dom
@@ -50,7 +50,7 @@ export const registerComponent = function registerComponent(_class) {
   // get every component in dom
   const componentsContainer = [].slice.call(document.querySelectorAll(componentName));
 
-  if (componentsContainer.length === 0) {
+  if (!componentsContainer.length) {
     return;
   }
 

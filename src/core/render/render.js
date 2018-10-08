@@ -1,5 +1,5 @@
+import Logger from '../../utils/logger';
 import { isHtml, isVNode } from '../../utils/is';
-import Logger from '../../utils/log';
 import { createElement } from '../createElement/createElement';
 
 /**

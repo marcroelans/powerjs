@@ -1,3 +1,5 @@
+import { iterate } from '../../utils/objects';
+
 /**
  * observer component data
  * @private
@@ -5,16 +7,17 @@
  * @param {Object} componentData
  */
 export const observerComponentData = (component, componentData) => {
-  Object.keys(componentData).forEach((keys) => {
-    Object.defineProperty(componentData, keys, {
+  iterate(componentData, (prop, value) => {
+    Object.defineProperty(componentData, prop, {
       set(newValue) {
-        this[`_${keys}`] = newValue;
+        this[`_${prop}`] = newValue;
+
         if (!component.noUpdate) {
           component.update();
         }
       },
       get() {
-        return this[`_${keys}`];
+        return this[`_${prop}`];
       }
     });
   });
@@ -28,7 +31,5 @@ export const observerComponentData = (component, componentData) => {
  * @param {Object} originalData
  */
 export const mergeComponentData = (component, componentData, originalData) => {
-  Object.keys(originalData).forEach((keys) => {
-    componentData[keys] = originalData[keys];
-  });
+  iterate(originalData, (prop) => (componentData[prop] = originalData[prop]));
 };
