@@ -1,6 +1,6 @@
 import { DATA_NODE_ATTRIBUTE } from '../constants';
 import { isString, isVNode } from '../../utils/is';
-import { iterate } from '../../utils/helpers';
+import { iterate } from '../../utils/objects';
 
 /**
  * working on difference between 2 vnodes

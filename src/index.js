@@ -1,7 +1,7 @@
-import { createVnode as h } from './core/vdom/createVdom';
+import { createVnode as h } from './core/vdom/create';
 import { render } from './core/render/render';
 import { Component } from './core/component/component';
-import { registerComponent } from './core/component/registerComponent';
+import { registerComponent } from './core/component/register';
 
 /**
  * Power version

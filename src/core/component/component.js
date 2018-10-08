@@ -1,5 +1,5 @@
 import { isFunction } from '../../utils/is';
-import { cloneObject } from '../../utils/object';
+import { cloneObject } from '../../utils/objects';
 import { DATA_COMPONENT_ATTRIBUTE } from '../constants';
 import { observerComponentData, mergeComponentData } from './observer';
 import { createElement } from '../createElement/createElement';
