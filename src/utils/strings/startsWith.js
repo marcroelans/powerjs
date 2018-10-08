@@ -6,7 +6,7 @@
  * @return {Boolean}         True if the given characters are found at the beginning of the string; otherwise, false
  */
 export const startsWith = (text, search, position) => {
-  return text.substr(!position || position < 0 ? 0 : +position, search.length) === search;
+  return text.substr(!position || position < 0 ? 0 : + position, search.length) === search;
 };
 
 export default startsWith;

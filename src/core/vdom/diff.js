@@ -75,10 +75,14 @@ export const propsDiff = (oldObj, newObj, element) => {
  */
 export const childrenDiff = (oldChildren, newChildren, element, Component) => {
   newChildren.forEach((child, index) => {
+    // check if child is a string && is different from the old one
     if (isString(child) && child !== oldChildren[index]) {
+      // create a text node
       const childText = document.createTextNode(child);
+      // replace the text node with the old one
       element.replaceChild(childText, element.childNodes[index]);
     } else if (isVNode(child)) {
+      // child is a vnode call diff again
       diff(oldChildren[index], child, Component);
     }
   });

@@ -1,3 +1,8 @@
+/**
+ * adding a script
+ * @private
+ * @param {Object} node
+ */
 const addScript = (node) => {
   var src = node.src && node.src.length > 0;
 
